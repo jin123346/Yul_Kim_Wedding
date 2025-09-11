@@ -841,10 +841,136 @@
             display: none;
             background: #fff;
         }
-
-        #area1 {
-            padding: 0px !important;
+          #area1 {
+            padding: 0 !important;
+            height: 0;
+            padding-bottom: 177.875%; /* 800:1423 = 1:1.77875 비율 */
+            position: relative;
+            overflow: hidden;
+            width: 100%;
         }
+
+        #area1 .item {
+            position: absolute;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        #area1 img.img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+        }
+
+        /* Area1 텍스트 요소들 반응형 수정 */
+        #item_4 .text,
+        #item_5 .text {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: min(3.5vw, 28px); /* 최대 크기 제한 */
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.43em;
+            line-height: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #item_4 .text {
+            text-align: right;
+        }
+
+        #item_5 .text {
+            text-align: left;
+        }
+
+        #item_6 .text,
+        #item_7 .text {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: min(2vw, 16px);
+            color: #fff;
+            text-align: center;
+            letter-spacing: 0em;
+            line-height: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Area2 수정된 반응형 스타일 */
+        #area2 {
+            display: block;
+            min-height: 40vh;
+            background-color: rgb(239, 239, 239);
+            position: relative;
+            padding: 50px 0;
+        }
+
+        #area2 #item_8 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #area2 #item_8 span {
+            font-size: min(6vw, 48px);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #area2 #item_9 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        #area2 #item_9 .text {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: min(4vw, 18px);
+            color: rgb(51, 51, 51);
+            text-align: center;
+            letter-spacing: 0em;
+            line-height: 2.3em;
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        <!-- #area1 {
+    padding: 0 !important;
+    height: auto !important;
+    aspect-ratio: 800/1423;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#area1 .item {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#area1 img.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+}
 
         #area2 span {
             display: flex;
@@ -872,7 +998,9 @@
         img {
             margin: 0px !important;
             padding: 0px !important;
-        }
+            width: 100%;
+            height: auto;
+        } -->
 
         .flowergift {
             padding-bottom: 0 !important;
@@ -880,6 +1008,40 @@
 
         /* 반응형 디자인 */
         @media (max-width: 600px) {
+            #area1 {
+                padding-bottom: 177.875%; /* 비율 유지 */
+            }
+
+            #item_4 .text,
+            #item_5 .text {
+                font-size: 4vw !important;
+                letter-spacing: 0.2em;
+            }
+
+            #item_6 .text,
+            #item_7 .text {
+                font-size: 2.5vw !important;
+            }
+
+            /* Area2 모바일 스타일 */
+            #area2 {
+                padding: 30px 0;
+                min-height: 30vh;
+            }
+
+            #area2 #item_8 {
+                margin-bottom: 20px;
+            }
+
+            #area2 #item_8 span {
+                font-size: 8vw !important;
+            }
+
+            #area2 #item_9 .text {
+                font-size: 4vw !important;
+                line-height: 1.8em !important;
+                width: 95% !important;
+            }
             .couple-info {
                 flex-direction: column;
                 gap: 30px;
@@ -1055,57 +1217,49 @@
 <body>
     <div id="wrap">
         <!-- 메인 이미지 -->
-        <div id="area1" idx="1" class="templatearea" style="display: block; height: 1423px;">
-            <div id="item_1" class="item" style="top: 0px; left: 0px;  position:absolute; width: full;">
-                <img class="img" src="images/background.png" width="800px" height="1423px">
+        <div id="area1" idx="1" class="templatearea" style="display: block;">
+           <div id="item_1" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+            <img class="img" src="images/background.png" style="width:100%; height:auto; display:block; position:relative;">
             </div>
-            <div id="item_2" class="item photo-image" style="top: 0px; left: 0px;  position:absolute;">
-                <img class="img" src="images/yr_image_1.jpg" width="800px" height="1423px">
+            <div id="item_2" class="item photo-image" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/yr_image_1.jpg" style="width:100%; height:auto; display:block; position:relative;">
             </div>
-            <div id="item_3" class="item" style="top: 0px; left: 0px;  position:absolute;">
-                <img class="img" src="images/love.gif" width="800px" height="1423px">
+            <div id="item_3" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/love.gif" style="width:100%; height:auto; display:block; position:relative;">
             </div>
             <div id="item_4" class="item"
-                style="top: 259.812px; left: 0px; position: absolute; width: 352.469px; height: 75px; align-items: center;">
-                <div class="text"
-                    style="font-family: 'Nanum Myeongjo', serif; font-size: 53px; color: rgb(255, 255, 255); font-weight: bold; text-align: right; letter-spacing: 0.43em; line-height: 1.4em;">
+                style="top: 18.3%; left: 0; position: absolute; width: 44%; height: 5.5%; align-items: center;">
+                <div class="text">
                     김병찬
                 </div>
             </div>
             <div id="item_5" class="item"
-                style="top: 257.812px; left: 470.312px; position: absolute; width: 329.672px; height: 79.5px; align-items: center;">
-                <div class="text"
-                    style="font-family: 'Nanum Myeongjo', serif; font-size: 53px; color: rgb(255, 255, 255); font-weight: bold; text-align: left; letter-spacing: 0.43em; line-height: 1.4em;">
+                style="top: 18.1%; left: 58.8%; position: absolute; width: 41.2%; height: 5.6%; align-items: center;">
+                <div class="text">
                     조유림
                 </div>
             </div>
             <div id="item_6" class="item"
-                style="top: 1259.81px; left: 0px; position: absolute; width: 800px; height: 45px; align-items: center;">
-                <div class="text"
-                    style="font-family: 'Nanum Myeongjo', serif; font-size: 30px; color: rgb(255, 255, 255); text-align: center; letter-spacing: 0em; line-height: 1.4em;">
+                style="top: 88.6%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                <div class="text">
                     센텀 그랜드 블랑
                 </div>
             </div>
             <div id="item_7" class="item"
-                style="top: 1214.81px; left: 0px; position: absolute; width: 800px; height: 45px; align-items: center;">
-                <div class="text"
-                    style="font-family: 'Nanum Myeongjo', serif; font-size: 30px; color: rgb(255, 255, 255); text-align: center; letter-spacing: 0em; line-height: 1.4em;">
+                style="top: 85.4%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                <div class="text">
                     2025.11.22 SAT PM 02:00
                 </div>
             </div>
         </div>
 
         <!-- 초대 메시지 -->
-        <div id="area2" idx="2" class="templatearea"
-            style="display: block; height: 852px; background-color: rgb(239, 239, 239);">
-            <div id="item_8" class="item"
-                style="top: 0px;position:absolute;width: 100%;display: flex;justify-content: center;align-items: center;">
+        <div id="area2" idx="2" class="templatearea">
+            <div id="item_8" class="item">
                 <span>INVITATION</span>
             </div>
-            <div id="item_9" class="item"
-                style="top: 273.766px; left: 0px; position: absolute; width: 800px; height: 578.219px; align-items: flex-start;">
-                <div class="text"
-                    style="font-family: 'Noto Sans KR', sans-serif; font-size: 34px; color: rgb(51, 51, 51); text-align: center; letter-spacing: 0em; line-height: 2.3em;">
+            <div id="item_9" class="item">
+                <div class="text">
                     서로가 마주보며 다져온 사랑을<br>
                     이제 함께 한 곳을 바라보며<br>
                     걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br>
