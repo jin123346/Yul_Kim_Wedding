@@ -4,7 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
+    <title>김병찬♥조유림 결혼식 초대장</title>
+
+    <!-- Open Graph 메타 태그 (카카오톡, 페이스북 등에서 링크 미리보기용) -->
+    <meta property="og:title" content="김병찬♥조유림 결혼식 초대장">
+    <meta property="og:description" content="2025년 11월 22일 오후 2시 센텀 그랜드 블랑에서 김병찬♥조유림의 결혼식이 열립니다.">
+    <meta property="og:image" content="https://jin123346.github.io/Yul_Kim_Wedding/images/yr_image_1.jpg">
+    <meta property="og:url" content="https://jin123346.github.io/Yul_Kim_Wedding/">
+    <meta property="og:type" content="website">
+
+    <!-- 트위터 카드 메타 태그 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="김병찬♥조유림 결혼식 초대장">
+    <meta name="twitter:description" content="2025년 11월 22일 오후 2시 센텀 그랜드 블랑에서 김병찬♥조유림의 결혼식이 열립니다.">
+    <meta name="twitter:image" content="https://jin123346.github.io/Yul_Kim_Wedding/images/background.png">
     <!-- 카카오맵 API -->
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
@@ -16,6 +29,12 @@
             --primary-hover: #34495e;
             --primary-light: rgba(44, 62, 80, 0.08);
             --primary-lighter: rgba(44, 62, 80, 0.05);
+            --primary-bg: rgba(44, 62, 80, 0.02);
+            --primary-border: rgba(44, 62, 80, 0.15);
+            --primary-text: #2c3e50;
+            --secondary-text: #5a6c7d;
+            --accent-color: #8b9dc3;
+            --primary-red: #e74c3c;
         }
 
         * {
@@ -27,7 +46,8 @@
         body {
             font-family: "Noto Sans KR", sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--primary-text);
+            background-color: var(--primary-bg);
         }
 
         #wrap {
@@ -39,6 +59,16 @@
         #area3 {
             background-color: #fff;
             padding: 80px 0;
+            border-top: 1px solid var(--primary-border);
+            border-bottom: 1px solid var(--primary-border);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area3.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .couple-intro {
@@ -61,28 +91,40 @@
         }
 
         .person {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex: 1;
-            padding: 0 20px;
+            padding: 0 50px;
         }
 
         .person h3 {
             font-family: "Nanum Myeongjo", serif;
             font-size: 24px;
-            color: #333;
-            margin-bottom: 15px;
+            color: var(--primary-text);
+            /* margin-bottom: 15px; */
             font-weight: bold;
+
         }
 
         .person .relationship {
             font-size: 16px;
-            color: #666;
+            color: var(--secondary-text);
             line-height: 1.5;
         }
 
         /* 새로운 연락처 스타일 */
         #area4 {
-            background-color: #f9f9fb;
+            background-color: var(--primary-bg);
             padding: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area4.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-section {
@@ -117,7 +159,7 @@
         .contact-card h3 {
             font-family: "Nanum Myeongjo", serif;
             font-size: 20px;
-            color: #333;
+            color: var(--primary-text);
             margin-bottom: 15px;
             font-weight: bold;
         }
@@ -197,7 +239,7 @@
         .modal-title {
             font-family: "Nanum Myeongjo", serif;
             font-size: 20px;
-            color: #333;
+            color: var(--primary-text);
             font-weight: bold;
         }
 
@@ -206,7 +248,8 @@
         }
 
         .contact-item {
-            background: #f8f9fa;
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-border);
             border-radius: 12px;
             padding: 18px;
             margin-bottom: 12px;
@@ -225,14 +268,14 @@
 
         .contact-role {
             font-size: 16px;
-            color: #333;
+            color: var(--primary-text);
             font-weight: 600;
             margin-bottom: 2px;
         }
 
         .contact-phone {
             font-size: 14px;
-            color: #666;
+            color: var(--secondary-text);
         }
 
         .contact-actions {
@@ -254,47 +297,55 @@
         }
 
         .action-btn.call {
-            color: #8c5036;
+            color: var(--primary-color);
             background: white;
-            border: 1px solid #8c5036;
+            border: 1px solid var(--primary-color);
         }
 
         .action-btn.call:hover {
-            background: #8c5036;
+            background: var(--primary-color);
             color: white;
         }
 
         .action-btn.sms {
             background: white;
-            color: #8c5036;
-            border: 1px solid #8c5036;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
         }
 
         .action-btn.sms:hover {
-            background: #8c5036;
+            background: var(--primary-color);
             color: white;
         }
 
         .modal-close {
             width: 100%;
             padding: 15px;
-            background: #f8f9fa;
-            border: none;
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-border);
             border-radius: 12px;
-            color: #666;
+            color: var(--secondary-text);
             font-size: 16px;
             cursor: pointer;
             margin-top: 15px;
         }
 
         .modal-close:hover {
-            background: #e9ecef;
+            background: var(--primary-light);
         }
 
         /* 달력 섹션 스타일 */
         #area4-5 {
             background-color: #fff;
             padding: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area4-5.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .calendar-section {
@@ -329,7 +380,8 @@
         }
 
         .calendar-nav {
-
+            /* background: var(--primary-color);
+            color: white; */
             border: none;
             width: 40px;
             height: 40px;
@@ -342,19 +394,27 @@
             justify-content: center;
         }
 
+        .calendar-nav:hover:not(.disabled) {
+            /* background: var(--primary-hover);
+            transform: scale(1.05); */
+        }
+
 
         .calendar-nav.disabled {
+            /* background: var(--primary-lighter);
+            color: var(--secondary-text); */
             cursor: not-allowed;
         }
 
         .calendar-nav.disabled:hover {
             transform: none;
+            /* background: var(--primary-lighter); */
         }
 
         .calendar-month {
             font-family: "Nanum Myeongjo", serif;
             font-size: 20px;
-            color: #333;
+            color: var(--primary-text);
             font-weight: bold;
             margin: 0;
         }
@@ -388,27 +448,41 @@
         }
 
         .calendar-day:hover {
-            background: #f8f9fa;
+            background: var(--primary-lighter);
         }
 
         .calendar-day.other-month {
-            color: #ccc;
+            color: var(--primary-border);
         }
 
         .calendar-day.wedding-day {
-            background: var(--primary-color);
+            background: var(--primary-red);
             color: white;
             font-weight: bold;
             position: relative;
+            border-radius: 50%;
+            /* width: 40px;
+            height: 40px; */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .calendar-day.wedding-day::after {
-            content: '💒';
+        /* .calendar-day.wedding-day::after {
+            content: '💍';
             position: absolute;
-            top: 2px;
-            right: 2px;
-            font-size: 10px;
-        }
+            top: -3px;
+            right: -3px;
+            font-size: 12px;
+            background: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
 
         .calendar-legend {
             display: flex;
@@ -422,7 +496,7 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            color: #666;
+            color: var(--secondary-text);
         }
 
         .legend-color {
@@ -432,7 +506,7 @@
         }
 
         .legend-color.wedding-day {
-            background: var(--primary-color);
+            background: var(--primary-red);
         }
 
         /* 카운트다운 스타일 */
@@ -454,20 +528,23 @@
         }
 
         .countdown-title {
-            font-family: "Nanum Myeongjo", serif;
+            /* font-family: "Nanum Myeongjo", serif; */
             font-size: 16px;
-            color: var(--primary-color);
+            color: var(--secondary-text);
+            font-weight: 500;
+
         }
 
         .countdown-number {
             font-size: 20px;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--primary-red);
+            margin-bottom: 2px;
         }
 
         .countdown-text {
             font-size: 16px;
-            color: #666;
+            color: var(--secondary-text);
             font-weight: 500;
         }
 
@@ -475,6 +552,14 @@
         #area5 {
             background-color: #fff;
             padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area5.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .location-section {
@@ -491,7 +576,8 @@
         }
 
         .venue-info {
-            background-color: #f8f9fa;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--primary-border);
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 30px;
@@ -500,14 +586,14 @@
         .venue-name {
             font-family: "Nanum Myeongjo", serif;
             font-size: 24px;
-            color: #333;
+            color: var(--primary-text);
             margin-bottom: 10px;
             font-weight: bold;
         }
 
         .venue-address {
             font-size: 16px;
-            color: #666;
+            color: var(--secondary-text);
             line-height: 1.5;
             margin-bottom: 20px;
         }
@@ -556,14 +642,17 @@
         .transport-title {
             font-size: 16px;
             font-weight: 600;
-            color: #333;
+            color: var(--primary-text);
             margin-bottom: 6px;
+            text-align: left;
         }
 
         .transport-detail {
             font-size: 14px;
-            color: #666;
+            color: var(--secondary-text);
             line-height: 1.5;
+            text-align: left;
+
         }
 
         .map-card {
@@ -576,7 +665,7 @@
 
         .map-apps {
             display: flex;
-            background: #f8f9fa;
+            background: var(--primary-bg);
             padding: 16px;
             gap: 0;
             justify-content: center;
@@ -620,7 +709,7 @@
 
         .map-app-btn span {
             font-size: 12px;
-            color: #333;
+            color: var(--primary-text);
             font-weight: 500;
         }
 
@@ -649,8 +738,16 @@
 
         /* 갤러리 스타일 */
         #area6 {
-            background-color: #f9f9fb;
+            background-color: var(--primary-bg);
             padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area6.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .gallery-section {
@@ -710,7 +807,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--primary-color);
+            color: white;
             border: none;
             width: 40px;
             height: 40px;
@@ -720,19 +818,20 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: var(--primary-color);
             transition: all 0.2s ease;
             z-index: 2;
         }
 
         .gallery-nav:hover:not(.disabled) {
-            background: var(--primary-lighter);
+            background: var(--primary-hover);
+            transform: translateY(-50%) scale(1.05);
         }
 
         .gallery-nav.disabled {
             opacity: 0.3;
             cursor: not-allowed;
-            background: rgba(255, 255, 255, 0.4);
+            background: var(--primary-lighter);
+            color: var(--secondary-text);
         }
 
         .gallery-nav.prev {
@@ -754,19 +853,32 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #ddd;
+            background: var(--primary-border);
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-dot:hover {
+            background: var(--primary-light);
         }
 
         .gallery-dot.active {
             background: var(--primary-color);
+            transform: scale(1.2);
         }
 
         /* 마음전하기 스타일 */
         #area7 {
             background-color: #fff;
             padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area7.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .gift-section {
@@ -784,7 +896,7 @@
 
         .gift-message {
             font-size: 16px;
-            color: #666;
+            color: var(--secondary-text);
             line-height: 1.8;
             margin-bottom: 40px;
         }
@@ -841,37 +953,47 @@
             display: none;
             background: #fff;
         }
-          #area1 {
+
+        #area1 {
             padding: 0 !important;
-            height: 0;
-            padding-bottom: 177.875%; /* 800:1423 = 1:1.77875 비율 */
+            height: auto;
+            min-height: 1340px;
+            /* 고정 높이로 변경 */
             position: relative;
             overflow: hidden;
             width: 100%;
+            background-color: #f0f0f0;
+            /* 임시 배경색으로 영역 확인 */
         }
 
         #area1 .item {
             position: absolute;
-            top: 0; 
+            top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             display: flex;
         }
 
+
         #area1 img.img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            /* object-fit: cover; */
             display: block;
             position: relative;
+        }
+
+        #area1 #item_2 img.img {
+            object-fit: cover;
         }
 
         /* Area1 텍스트 요소들 반응형 수정 */
         #item_4 .text,
         #item_5 .text {
             font-family: 'Nanum Myeongjo', serif;
-            font-size: min(3.5vw, 28px); /* 최대 크기 제한 */
+            font-size: min(3.5vw, 28px);
+            /* 최대 크기 제한 */
             color: #fff;
             font-weight: bold;
             letter-spacing: 0.43em;
@@ -905,10 +1027,18 @@
         /* Area2 수정된 반응형 스타일 */
         #area2 {
             display: block;
-            min-height: 40vh;
-            background-color: rgb(239, 239, 239);
+            /* min-height: 40vh; */
+            background-color: var(--primary-bg);
             position: relative;
             padding: 50px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area2.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         #area2 #item_8 {
@@ -937,7 +1067,7 @@
         #area2 #item_9 .text {
             font-family: 'Noto Sans KR', sans-serif;
             font-size: min(4vw, 18px);
-            color: rgb(51, 51, 51);
+            color: var(--primary-text);
             text-align: center;
             letter-spacing: 0em;
             line-height: 2.3em;
@@ -946,31 +1076,32 @@
             margin-bottom: 20px;
         }
 
-        <!-- #area1 {
-    padding: 0 !important;
-    height: auto !important;
-    aspect-ratio: 800/1423;
-    max-width: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
+        /* #area1 {
+            padding: 0 !important;
+            height: auto !important;
+            aspect-ratio: 800/1423;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
-#area1 .item {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
+        #area1 .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
 
-#area1 img.img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    position: relative;
-}
+        #area1 img.img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+        }
 
         #area2 span {
             display: flex;
@@ -1000,7 +1131,7 @@
             padding: 0px !important;
             width: 100%;
             height: auto;
-        } -->
+        } */
 
         .flowergift {
             padding-bottom: 0 !important;
@@ -1009,7 +1140,9 @@
         /* 반응형 디자인 */
         @media (max-width: 600px) {
             #area1 {
-                padding-bottom: 177.875%; /* 비율 유지 */
+                padding-bottom: 177.875%;
+                min-height: 900px;
+                /* 비율 유지 */
             }
 
             #item_4 .text,
@@ -1042,6 +1175,7 @@
                 line-height: 1.8em !important;
                 width: 95% !important;
             }
+
             .couple-info {
                 flex-direction: column;
                 gap: 30px;
@@ -1091,8 +1225,8 @@
 
             /* 달력 모바일 스타일 */
             .calendar-container {
-                padding: 20px;
-                margin: 0 10px;
+                /* padding: 20px; */
+                /* margin: 0 10px; */
             }
 
             .calendar-header {
@@ -1218,14 +1352,18 @@
     <div id="wrap">
         <!-- 메인 이미지 -->
         <div id="area1" idx="1" class="templatearea" style="display: block;">
-           <div id="item_1" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
-            <img class="img" src="images/background.png" style="width:100%; height:auto; display:block; position:relative;">
+            <div id="item_1" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/background.png"
+                    style="width:100%; height:auto; display:block; position:relative;">
             </div>
-            <div id="item_2" class="item photo-image" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
-                <img class="img" src="images/yr_image_1.jpg" style="width:100%; height:auto; display:block; position:relative;">
+            <div id="item_2" class="item photo-image"
+                style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/yr_image_1.jpg"
+                    style="width:100%; height:auto; display:block; position:relative;">
             </div>
             <div id="item_3" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
-                <img class="img" src="images/love.gif" style="width:100%; height:auto; display:block; position:relative;">
+                <img class="img" src="images/love.gif"
+                    style="width:100%; height:auto; display:block; position:relative;">
             </div>
             <div id="item_4" class="item"
                 style="top: 18.3%; left: 0; position: absolute; width: 44%; height: 5.5%; align-items: center;">
@@ -1276,16 +1414,17 @@
                 <h2>신랑 & 신부</h2>
                 <div class="couple-info">
                     <div class="person">
-                        <h3>김병찬</h3>
                         <div class="relationship">
-                            김○○ · 박○○의 아들
+                            김○○ · 박○○의 차남
                         </div>
+                        <h3>김병찬</h3>
+
                     </div>
                     <div class="person">
-                        <h3>조유림</h3>
                         <div class="relationship">
-                            조○○ · 이○○의 딸
+                            조○○ · 이○○의 차녀
                         </div>
+                        <h3>조유림</h3>
                     </div>
                 </div>
             </div>
@@ -1335,7 +1474,8 @@
                 <div class="countdown-section">
                     <div class="countdown-container">
                         <div class="countdown-display" id="countdownDisplay">
-                            <span class="countdown-title" id="countdownTitle">김병찬♥조유림 결혼식까지</span>
+                            <span class="countdown-title" id="countdownTitle">
+                                <strong class="countdown-title-name">김병찬♥조유림</strong>결혼식까지</span>
                             <span class="countdown-number" id="countdownDays">-</span>
                             <span class="countdown-text">일 남았습니다</span>
                         </div>
@@ -1874,6 +2014,7 @@
             initMap();
             initCountdown();
             initGallerySlider();
+            initScrollAnimations();
         });
 
         // 카카오맵 초기화
@@ -1945,7 +2086,7 @@
 
         // 네이버맵으로 길찾기
         function openNaverMap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 센텀그랜드블랑';
+            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const naverMapUrl = `https://map.naver.com/v5/search/${encodedAddress}`;
 
@@ -1954,7 +2095,7 @@
 
         // 카카오맵으로 길찾기
         function openKakaoMap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 센텀그랜드블랑';
+            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
 
@@ -1963,7 +2104,7 @@
 
         // 티맵으로 길찾기
         function openTmap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 센텀그랜드블랑';
+            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const tmapUrl = `https://tmapapi.sktelecom.com/main/mobile/web/search/search.html?searchKeyword=${encodedAddress}`;
 
@@ -1977,6 +2118,54 @@
                 alert('주소가 복사되었습니다!\n' + address);
             }).catch(() => {
                 alert('주소 복사에 실패했습니다.\n\n' + address + '\n\n위 주소를 직접 복사해서 사용해주세요.');
+            });
+        }
+
+        // 스크롤 애니메이션 초기화
+        function initScrollAnimations() {
+            let lastScrollY = window.scrollY;
+            let isScrollingDown = true;
+
+            const observerOptions = {
+                threshold: 0.1, // 요소가 10% 보일 때 트리거
+                rootMargin: '0px 0px -50px 0px' // 아래쪽 50px 여유를 두고 트리거
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && isScrollingDown) {
+                        // 아래로 스크롤할 때만 애니메이션 클래스 추가
+                        entry.target.classList.add('visible');
+                    } else if (!entry.isIntersecting && !isScrollingDown) {
+                        // 위로 스크롤할 때는 애니메이션 클래스 제거하지 않음 (고정)
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // 스크롤 방향 감지
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                isScrollingDown = currentScrollY > lastScrollY;
+                lastScrollY = currentScrollY;
+            });
+
+            // 모든 섹션 관찰 시작
+            const sections = [
+                'area2',    // INVITATION
+                'area3',    // 신랑신부 소개
+                'area4',    // 연락처
+                'area4-5',  // 달력
+                'area5',    // 오시는 길
+                'area6',    // 갤러리
+                'area7'     // 마음전하기
+            ];
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    observer.observe(section);
+                }
             });
         }
 
