@@ -1895,6 +1895,7 @@
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeContactModal();
+                closeGalleryModal();
             }
         });
 
@@ -1964,9 +1965,50 @@
             updateSlider();
         }
 
+        // 갤러리 관련 변수
+        let currentGalleryImage = 0;
+        const totalGalleryImages = 20;
+
         // 갤러리 열기 함수
         function openGallery(photoNumber) {
-            alert(`사진 ${photoNumber}을 큰 화면으로 보여줍니다.\n(실제 구현시 이미지 뷰어 팝업)`);
+            currentGalleryImage = photoNumber - 1; // 0부터 시작하므로 -1
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('galleryModalImage');
+
+            if (modal && modalImage) {
+                modalImage.src = `images/yul_image_${photoNumber}.jpg`;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // 갤러리 모달 닫기
+        function closeGalleryModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+
+            const modal = document.getElementById('galleryModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // 이전 갤러리 이미지
+        function prevGalleryImage() {
+            currentGalleryImage = (currentGalleryImage - 1 + totalGalleryImages) % totalGalleryImages;
+            const modalImage = document.getElementById('galleryModalImage');
+            if (modalImage) {
+                modalImage.src = `images/yul_image_${currentGalleryImage + 1}.jpg`;
+            }
+        }
+
+        // 다음 갤러리 이미지
+        function nextGalleryImage() {
+            currentGalleryImage = (currentGalleryImage + 1) % totalGalleryImages;
+            const modalImage = document.getElementById('galleryModalImage');
+            if (modalImage) {
+                modalImage.src = `images/yul_image_${currentGalleryImage + 1}.jpg`;
+            }
         }
 
         // 계좌정보 보기 함수
