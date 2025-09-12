@@ -247,6 +247,161 @@
             margin-bottom: 20px;
         }
 
+        /* 계좌번호 토글 스타일 */
+        .account-section {
+            margin: 20px 0;
+            background: white;
+            border: 1px solid var(--primary-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .account-header:hover {
+            background: var(--primary-lighter);
+        }
+
+        .account-info {
+            flex: 1;
+        }
+
+        .account-bank {
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .account-toggle-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-toggle-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .toggle-arrow {
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .toggle-arrow.rotated {
+            transform: rotate(180deg);
+        }
+
+        .account-number {
+            max-height: 0;
+            /* overflow: hidden; */
+            transition: all 0.3s ease;
+            /* background: var(--primary-bg); */
+        }
+
+        .account-number.show {
+            max-height: 500px;
+        }
+
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--primary-border);
+            gap: 20px;
+        }
+
+        .account-item:last-child {
+            border-bottom: none;
+        }
+
+        /* .account-item .account-info {
+            flex: 1;
+        } */
+
+        .account-item .account-bank {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .account-holder {
+            font-size: 14px;
+            color: var(--secondary-text);
+            /* flex: 1; */
+            text-align: center;
+        }
+
+        .account-info-display {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            /* flex: 1; */
+            flex-direction: column;
+        }
+
+        .account-copy-btn {
+            flex: 0 0 auto;
+        }
+
+        .account-info-display .account-bank {
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .account-info-display .account-number {
+            /* font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: var(--primary-text); */
+        }
+
+        .account-number-display {
+            /* font-family: 'Courier New', monospace; */
+            font-size: 16px;
+            color: var(--primary-text);
+            /* background: var(--primary-bg); */
+            padding: 8px 12px;
+
+            /* border: 1px solid var(--primary-border); */
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        .account-copy-btn {
+            background: #f8f9fa;
+            color: var(--primary-text);
+            border: 1px solid var(--primary-border);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .account-copy-btn:hover {
+            background: var(--primary-lighter);
+            border-color: var(--primary-color);
+        }
+
         .contact-item {
             background: var(--primary-bg);
             border: 1px solid var(--primary-border);
@@ -1761,9 +1916,75 @@
                     참석이 어려우신 분들을 위해<br>
                     온라인으로 축하의 마음을 전해보세요
                 </div>
-                <div class="gift-buttons">
-                    <button class="gift-btn" onclick="openAccountInfo('groom')">신랑측 계좌번호</button>
-                    <button class="gift-btn" onclick="openAccountInfo('bride')">신부측 계좌번호</button>
+
+                <!-- 신랑측 계좌번호 -->
+                <div class="account-section">
+                    <div class="account-header" onclick="toggleAccountNumber(this)">
+                        <div class="account-info">
+                            <div class="account-bank">신랑측 계좌번호</div>
+                        </div>
+                        <span class="toggle-arrow">▼</span>
+                    </div>
+                    <div class="account-number">
+                        <div class="account-item">
+
+                            <div class="account-holder">김병찬</div>
+
+                            <div class="account-info-display">
+                                <div class="account-bank">국민은행</div>
+                                <div class="account-number">123-456-789012</div>
+                            </div>
+                            <button class="account-copy-btn" onclick="copyAccountNumber('123-456-789012', '국민은행')">
+                                복사
+                            </button>
+                        </div>
+                        <div class="account-item">
+                            <div class="account-holder">김병찬</div>
+                            <div class="account-info-display">
+                                <div class="account-bank">국민은행</div>
+                                <div class="account-number">123-456-789012</div>
+                            </div>
+                            <button class="account-copy-btn" onclick="copyAccountNumber('123-456-789012', '국민은행')">
+                                복사
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 신부측 계좌번호 -->
+                <div class="account-section">
+                    <div class="account-header" onclick="toggleAccountNumber(this)">
+                        <div class="account-info">
+                            <div class="account-bank">신부측 계좌번호</div>
+                        </div>
+                        <span class="toggle-arrow">▼</span>
+                    </div>
+                    <div class="account-number">
+                        <div class="account-item">
+
+                            <div class="account-holder">조유림</div>
+
+                            <div class="account-info-display">
+                                <div class="account-bank">우리은행</div>
+                                <div class="account-number">456-789-123456</div>
+                            </div>
+                            <button class="account-copy-btn" onclick="copyAccountNumber('456-789-123456', '우리은행')">
+                                복사
+                            </button>
+                        </div>
+                        <div class="account-item">
+
+                            <div class="account-holder">조유림</div>
+
+                            <div class="account-info-display">
+                                <div class="account-bank">우리은행</div>
+                                <div class="account-number">456-789-123456</div>
+                            </div>
+                            <button class="account-copy-btn" onclick="copyAccountNumber('456-789-123456', '우리은행')">
+                                복사
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1783,6 +2004,7 @@
             <button class="modal-close" onclick="closeContactModal()">닫기</button>
         </div>
     </div>
+
 
     <!-- 갤러리 확대 모달 -->
     <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal(event)">
@@ -2011,41 +2233,30 @@
             }
         }
 
-        // 계좌정보 보기 함수
-        function openAccountInfo(side) {
-            let accounts = [];
-            let title = '';
 
-            if (side === 'groom') {
-                title = '신랑측 계좌정보';
-                accounts = [
-                    { bank: '국민은행', number: '123-456-789012', holder: '김병찬' },
-                    { bank: '농협은행', number: '987-654-321098', holder: '김○○(아버지)' }
-                ];
+        // 계좌번호 토글
+        function toggleAccountNumber(headerElement) {
+            const accountNumberDiv = headerElement.parentElement.querySelector('.account-number');
+            const arrow = headerElement.querySelector('.toggle-arrow');
+
+            if (accountNumberDiv.classList.contains('show')) {
+                // 숨기기
+                accountNumberDiv.classList.remove('show');
+                arrow.textContent = '▼';
             } else {
-                title = '신부측 계좌정보';
-                accounts = [
-                    { bank: '우리은행', number: '456-789-123456', holder: '조유림' },
-                    { bank: '신한은행', number: '654-321-987654', holder: '조○○(아버지)' }
-                ];
+                // 보이기
+                accountNumberDiv.classList.add('show');
+                arrow.textContent = '▲';
             }
+        }
 
-            let accountList = accounts.map((account, index) =>
-                `${index + 1}. ${account.bank} ${account.number} (${account.holder})`
-            ).join('\n');
-
-            let selectedAccount = prompt(`${title}\n\n${accountList}\n\n복사할 계좌번호를 선택하세요 (1-${accounts.length}):`);
-
-            if (selectedAccount && selectedAccount >= 1 && selectedAccount <= accounts.length) {
-                const account = accounts[selectedAccount - 1];
-
-                // 클립보드 복사
-                navigator.clipboard.writeText(account.number).then(() => {
-                    alert(`계좌번호가 복사되었습니다.\n${account.bank} ${account.number}`);
-                }).catch(() => {
-                    alert(`${account.bank} ${account.number}\n\n위 계좌번호를 직접 복사해서 사용해주세요.`);
-                });
-            }
+        // 계좌번호 복사
+        function copyAccountNumber(accountNumber, bankName) {
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert(`복사되었습니다.\n${bankName} ${accountNumber}`);
+            }).catch(() => {
+                alert(`${bankName} ${accountNumber}\n\n위 계좌번호를 직접 복사해서 사용해주세요.`);
+            });
         }
 
         // 달력 관련 변수
