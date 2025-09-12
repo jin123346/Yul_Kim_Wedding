@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김병찬♥조유림 결혼식 초대장</title>
+
+    <!-- Open Graph 메타 태그 (카카오톡, 페이스북 등에서 링크 미리보기용) -->
+    <meta property="og:title" content="김병찬♥조유림 결혼식 초대장">
+    <meta property="og:description" content="2025년 11월 22일 오후 2시 센텀 그랜드 블랑에서 김병찬♥조유림의 결혼식이 열립니다.">
+    <meta property="og:image" content="https://madebyjin.cloud/images/thumbnail.png">
+    <meta property="og:url" content="https://madebyjin.cloud/">
+    <meta property="og:type" content="website">
+
+    <!-- 트위터 카드 메타 태그 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="김병찬♥조유림 결혼식 초대장">
+    <meta name="twitter:description" content="2025년 11월 22일 오후 4시 그랜드블랑에서 김병찬♥조유림의 결혼식이 열립니다.">
+    <meta name="twitter:image" content="https://madebyjin.cloud/images/yr_image_1.jpg">
+    <!-- 카카오맵 API -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+        :root {
+            --primary-color: #2c3e50;
+            --primary-hover: #34495e;
+            --primary-light: rgba(44, 62, 80, 0.08);
+            --primary-lighter: rgba(44, 62, 80, 0.05);
+            --primary-bg: rgba(44, 62, 80, 0.02);
+            --primary-border: rgba(44, 62, 80, 0.15);
+            --primary-text: #2c3e50;
+            --secondary-text: #5a6c7d;
+            --accent-color: #8b9dc3;
+            --primary-red: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background-color: var(--primary-bg);
+        }
+
+        #wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 기존 스타일들 */
+        #area3 {
+            background-color: #fff;
+            padding: 80px 0;
+            border-top: 1px solid var(--primary-border);
+            border-bottom: 1px solid var(--primary-border);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .couple-intro {
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .couple-intro h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .couple-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .person h3 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 24px;
+            color: var(--primary-text);
+            /* margin-bottom: 15px; */
+            font-weight: bold;
+
+        }
+
+        .person .relationship {
+            font-size: 16px;
+            color: var(--secondary-text);
+            line-height: 1.5;
+        }
+
+        /* 새로운 연락처 스타일 */
+        #area4 {
+            background-color: var(--primary-bg);
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area4.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-section {
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 20px var(--primary-light);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 20px;
+            color: var(--primary-text);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .contact-card .main-name {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .contact-button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* 연락처 모달 스타일 */
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .contact-modal.hidden {
+            display: none;
+        }
+
+        .contact-panel {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px 25px;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .modal-title {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 20px;
+            color: var(--primary-text);
+            font-weight: bold;
+        }
+
+        .contact-list {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-role {
+            font-size: 16px;
+            color: var(--primary-text);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contact-phone {
+            font-size: 14px;
+            color: var(--secondary-text);
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn.call {
+            color: var(--primary-color);
+            background: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .action-btn.call:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .action-btn.sms {
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .action-btn.sms:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .modal-close {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-border);
+            border-radius: 12px;
+            color: var(--secondary-text);
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .modal-close:hover {
+            background: var(--primary-light);
+        }
+
+        /* 달력 섹션 스타일 */
+        #area4-5 {
+            background-color: #fff;
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area4-5.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .calendar-section {
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .calendar-section h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .calendar-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px var(--primary-light);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .calendar-nav {
+            /* background: var(--primary-color);
+            color: white; */
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-nav:hover:not(.disabled) {
+            /* background: var(--primary-hover);
+            transform: scale(1.05); */
+        }
+
+
+        .calendar-nav.disabled {
+            /* background: var(--primary-lighter);
+            color: var(--secondary-text); */
+            cursor: not-allowed;
+        }
+
+        .calendar-nav.disabled:hover {
+            transform: none;
+            /* background: var(--primary-lighter); */
+        }
+
+        .calendar-month {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 20px;
+            color: var(--primary-text);
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-day-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 10px 5px;
+            text-align: center;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 40px;
+        }
+
+        .calendar-day:hover {
+            background: var(--primary-lighter);
+        }
+
+        .calendar-day.other-month {
+            color: var(--primary-border);
+        }
+
+        .calendar-day.wedding-day {
+            background: var(--primary-red);
+            color: white;
+            font-weight: bold;
+            position: relative;
+            border-radius: 50%;
+            /* width: 40px;
+            height: 40px; */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* .calendar-day.wedding-day::after {
+            content: '💍';
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            font-size: 12px;
+            background: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
+
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--secondary-text);
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .legend-color.wedding-day {
+            background: var(--primary-red);
+        }
+
+        /* 카운트다운 스타일 */
+        .countdown-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .countdown-container {
+            background: none;
+            padding: 0;
+        }
+
+        .countdown-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .countdown-title {
+            /* font-family: "Nanum Myeongjo", serif; */
+            font-size: 16px;
+            color: var(--secondary-text);
+            font-weight: 500;
+
+        }
+
+        .countdown-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 2px;
+        }
+
+        .countdown-text {
+            font-size: 16px;
+            color: var(--secondary-text);
+            font-weight: 500;
+        }
+
+        /* 위치 정보 스타일 */
+        #area5 {
+            background-color: #fff;
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area5.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .location-section {
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .location-section h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .venue-info {
+            background-color: var(--primary-bg);
+            border: 1px solid var(--primary-border);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .venue-name {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 24px;
+            color: var(--primary-text);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .venue-address {
+            font-size: 16px;
+            color: var(--secondary-text);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .venue-tel {
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .transport-info {
+            margin-bottom: 30px;
+        }
+
+        .transport-section {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .transport-section:last-child {
+            border-bottom: none;
+        }
+
+        .transport-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+            flex-shrink: 0;
+            color: var(--primary-color);
+        }
+
+        .transport-content {
+            flex: 1;
+        }
+
+        .transport-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        .transport-detail {
+            font-size: 14px;
+            color: var(--secondary-text);
+            line-height: 1.5;
+            text-align: left;
+
+        }
+
+        .map-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .map-apps {
+            display: flex;
+            background: var(--primary-bg);
+            padding: 16px;
+            gap: 0;
+            justify-content: center;
+        }
+
+        .map-app-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex: 1;
+            position: relative;
+        }
+
+        .map-app-btn:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 20px;
+            background: #e0e0e0;
+        }
+
+        .map-app-btn:hover {
+            background: var(--primary-lighter);
+        }
+
+        .app-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 6px;
+            object-fit: contain;
+        }
+
+        .map-app-btn span {
+            font-size: 12px;
+            color: var(--primary-text);
+            font-weight: 500;
+        }
+
+        .map-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .map-btn {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .map-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* 갤러리 스타일 */
+        #area6 {
+            background-color: var(--primary-bg);
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area6.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-section {
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .gallery-slider {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery-item {
+            width: 100%;
+            max-height: 1200px;
+            gap: 0.5px;
+            flex-shrink: 0;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-bg);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .gallery-nav:hover:not(.disabled) {
+            background: var(--primary-light);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .gallery-nav.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background: var(--primary-lighter);
+            color: var(--secondary-text);
+        }
+
+        .gallery-nav.prev {
+            left: 10px;
+        }
+
+        .gallery-nav.next {
+            right: 10px;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-dot:hover {
+            background: var(--primary-light);
+        }
+
+        .gallery-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* 갤러리 확대 모달 */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gallery-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-modal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .gallery-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-modal-close:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .gallery-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-modal-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-modal-prev {
+            left: -60px;
+        }
+
+        .gallery-modal-next {
+            right: -60px;
+        }
+
+        /* 마음전하기 스타일 */
+        #area7 {
+            background-color: #fff;
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area7.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gift-section {
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .gift-section h2 {
+            font-family: "Nanum Myeongjo", serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .gift-message {
+            font-size: 16px;
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .gift-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gift-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .gift-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 기존 스타일 유지 */
+        #wrap {
+            overflow: hidden;
+        }
+
+        .templatearea {
+            width: 100%;
+            position: relative;
+            letter-spacing: 0px;
+        }
+
+        .item {
+            display: flex;
+        }
+
+        .text {
+            width: 100%;
+        }
+
+        .photo {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame_wrap {
+            display: none;
+            background: #fff;
+        }
+
+        #area1 {
+            padding: 0 !important;
+            height: auto;
+            min-height: 1340px;
+            /* 고정 높이로 변경 */
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background-color: #f0f0f0;
+            /* 임시 배경색으로 영역 확인 */
+        }
+
+        #area1 .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+
+        #area1 img.img {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            display: block;
+            position: relative;
+        }
+
+        #area1 #item_2 img.img {
+            object-fit: cover;
+        }
+
+        /* Area1 텍스트 요소들 반응형 수정 */
+        #item_4 .text,
+        #item_5 .text {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: min(3.5vw, 28px);
+            /* 최대 크기 제한 */
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.43em;
+            line-height: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #item_4 .text {
+            text-align: right;
+        }
+
+        #item_5 .text {
+            text-align: left;
+        }
+
+        #item_6 .text,
+        #item_7 .text {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: min(2vw, 16px);
+            color: #fff;
+            text-align: center;
+            letter-spacing: 0em;
+            line-height: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Area2 수정된 반응형 스타일 */
+        #area2 {
+            display: block;
+            /* min-height: 40vh; */
+            background-color: var(--primary-bg);
+            position: relative;
+            padding: 50px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        #area2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #area2 #item_8 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #area2 #item_8 span {
+            font-size: min(6vw, 48px);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #area2 #item_9 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        #area2 #item_9 .text {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: min(4vw, 18px);
+            color: var(--primary-text);
+            text-align: center;
+            letter-spacing: 0em;
+            line-height: 2.3em;
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        /* #area1 {
+            padding: 0 !important;
+            height: auto !important;
+            aspect-ratio: 800/1423;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #area1 .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        #area1 img.img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+        }
+
+        #area2 span {
+            display: flex;
+            left: 50%;
+            justify-content: center;
+            align-items: center;
+            margin: 100px 50px 100px 50px;
+            font-size: 50px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #invitation_text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 40px;
+            font-variant: 15px;
+            font-optical-sizing: 20px;
+            text-align: center;
+            line-height: 2.3em;
+        }
+
+        img {
+            margin: 0px !important;
+            padding: 0px !important;
+            width: 100%;
+            height: auto;
+        } */
+
+        .flowergift {
+            padding-bottom: 0 !important;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            #area1 {
+                padding-bottom: 177.875%;
+                min-height: 900px;
+                /* 비율 유지 */
+            }
+
+            #item_4 .text,
+            #item_5 .text {
+                font-size: 4vw !important;
+                letter-spacing: 0.2em;
+            }
+
+            #item_6 .text,
+            #item_7 .text {
+                font-size: 2.5vw !important;
+            }
+
+            /* Area2 모바일 스타일 */
+            #area2 {
+                padding: 30px 0;
+                min-height: 30vh;
+            }
+
+            #area2 #item_8 {
+                margin-bottom: 20px;
+            }
+
+            #area2 #item_8 span {
+                font-size: 8vw !important;
+            }
+
+            #area2 #item_9 .text {
+                font-size: 4vw !important;
+                line-height: 1.8em !important;
+                width: 95% !important;
+            }
+
+            .couple-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .contact-card {
+                padding: 24px 16px;
+            }
+
+            .map-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-item {
+                height: 500px;
+            }
+
+            .gallery-slider {
+                max-width: 100%;
+                margin: 0 10px 20px;
+            }
+
+            .gallery-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .gallery-nav.prev {
+                left: 5px;
+            }
+
+            .gallery-nav.next {
+                right: 5px;
+            }
+
+            .couple-intro,
+            .contact-section,
+            .location-section,
+            .gallery-section,
+            .gift-section,
+            .calendar-section {
+                padding: 0 20px;
+            }
+
+            /* 달력 모바일 스타일 */
+            .calendar-container {
+                /* padding: 20px; */
+                /* margin: 0 10px; */
+            }
+
+            .calendar-header {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+
+            .calendar-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .calendar-month {
+                font-size: 18px;
+            }
+
+            .calendar-grid {
+                gap: 6px;
+            }
+
+            .calendar-day {
+                min-height: 35px;
+                font-size: 13px;
+            }
+
+            .calendar-day-header {
+                font-size: 12px;
+                padding: 8px 3px;
+            }
+
+            .calendar-legend {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .legend-item {
+                font-size: 13px;
+            }
+
+            /* 카운트다운 모바일 스타일 */
+            .countdown-section {
+                margin-top: 15px;
+            }
+
+            .countdown-display {
+                gap: 3px;
+            }
+
+            .countdown-title {
+                font-size: 14px;
+            }
+
+            .countdown-number {
+                font-size: 18px;
+            }
+
+            .countdown-text {
+                font-size: 14px;
+            }
+
+            /* 지도 모바일 스타일 */
+            .map-container {
+                height: 250px;
+                margin: 0 10px 20px 10px;
+            }
+
+            .transport-section {
+                padding: 12px 0;
+            }
+
+            .transport-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 12px;
+            }
+
+            .transport-title {
+                font-size: 15px;
+                margin-bottom: 4px;
+            }
+
+            .transport-detail {
+                font-size: 13px;
+            }
+
+            .map-buttons {
+                flex-direction: column;
+                gap: 8px;
+                padding: 0 20px;
+            }
+
+            .map-apps {
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .map-app-btn {
+                padding: 10px 12px;
+                min-width: 70px;
+            }
+
+            .app-icon {
+                width: 28px;
+                height: 28px;
+                margin-bottom: 4px;
+            }
+
+            .map-app-btn span {
+                font-size: 11px;
+            }
+
+            .map-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .person {
+                padding: 0 20px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- 메인 이미지 -->
+        <div id="area1" idx="1" class="templatearea" style="display: block;">
+            <div id="item_1" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/background.png"
+                    style="width:100%; height:auto; display:block; position:relative;">
+            </div>
+            <div id="item_2" class="item photo-image"
+                style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/yr_image_1.jpg"
+                    style="width:100%; height:auto; display:block; position:relative;">
+            </div>
+            <div id="item_3" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
+                <img class="img" src="images/love.gif"
+                    style="width:100%; height:auto; display:block; position:relative;">
+            </div>
+            <div id="item_4" class="item"
+                style="top: 18.3%; left: 0; position: absolute; width: 44%; height: 5.5%; align-items: center;">
+                <div class="text">
+                    김병찬
+                </div>
+            </div>
+            <div id="item_5" class="item"
+                style="top: 18.1%; left: 58.8%; position: absolute; width: 41.2%; height: 5.6%; align-items: center;">
+                <div class="text">
+                    조유림
+                </div>
+            </div>
+            <div id="item_6" class="item"
+                style="top: 88.6%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                <div class="text">
+                    센텀 그랜드 블랑
+                </div>
+            </div>
+            <div id="item_7" class="item"
+                style="top: 85.4%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                <div class="text">
+                    2025.11.22 SAT PM 02:00
+                </div>
+            </div>
+        </div>
+
+        <!-- 초대 메시지 -->
+        <div id="area2" idx="2" class="templatearea">
+            <div id="item_8" class="item">
+                <span>INVITATION</span>
+            </div>
+            <div id="item_9" class="item">
+                <div class="text">
+                    서로가 마주보며 다져온 사랑을<br>
+                    이제 함께 한 곳을 바라보며<br>
+                    걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br>
+                    저희 두 사람이 사랑의 이름으로<br>
+                    지켜나갈 수 있게 앞날을<br>
+                    축복해 주시면 감사하겠습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 신랑신부 소개 -->
+        <div id="area3" idx="3" class="templatearea">
+            <div class="couple-intro">
+                <h2>신랑 & 신부</h2>
+                <div class="couple-info">
+                    <div class="person">
+                        <div class="relationship">
+                            김○○ · 박○○의 차남
+                        </div>
+                        <h3>김병찬</h3>
+
+                    </div>
+                    <div class="person">
+                        <div class="relationship">
+                            조○○ · 이○○의 차녀
+                        </div>
+                        <h3>조유림</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 연락처 -->
+        <div id="area4" idx="4" class="templatearea">
+            <div class="contact-section">
+                <h2>연락처</h2>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <h3>신랑측</h3>
+                        <div class="main-name">김병찬</div>
+                        <button class="contact-button" onclick="openContactModal('groom')">연락하기</button>
+                    </div>
+                    <div class="contact-card">
+                        <h3>신부측</h3>
+                        <div class="main-name">조유림</div>
+                        <button class="contact-button" onclick="openContactModal('bride')">연락하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 달력 섹션 -->
+        <div id="area4-5" idx="4.5" class="templatearea">
+            <div class="calendar-section">
+                <h2>일정 확인</h2>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <div class="calendar-nav disabled"></div>
+                        <h3 class="calendar-month" id="calendarMonth">2025년 11월</h3>
+                        <div class="calendar-nav disabled"></div>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- JavaScript로 동적 생성 -->
+                    </div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-color wedding-day"></div>
+                            <span>결혼식</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 결혼식 카운트다운 -->
+                <div class="countdown-section">
+                    <div class="countdown-container">
+                        <div class="countdown-display" id="countdownDisplay">
+                            <span class="countdown-title" id="countdownTitle">
+                                <strong class="countdown-title-name">김병찬♥조유림</strong>결혼식까지</span>
+                            <span class="countdown-number" id="countdownDays">-</span>
+                            <span class="countdown-text">일 남았습니다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 오시는 길 -->
+        <div id="area5" idx="5" class="templatearea">
+            <div class="location-section">
+                <h2>오시는 길</h2>
+                <div class="venue-info">
+                    <div class="venue-name">센텀 그랜드 블랑</div>
+                    <div class="venue-address">
+                        부산광역시 해운대구 센텀중앙로 79<br>
+                        센텀그랜드블랑 3층
+                    </div>
+                    <div class="venue-tel">TEL. 051-123-4567</div>
+                </div>
+
+                <!-- 지도 카드 -->
+                <div class="map-card">
+                    <!-- 카카오맵 -->
+                    <div id="map" class="map-container"></div>
+
+                    <!-- 지도 앱 버튼들 -->
+                    <div class="map-apps">
+                        <button class="map-app-btn" onclick="openNaverMap()">
+                            <img class="app-icon" src="images/naver_map_icon.jpg" alt="네이버 지도">
+                            <span>네이버 지도</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openKakaoMap()">
+                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="카카오 내비">
+                            <span>카카오 내비</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openTmap()">
+                            <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
+                            <span>티맵</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 교통 안내 -->
+                <div class="transport-info">
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm8.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM18 11H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">지하철</div>
+                            <div class="transport-detail">
+                                2호선 센텀시티역 3번 출구 (도보 5분)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">버스</div>
+                            <div class="transport-detail">
+                                1001, 1002, 1003번 시내버스<br>
+                                307, 1157번 간선버스<br>
+                                센텀시티 정류장 하차 (도보 3분)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">자동차</div>
+                            <div class="transport-detail">
+                                "센텀그랜드블랑" 검색<br>
+                                건물내 주차장 이용 (2시간 무료)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-buttons">
+                    <button class="map-btn" onclick="copyAddress()">주소 복사</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 갤러리 -->
+        <div id="area6" idx="6" class="templatearea">
+            <div class="gallery-section">
+                <h2>갤러리</h2>
+                <div class="gallery-slider">
+                    <button class="gallery-nav prev" onclick="prevSlide()">‹</button>
+                    <button class="gallery-nav next" onclick="nextSlide()">›</button>
+                    <div class="gallery-container" id="galleryContainer">
+                        <div class="gallery-item" onclick="openGallery(1)">
+                            <img src="images/yul_image_1.jpg" alt="사진 1">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(2)">
+                            <img src="images/yul_image_2.jpg" alt="사진 2">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(3)">
+                            <img src="images/yul_image_3.jpg" alt="사진 3">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(4)">
+                            <img src="images/yul_image_4.jpg" alt="사진 4">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(5)">
+                            <img src="images/yul_image_5.jpg" alt="사진 5">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(6)">
+                            <img src="images/yul_image_6.jpg" alt="사진 6">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(7)">
+                            <img src="images/yul_image_7.jpg" alt="사진 7">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(8)">
+                            <img src="images/yul_image_8.jpg" alt="사진 8">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(9)">
+                            <img src="images/yul_image_9.jpg" alt="사진 9">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(10)">
+                            <img src="images/yul_image_10.jpg" alt="사진 10">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(11)">
+                            <img src="images/yul_image_11.jpg" alt="사진 11">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(12)">
+                            <img src="images/yul_image_12.jpg" alt="사진 12">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(13)">
+                            <img src="images/yul_image_13.jpg" alt="사진 13">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(14)">
+                            <img src="images/yul_image_14.jpg" alt="사진 14">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(15)">
+                            <img src="images/yul_image_15.jpg" alt="사진 15">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(16)">
+                            <img src="images/yul_image_16.jpg" alt="사진 16">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(17)">
+                            <img src="images/yul_image_17.jpg" alt="사진 17">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(18)">
+                            <img src="images/yul_image_18.jpg" alt="사진 18">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(19)">
+                            <img src="images/yul_image_19.jpg" alt="사진 19">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(20)">
+                            <img src="images/yul_image_20.jpg" alt="사진 20">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-dots" id="galleryDots">
+                    <!-- JavaScript로 동적 생성 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 마음전하기 -->
+        <div id="area7" idx="7" class="templatearea">
+            <div class="gift-section">
+                <h2>마음 전하기</h2>
+                <div class="gift-message">
+                    참석이 어려우신 분들을 위해<br>
+                    온라인으로 축하의 마음을 전해보세요
+                </div>
+                <div class="gift-buttons">
+                    <button class="gift-btn" onclick="openAccountInfo('groom')">신랑측 계좌번호</button>
+                    <button class="gift-btn" onclick="openAccountInfo('bride')">신부측 계좌번호</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 연락처 모달 -->
+    <div id="contactModal" class="contact-modal hidden" onclick="closeContactModal(event)">
+        <div class="contact-panel" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">신랑 연락처</div>
+            </div>
+
+            <div class="contact-list" id="contactList">
+                <!-- 연락처 목록이 여기에 동적으로 추가됩니다 -->
+            </div>
+
+            <button class="modal-close" onclick="closeContactModal()">닫기</button>
+        </div>
+    </div>
+
+    <!-- 갤러리 확대 모달 -->
+    <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal(event)">
+        <div class="gallery-modal-content" onclick="event.stopPropagation()">
+            <button class="gallery-modal-close" onclick="closeGalleryModal()">×</button>
+            <button class="gallery-modal-nav gallery-modal-prev" onclick="prevGalleryImage()">‹</button>
+            <img id="galleryModalImage" src="" alt="확대 이미지">
+            <button class="gallery-modal-nav gallery-modal-next" onclick="nextGalleryImage()">›</button>
+        </div>
+    </div>
+
+    <script>
+        // 연락처 데이터
+        const CONTACT_DATA = {
+            groom: {
+                title: '신랑 연락처',
+                contacts: [
+                    { role: '신랑', name: '김병찬', phone: '010-1234-5678' },
+                    { role: '아버지', name: '김○○', phone: '010-1111-2222' },
+                    { role: '어머니', name: '박○○', phone: '010-3333-4444' }
+                ]
+            },
+            bride: {
+                title: '신부 연락처',
+                contacts: [
+                    { role: '신부', name: '조유림', phone: '010-8765-4321' },
+                    { role: '어머니', name: '이○○', phone: '010-7777-8888' }
+                ]
+            }
+        };
+
+        // 연락처 모달 열기
+        function openContactModal(side) {
+            console.log('모달 열기:', side);
+
+            const data = CONTACT_DATA[side];
+            const modal = document.getElementById('contactModal');
+            const title = document.getElementById('modalTitle');
+            const contactList = document.getElementById('contactList');
+
+            if (!modal || !title || !contactList) {
+                console.error('모달 요소를 찾을 수 없습니다');
+                return;
+            }
+
+            title.textContent = data.title;
+
+            // 연락처 목록 생성
+            contactList.innerHTML = data.contacts.map(contact => `
+                <div class="contact-item">
+                    <div class="contact-info">
+                        <div class="contact-role">${contact.role} 연락처</div>
+                    </div>
+                    <div class="contact-actions">
+                       <button class="action-btn call" onclick="makeCall('${contact.phone}')" title="전화걸기">
+                            <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path fill="currentColor" d="m54.048 43.653-3.928 6.122a7.725 7.725 0 0 0 .829 9.434l8.566 9.277 9.277 8.566a7.726 7.726 0 0 0 9.434.829l6.638-4.259 16.65 17.219-6.748 8.553a8.839 8.839 0 0 1 -9.277 3.039c-13.659-3.633-25.501-11.763-36.672-23.25-11.487-11.171-19.617-23.013-23.251-36.672a8.84 8.84 0 0 1 3.04-9.276l8.605-6.79z"></path>
+                                    <path fill="currentColor" d="m85.054 73.5-1 .641 17.126 17.123.375-.475a5.5 5.5 0 0 0 -.434-7.3l-9.237-9.237a5.493 5.493 0 0 0 -6.83-.752z"></path>
+                                    <path fill="currentColor" d="m37.212 26.445-.475.375 17.123 17.125.641-1a5.493 5.493 0 0 0 -.75-6.829l-9.237-9.237a5.5 5.5 0 0 0 -7.302-.434z"></path>
+                                </g>
+                            </svg>
+                        </button>
+                        <button class="action-btn sms" onclick="sendSMS('${contact.phone}', '${contact.name}')" title="문자보내기">
+                            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M18 5.5C11.1 5.5 5.5 11.1 5.5 18c0 1.925.45 3.725 1.2125 5.3625L4.25 31.75l8.3875-2.4625C14.275 30.05 16.075 30.5 18 30.5c6.9 0 12.5-5.6 12.5-12.5S24.9 5.5 18 5.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 연락처 모달 닫기
+        function closeContactModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+
+            const modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // 전화걸기
+        function makeCall(phoneNumber) {
+            const cleanNumber = phoneNumber.replace(/-/g, '');
+            window.location.href = `tel:${cleanNumber}`;
+        }
+
+        // 문자보내기
+        function sendSMS(phoneNumber, personName) {
+            const cleanNumber = phoneNumber.replace(/-/g, '');
+            const defaultMessage = `안녕하세요! 김병찬♥조유림 결혼식 관련하여 연락드립니다.`;
+            const encodedMessage = encodeURIComponent(defaultMessage);
+
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                window.location.href = `sms:${cleanNumber}?body=${encodedMessage}`;
+            } else {
+                alert(`${personName}님께 문자를 보내려면\n휴대폰에서 ${phoneNumber}로\n문자를 보내주세요.\n\n추천 메시지:\n${defaultMessage}`);
+            }
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeContactModal();
+            }
+        });
+
+        // 갤러리 슬라이더 변수
+        let currentSlide = 0;
+        const totalSlides = 20;
+
+        // 갤러리 슬라이더 초기화
+        function initGallerySlider() {
+            createDots();
+            updateSlider();
+        }
+
+        // 도트 생성
+        function createDots() {
+            const dotsContainer = document.getElementById('galleryDots');
+            dotsContainer.innerHTML = '';
+
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'gallery-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // 슬라이더 업데이트
+        function updateSlider() {
+            const container = document.getElementById('galleryContainer');
+            const dots = document.querySelectorAll('.gallery-dot');
+            const prevBtn = document.querySelector('.gallery-nav.prev');
+            const nextBtn = document.querySelector('.gallery-nav.next');
+
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+
+            // 버튼 비활성화 처리
+            if (prevBtn && nextBtn) {
+                prevBtn.classList.toggle('disabled', currentSlide === 0);
+                nextBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
+            }
+        }
+
+        // 다음 슬라이드
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlider();
+            }
+        }
+
+        // 이전 슬라이드
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+
+        // 특정 슬라이드로 이동
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        // 갤러리 열기 함수
+        function openGallery(photoNumber) {
+            alert(`사진 ${photoNumber}을 큰 화면으로 보여줍니다.\n(실제 구현시 이미지 뷰어 팝업)`);
+        }
+
+        // 계좌정보 보기 함수
+        function openAccountInfo(side) {
+            let accounts = [];
+            let title = '';
+
+            if (side === 'groom') {
+                title = '신랑측 계좌정보';
+                accounts = [
+                    { bank: '국민은행', number: '123-456-789012', holder: '김병찬' },
+                    { bank: '농협은행', number: '987-654-321098', holder: '김○○(아버지)' }
+                ];
+            } else {
+                title = '신부측 계좌정보';
+                accounts = [
+                    { bank: '우리은행', number: '456-789-123456', holder: '조유림' },
+                    { bank: '신한은행', number: '654-321-987654', holder: '조○○(아버지)' }
+                ];
+            }
+
+            let accountList = accounts.map((account, index) =>
+                `${index + 1}. ${account.bank} ${account.number} (${account.holder})`
+            ).join('\n');
+
+            let selectedAccount = prompt(`${title}\n\n${accountList}\n\n복사할 계좌번호를 선택하세요 (1-${accounts.length}):`);
+
+            if (selectedAccount && selectedAccount >= 1 && selectedAccount <= accounts.length) {
+                const account = accounts[selectedAccount - 1];
+
+                // 클립보드 복사
+                navigator.clipboard.writeText(account.number).then(() => {
+                    alert(`계좌번호가 복사되었습니다.\n${account.bank} ${account.number}`);
+                }).catch(() => {
+                    alert(`${account.bank} ${account.number}\n\n위 계좌번호를 직접 복사해서 사용해주세요.`);
+                });
+            }
+        }
+
+        // 달력 관련 변수
+        let currentDate = new Date(2025, 10, 1); // 2025년 11월 1일로 고정 (월은 0부터 시작)
+        const weddingDate = new Date(2025, 10, 22); // 2025년 11월 22일 (월은 0부터 시작)
+
+        // 달력 초기화
+        function initCalendar() {
+            updateCalendar();
+        }
+
+        // 달력 업데이트
+        function updateCalendar() {
+            const calendarGrid = document.getElementById('calendarGrid');
+            const calendarMonth = document.getElementById('calendarMonth');
+
+            if (!calendarGrid || !calendarMonth) return;
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            // 월 표시 업데이트
+            calendarMonth.textContent = `${year}년 ${month + 1}월`;
+
+            // 달력 그리드 초기화
+            calendarGrid.innerHTML = '';
+
+            // 요일 헤더 추가
+            const dayHeaders = ['일', '월', '화', '수', '목', '금', '토'];
+            dayHeaders.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'calendar-day-header';
+                dayHeader.textContent = day;
+                calendarGrid.appendChild(dayHeader);
+            });
+
+            // 해당 월의 첫 번째 날과 마지막 날
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const firstDayOfWeek = firstDay.getDay();
+            const daysInMonth = lastDay.getDate();
+
+            // 이전 달의 마지막 날들
+            const prevMonth = new Date(year, month, 0);
+            const daysInPrevMonth = prevMonth.getDate();
+
+            for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+                const dayElement = createDayElement(daysInPrevMonth - i, true);
+                calendarGrid.appendChild(dayElement);
+            }
+
+            // 현재 달의 날들
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = createDayElement(day, false);
+                calendarGrid.appendChild(dayElement);
+            }
+
+            // 다음 달의 첫 번째 날들 (총 42개 셀을 맞추기 위해)
+            const totalCells = 42; // 6주 * 7일
+            const remainingCells = totalCells - (firstDayOfWeek + daysInMonth);
+
+            for (let day = 1; day <= remainingCells; day++) {
+                const dayElement = createDayElement(day, true);
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+
+        // 날짜 요소 생성
+        function createDayElement(day, isOtherMonth) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.textContent = day;
+
+            if (isOtherMonth) {
+                dayElement.classList.add('other-month');
+            } else {
+                const currentDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+
+                // 결혼식 날짜 체크
+                if (currentDay.toDateString() === weddingDate.toDateString()) {
+                    dayElement.classList.add('wedding-day');
+                    dayElement.title = '김병찬♥조유림 결혼식';
+                }
+            }
+
+            // 날짜 클릭 이벤트
+            dayElement.addEventListener('click', () => {
+                if (!isOtherMonth) {
+                    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+                    showDateInfo(selectedDate);
+                }
+            });
+
+            return dayElement;
+        }
+
+        // 월 변경 (결혼식 달로 고정)
+        function changeMonth(direction) {
+            // 결혼식 달(11월)로 고정하므로 월 변경 비활성화
+            return;
+        }
+
+        // 날짜 정보 표시
+        function showDateInfo(date) {
+            const dateString = date.toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            });
+
+            if (date.toDateString() === weddingDate.toDateString()) {
+                alert(`${dateString}\n\n💒 김병찬♥조유림 결혼식\n오후 2시 - 센텀 그랜드 블랑`);
+            } else {
+                alert(`${dateString}\n\n선택하신 날짜입니다.`);
+            }
+        }
+
+        // 페이지 로드 시 달력 초기화
+        document.addEventListener('DOMContentLoaded', function () {
+            initCalendar();
+            initMap();
+            initCountdown();
+            initGallerySlider();
+            initScrollAnimations();
+        });
+
+        // 카카오맵 초기화
+        function initMap() {
+            // 카카오맵 API가 로드되었는지 확인
+            if (typeof kakao === 'undefined') {
+                console.log('카카오맵 API가 로드되지 않았습니다. API 키를 확인해주세요.');
+                showMapPlaceholder();
+                return;
+            }
+
+            const container = document.getElementById('map');
+            const options = {
+                center: new kakao.maps.LatLng(35.1681, 129.1301), // 센텀시티역 근처 좌표
+                level: 3
+            };
+
+            const map = new kakao.maps.Map(container, options);
+
+            // 마커 생성
+            const markerPosition = new kakao.maps.LatLng(35.1681, 129.1301);
+            const marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+
+            marker.setMap(map);
+
+            // 인포윈도우 생성
+            const infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="padding:10px; text-align:center; font-size:14px; font-weight:bold;">센텀 그랜드 블랑<br>3층</div>'
+            });
+
+            // 마커 클릭 시 인포윈도우 표시
+            kakao.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+            // 지도 클릭 시 인포윈도우 닫기
+            kakao.maps.event.addListener(map, 'click', function () {
+                infowindow.close();
+            });
+        }
+
+        // 지도 플레이스홀더 표시 (API 로드 실패 시)
+        function showMapPlaceholder() {
+            const mapContainer = document.getElementById('map');
+            mapContainer.innerHTML = `
+                <div style="
+                    width: 100%; 
+                    height: 100%; 
+                    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                    display: flex; 
+                    flex-direction: column;
+                    align-items: center; 
+                    justify-content: center;
+                    color: #666;
+                    font-size: 16px;
+                    text-align: center;
+                ">
+                    <div style="font-size: 24px; margin-bottom: 10px;">🗺️</div>
+                    <div>센텀 그랜드 블랑</div>
+                    <div style="font-size: 14px; margin-top: 5px;">부산광역시 해운대구 센텀중앙로 79</div>
+                    <div style="font-size: 12px; margin-top: 10px; color: #999;">
+                        카카오맵 API 키를 설정하면<br>실제 지도가 표시됩니다
+                    </div>
+                </div>
+            `;
+        }
+
+        // 네이버맵으로 길찾기
+        function openNaverMap() {
+            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
+            const encodedAddress = encodeURIComponent(address);
+            const naverMapUrl = `https://map.naver.com/v5/search/${encodedAddress}`;
+
+            window.open(naverMapUrl, '_blank');
+        }
+
+        // 카카오맵으로 길찾기
+        function openKakaoMap() {
+            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
+            const encodedAddress = encodeURIComponent(address);
+            const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
+
+            window.open(kakaoMapUrl, '_blank');
+        }
+
+        // 티맵으로 길찾기
+        function openTmap() {
+            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
+            const encodedAddress = encodeURIComponent(address);
+            const tmapUrl = `https://tmapapi.sktelecom.com/main/mobile/web/search/search.html?searchKeyword=${encodedAddress}`;
+
+            window.open(tmapUrl, '_blank');
+        }
+
+        // 주소 복사
+        function copyAddress() {
+            const address = '부산광역시 해운대구 센텀중앙로 79 센텀그랜드블랑 3층';
+            navigator.clipboard.writeText(address).then(() => {
+                alert('주소가 복사되었습니다!\n' + address);
+            }).catch(() => {
+                alert('주소 복사에 실패했습니다.\n\n' + address + '\n\n위 주소를 직접 복사해서 사용해주세요.');
+            });
+        }
+
+        // 스크롤 애니메이션 초기화
+        function initScrollAnimations() {
+            let lastScrollY = window.scrollY;
+            let isScrollingDown = true;
+
+            const observerOptions = {
+                threshold: 0.1, // 요소가 10% 보일 때 트리거
+                rootMargin: '0px 0px -50px 0px' // 아래쪽 50px 여유를 두고 트리거
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && isScrollingDown) {
+                        // 아래로 스크롤할 때만 애니메이션 클래스 추가
+                        entry.target.classList.add('visible');
+                    } else if (!entry.isIntersecting && !isScrollingDown) {
+                        // 위로 스크롤할 때는 애니메이션 클래스 제거하지 않음 (고정)
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // 스크롤 방향 감지
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                isScrollingDown = currentScrollY > lastScrollY;
+                lastScrollY = currentScrollY;
+            });
+
+            // 모든 섹션 관찰 시작
+            const sections = [
+                'area2',    // INVITATION
+                'area3',    // 신랑신부 소개
+                'area4',    // 연락처
+                'area4-5',  // 달력
+                'area5',    // 오시는 길
+                'area6',    // 갤러리
+                'area7'     // 마음전하기
+            ];
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    observer.observe(section);
+                }
+            });
+        }
+
+        // 카운트다운 초기화
+        function initCountdown() {
+            // 결혼식 날짜 설정 (2025년 11월 22일)
+            const weddingDate = new Date(2025, 10, 22);
+            const today = new Date();
+
+            // 시간을 00:00:00으로 설정하여 정확한 일수 계산
+            today.setHours(0, 0, 0, 0);
+            weddingDate.setHours(0, 0, 0, 0);
+
+            // 날짜 차이 계산 (밀리초 단위)
+            const timeDiff = weddingDate.getTime() - today.getTime();
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+            // DOM 요소 가져오기
+            const countdownTitle = document.getElementById('countdownTitle');
+            const countdownDays = document.getElementById('countdownDays');
+            const countdownText = document.querySelector('.countdown-text');
+
+            // 날짜 상태에 따른 분기 처리
+            if (daysDiff > 0) {
+                // 결혼식이 아직 남은 경우
+                countdownTitle.textContent = '김병찬♥조유림 결혼식까지';
+                countdownDays.textContent = daysDiff;
+                countdownText.textContent = '일 남았습니다';
+            } else if (daysDiff === 0) {
+                // 결혼식 당일
+                countdownTitle.textContent = '김병찬♥조유림';
+                countdownDays.textContent = '';
+                countdownText.textContent = '오늘 결혼합니다!';
+            } else {
+                // 결혼식이 지난 경우
+                const daysPassed = Math.abs(daysDiff);
+                countdownTitle.textContent = '김병찬♥조유림 결혼식이';
+                countdownDays.textContent = daysPassed;
+                countdownText.textContent = '일 지났습니다';
+            }
+        }
+    </script>
+</body>
+
+</html>
