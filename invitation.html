@@ -2995,6 +2995,17 @@
             });
         }
 
+        function toGCalDate(d) {
+            const pad = n => String(n).padStart(2, '0');
+            const y = d.getUTCFullYear();
+            const m = pad(d.getUTCMonth()+1);
+            const day = pad(d.getUTCDate());
+            const hh = pad(d.getUTCHours());
+            const mm = pad(d.getUTCMinutes());
+            const ss = pad(d.getUTCSeconds());
+            return `${y}${m}${day}T${hh}${mm}${ss}Z`;   // YYYYMMDDTHHMMSSZ
+            }
+
         function addToCalendar() {
             const title = '김병찬♥조유림 결혼식';
             const description = '김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79';
@@ -3007,8 +3018,30 @@
             // Android 기기 확인
             const isAndroid = /Android/.test(navigator.userAgent);
 
+            const startZ = toGCalDate(new Date('2025-11-22T16:00:00+09:00')); // 20251122T070000Z
+            const endZ   = toGCalDate(new Date('2025-11-22T18:00:00+09:00')); // 20251122T090000Z
+
+            const desc  = '소중한 날 함께 해주세요.';
+            const loc   = '서울 ○○웨딩홀';
+
+            const gcalApp = `comgooglecalendar://?action=create&text=${encodeURIComponent(title)}&details=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}&dates=${startZ}/${endZ}`;
+            const gcalWeb = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}&dates=${startZ}/${endZ}`;
+            const icsUrl  = 'https://madebyjin.cloud/wedding.ics';
+
+
             if (isIOS) {
-                window.open('https://madebyjin.cloud/wedding.ics', '_blank', 'noopener');
+                window.location.href = gcalApp;
+
+                // 2) 앱 미설치/차단 시 폴백: 구글 캘린더 웹
+                setTimeout(() => {
+                const w = window.open(gcalWeb, '_blank', 'noopener');
+
+                // 3) 인앱 웹뷰 등에서 계정/쿠키 제약으로 웹 작성이 막히면 최종 폴백: ICS (애플 캘린더)
+                setTimeout(() => {
+                    if (!w || w.closed) window.open(icsUrl, '_blank', 'noopener');
+                }, 1200);
+                }, 500);
+               // window.open('https://madebyjin.cloud/wedding.ics', '_blank', 'noopener');
 
                 // iOS: Google Calendar 앱이 있으면 앱으로, 없으면 웹으로
                 //const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
