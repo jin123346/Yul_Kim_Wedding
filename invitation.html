@@ -27,6 +27,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- 카카오 SDK -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" integrity="sha384-6MFdIr0zOira1DhwGGYZxzdEhXwKHJ3K1pTDQ/VVp8p7ZFc6o/SkwNR1drNyBzFa" crossorigin="anonymous"></script>
     <!-- 카카오맵 API -->
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
@@ -1914,12 +1915,7 @@
                         </div>
                     </div>
                     <div class="calendar-add">
-                        <button class="calendar-add-btn" onclick="addToCalendar()">
-                            <svg viewBox="0 0 24 24" width="16" height="16" style="margin-right: 8px;">
-                                <path fill="currentColor" d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A2,2,0,0,0,3,6V20a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V6A2,2,0,0,0,19,4Zm0,16H5V10H19ZM5,8V6H19V8Z"/>
-                            </svg>
-                            캘린더에 일정 추가
-                        </button>
+                        <div id="kakao-calendar-button"></div>
                     </div>
                 </div>
 
@@ -2682,7 +2678,20 @@
         function initKakao() {
             Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
 
-            Kakao.Link.createDefaultButton({
+            // 톡캘린더 공유하기
+            Kakao.Calendar.createShareButton({
+                container: '#kakao-calendar-button',
+                id: 'wedding-calendar-' + new Date().getTime(),
+                title: '김병찬♥조유림 결혼식',
+                start: '2025-11-22T16:00:00',
+                end: '2025-11-22T18:00:00',
+                location: '센텀 그랜드블랑 7층 퀸덤홀',
+                address: '부산광역시 해운대구 센텀중앙로 79',
+                description: '김병찬♥조유림의 결혼식에 초대합니다.'
+            });
+
+            // 카카오톡 공유하기
+            Kakao.Share.createDefaultButton({
                 container: '#kakao-share-button',
                 objectType: 'feed',
                 content: {
@@ -2700,13 +2709,6 @@
                         link: {
                             mobileWebUrl: window.location.href,
                             webUrl: window.location.href
-                        }
-                    },
-                    {
-                        title: '일정 등록하기',
-                        link: {
-                            mobileWebUrl: 'webcal://' + window.location.host + '/wedding.ics',
-                            webUrl: 'webcal://' + window.location.host + '/wedding.ics'
                         }
                     }
                 ]
