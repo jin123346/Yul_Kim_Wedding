@@ -3013,7 +3013,7 @@
                 if (!Kakao.Auth.getAccessToken()) {
                     // 로그인이 안되어 있으면 로그인 페이지로
                     Kakao.Auth.authorize({
-                        redirectUri: window.location.href
+                        redirectUri: 'https://madebyjin.cloud/invitation.html'
                     });
                     return;
                 }
@@ -3048,7 +3048,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
                     body: new URLSearchParams({
-                        calendar_id: eventData.calendar_id,
+
                         event: JSON.stringify(eventData.event)
                     })
                 });
