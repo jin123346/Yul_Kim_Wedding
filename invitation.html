@@ -2024,12 +2024,12 @@
                             <div class="legend-color wedding-day"></div>
                             <span>결혼식</span>
                         </div>
-                        <a href="/wedding.ics" class="share-button">
+                        <button onclick="addToCalendar()" class="share-button">
                             <svg viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
                                 <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
                             </svg>
                             일정 등록하기
-                        </a>
+                        </button>
                     </div>
                 
                 </div>
@@ -2879,7 +2879,15 @@
             // 배경음악 초기화
             if (bgMusic) {
                 bgMusic.volume = 0.5; // 볼륨 설정
-                audioToggle.classList.add('muted'); // 초기 상태는 음소거
+                // 자동 재생 시도
+                bgMusic.play().then(() => {
+                    audioToggle.classList.remove('muted');
+                    isAudioPlaying = true;
+                }).catch(error => {
+                    console.log('자동 재생이 차단되었습니다:', error);
+                    audioToggle.classList.add('muted');
+                    isAudioPlaying = false;
+                });
             }
         });
 
@@ -2990,44 +2998,39 @@
         function addToCalendar() {
             const title = '김병찬♥조유림 결혼식';
             const description = '김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79';
-            const location = '센텀 그랜드블랑';
+            const location = '센텀 그랜드블랑 7층 퀸덤홀';
             const startDate = '20251122T160000';
             const endDate = '20251122T180000';
 
-            // Google Calendar
-            const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
+            // iOS 기기 확인
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            // Android 기기 확인
+            const isAndroid = /Android/.test(navigator.userAgent);
 
-            // iCal for Apple Calendar
-            const icalUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-URL:${document.URL}
-DTSTART:${startDate}
-DTEND:${endDate}
-SUMMARY:${title}
-DESCRIPTION:${description}
-LOCATION:${location}
-END:VEVENT
-END:VCALENDAR`;
-
-            // 모바일 기기 확인
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // iOS인 경우 Apple Calendar로, 그 외에는 Google Calendar로
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    window.open(icalUrl);
-                } else {
-                    window.open(googleUrl, '_blank');
-                }
+            if (isIOS) {
+                // iOS: webcal:// 프로토콜로 기본 캘린더 앱 열기
+                const webcalUrl = `webcal://madebyjin.cloud/wedding.ics`;
+                window.location.href = webcalUrl;
+            } else if (isAndroid) {
+                // Android: Google Calendar 앱 열기 시도
+                const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
+                
+                // 먼저 Google Calendar 앱으로 열기 시도
+                const intentUrl = `intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}#Intent;scheme=https;package=com.google.android.calendar;end`;
+                
+                // Intent URL 시도 후 실패하면 웹 URL로 폴백
+                const link = document.createElement('a');
+                link.href = intentUrl;
+                link.click();
+                
+                // 1초 후 웹 URL로 폴백
+                setTimeout(() => {
+                    window.open(googleCalendarUrl, '_blank');
+                }, 1000);
             } else {
-                // PC에서는 선택 옵션 제공
-                const choice = confirm('캘린더 선택:\\n확인 = Google Calendar\\n취소 = Apple Calendar');
-                if (choice) {
-                    window.open(googleUrl, '_blank');
-                } else {
-                    window.open(icalUrl);
-                }
+                // PC: Google Calendar 웹으로 열기
+                const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
+                window.open(googleUrl, '_blank');
             }
         }
 
