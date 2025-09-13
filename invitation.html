@@ -3008,25 +3008,25 @@
             const isAndroid = /Android/.test(navigator.userAgent);
 
             if (isIOS) {
-                // iOS: webcal:// 프로토콜로 기본 캘린더 앱 열기
-                const webcalUrl = `webcal://madebyjin.cloud/wedding.ics`;
-                window.location.href = webcalUrl;
-            } else if (isAndroid) {
-                // Android: Google Calendar 앱 열기 시도
+                window.open('https://madebyjin.cloud/wedding.ics', '_blank', 'noopener');
+
+                // iOS: Google Calendar 앱이 있으면 앱으로, 없으면 웹으로
+                //const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
+                
+                // Intent URL로 앱 열기 시도 (iOS도 지원)
+                //const intentUrl = `intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}#Intent;scheme=https;package=com.google.android.calendar;S.browser_fallback_url=${encodeURIComponent(googleCalendarUrl)};end`;
+                
+                // Intent URL 시도 (앱이 없으면 자동으로 웹으로 폴백)
+                //window.location.href = intentUrl;
+            } else if (isAndroid) { 
+                // Android: Google Calendar 앱이 있으면 앱으로, 없으면 웹으로
                 const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
                 
-                // 먼저 Google Calendar 앱으로 열기 시도
-                const intentUrl = `intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}#Intent;scheme=https;package=com.google.android.calendar;end`;
+                // Intent URL로 앱 열기 시도
+                const intentUrl = `intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}#Intent;scheme=https;package=com.google.android.calendar;S.browser_fallback_url=${encodeURIComponent(googleCalendarUrl)};end`;
                 
-                // Intent URL 시도 후 실패하면 웹 URL로 폴백
-                const link = document.createElement('a');
-                link.href = intentUrl;
-                link.click();
-                
-                // 1초 후 웹 URL로 폴백
-                setTimeout(() => {
-                    window.open(googleCalendarUrl, '_blank');
-                }, 1000);
+                // Intent URL 시도 (앱이 없으면 자동으로 웹으로 폴백)
+                window.location.href = intentUrl;
             } else {
                 // PC: Google Calendar 웹으로 열기
                 const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
