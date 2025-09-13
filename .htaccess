@@ -1,7 +1,6 @@
 AddType text/calendar;charset=UTF-8;component=vevent .ics
-Header set Content-Disposition "attachment; filename=wedding.ics"
-Header set X-Robots-Tag "noindex"
 
 <FilesMatch "\.ics$">
     Header set Content-Type "text/calendar;charset=UTF-8"
+    Header set Content-Disposition "attachment; filename=wedding.ics"
 </FilesMatch>

@@ -1,10 +1,8 @@
 BEGIN:VCALENDAR
-PRODID:-//madebyjin//Wedding Calendar//KR
 VERSION:2.0
+PRODID:-//madebyjin.cloud//Wedding Calendar//KR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:김병찬♥조유림 결혼식
-X-WR-TIMEZONE:Asia/Seoul
 BEGIN:VTIMEZONE
 TZID:Asia/Seoul
 BEGIN:STANDARD
@@ -19,12 +17,12 @@ DTSTAMP:20250913T000000Z
 DTSTART;TZID=Asia/Seoul:20251122T160000
 DTEND;TZID=Asia/Seoul:20251122T180000
 SUMMARY:김병찬♥조유림 결혼식
-DESCRIPTION:김병찬♥조유림의 결혼식에 초대합니다.\n\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79
+DESCRIPTION:김병찬♥조유림의 결혼식에 초대합니다.\n\n일시: 2025년 11월 22일 토요일 오후 4시\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79
 LOCATION:센텀 그랜드블랑 7층 퀸덤홀
 URL:https://madebyjin.cloud/
 STATUS:CONFIRMED
 CATEGORIES:WEDDING
 GEO:35.1681;129.1301
-X-ALT-DESC;FMTTYPE=text/html:<p>김병찬♥조유림의 결혼식에 초대합니다.</p><p>장소: 센텀 그랜드블랑 7층 퀸덤홀<br>주소: 부산광역시 해운대구 센텀중앙로 79</p>
+X-ALT-DESC;FMTTYPE=text/html:<p>김병찬♥조유림의 결혼식에 초대합니다.</p><p>일시: 2025년 11월 22일 토요일 오후 4시<br>장소: 센텀 그랜드블랑 7층 퀸덤홀<br>주소: 부산광역시 해운대구 센텀중앙로 79</p>
 END:VEVENT
 END:VCALENDAR
