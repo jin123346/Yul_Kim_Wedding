@@ -3019,23 +3019,15 @@
         // 카카오 캘린더 API로 일정 생성
         async function createKakaoCalendarEvent() {
             try {
-                // 카카오 로그인 확인
-                // if (!Kakao.Auth.getAccessToken()) {
-                //     // 로그인이 안되어 있으면 로그인 페이지로
-                //     Kakao.Auth.authorize({
-                //         redirectUri: 'https://madebyjin.cloud/invitation.html',
-                //         success: function(authObj) {
-                //             // 로그인 성공 후 일정 생성 재시도
-                //             createKakaoCalendarEvent();
-                //         },
-                //         fail: function(err) {
-                //             console.error('카카오 로그인 실패:', err);
-                //             // 로그인 실패 시 기존 방식으로 폴백
-                //             addToCalendarFallback();
-                //         }
-                //     });
-                //     return;
-                // }
+                // 액세스 토큰 확인
+                const accessToken = Kakao.Auth.getAccessToken();
+                console.log('Access Token:', accessToken);
+                
+                if (!accessToken) {
+                    console.log('액세스 토큰이 없습니다. 기존 방식으로 폴백합니다.');
+                    addToCalendarFallback();
+                    return;
+                }
 
                 const eventData = {
                     event: {
@@ -3134,8 +3126,15 @@
         }
 
         function addToCalendar() {
-            // 카카오 캘린더 API 시도
-            createKakaoCalendarEvent();
+            // 카카오톡 앱 내에서는 기존 방식 사용 (액세스 토큰 문제)
+            if (navigator.userAgent.includes('KAKAOTALK')) {
+                console.log('카카오톡 앱 내에서 실행 - 기존 방식 사용');
+                addToCalendarFallback();
+            } else {
+                // 웹 브라우저에서는 카카오 캘린더 API 시도
+                console.log('웹 브라우저에서 실행 - 카카오 API 시도');
+                createKakaoCalendarEvent();
+            }
         }
 
         // 스크롤 애니메이션 초기화
