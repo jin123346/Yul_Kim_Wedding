@@ -2812,6 +2812,127 @@
             isAudioPlaying = !isAudioPlaying;
         }
 
+        // 일정 생성 및 공유
+        async function createCalendarEvent() {
+            try {
+                // 카카오 로그인 확인
+                if (!Kakao.Auth.getAccessToken()) {
+                    // 로그인이 필요한 경우
+                    Kakao.Auth.login({
+                        success: function(authObj) {
+                            console.log('카카오 로그인 성공');
+                            createEventAndShare();
+                        },
+                        fail: function(err) {
+                            console.error('카카오 로그인 실패:', err);
+                            showLoginRequired();
+                        }
+                    });
+                } else {
+                    // 이미 로그인된 경우
+                    createEventAndShare();
+                }
+            } catch (error) {
+                console.error('일정 생성 오류:', error);
+                showLoginRequired();
+            }
+        }
+
+        // 실제 일정 생성 및 공유
+        async function createEventAndShare() {
+            try {
+                const eventData = {
+                    title: '김병찬♥조유림 결혼식',
+                    description: '김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79',
+                    start_at: '2025-11-22T07:00:00Z',
+                    end_at: '2025-11-22T09:00:00Z',
+                    time_zone: 'Asia/Seoul',
+                    all_day: false,
+                    location: {
+                        name: '센텀 그랜드블랑 7층 퀸덤홀',
+                        address: '부산광역시 해운대구 센텀중앙로 79',
+                        latitude: 35.1681,
+                        longitude: 129.1301
+                    }
+                };
+
+                // 일정 생성 API 호출
+                const response = await fetch('https://kapi.kakao.com/v2/calendar/events', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${Kakao.Auth.getAccessToken()}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(eventData)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('일정 생성 성공:', result);
+                    
+                    // 생성된 일정으로 공유 버튼 생성
+                    createShareButton(result.id);
+                } else {
+                    console.error('일정 생성 실패:', response.status);
+                    showLoginRequired();
+                }
+            } catch (error) {
+                console.error('일정 생성 중 오류:', error);
+                showLoginRequired();
+            }
+        }
+
+        // 공유 버튼 생성
+        function createShareButton(eventId) {
+            Kakao.Share.createDefaultButton({
+                container: '#kakao-calendar-button',
+                objectType: 'calendar',
+                idType: 'event',
+                id: eventId,
+                content: {
+                    title: '김병찬♥조유림 결혼식',
+                    description: '김병찬♥조유림의 결혼식에 초대합니다.',
+                    imageUrl: 'https://madebyjin.cloud/images/thumbnail.png',
+                    link: {
+                        webUrl: window.location.href,
+                        mobileWebUrl: window.location.href,
+                    },
+                },
+                buttons: [
+                    {
+                        title: '청첩장 보기',
+                        link: {
+                            webUrl: window.location.href,
+                            mobileWebUrl: window.location.href,
+                        },
+                    },
+                ],
+            });
+        }
+
+        // 로그인 필요 메시지 표시
+        function showLoginRequired() {
+            const button = document.getElementById('kakao-calendar-button');
+            if (button) {
+                button.innerHTML = `
+                    <svg viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
+                        <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                    </svg>
+                    카카오 로그인 후 일정 등록
+                `;
+                button.onclick = function() {
+                    Kakao.Auth.login({
+                        success: function(authObj) {
+                            location.reload();
+                        },
+                        fail: function(err) {
+                            alert('카카오 로그인에 실패했습니다.');
+                        }
+                    });
+                };
+            }
+        }
+
         // 카카오톡 공유 초기화
         function initKakao() {
             Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
@@ -2840,31 +2961,8 @@
                 ]
             });
 
-            // 카카오톡 캘린더 공유하기
-            Kakao.Share.createDefaultButton({
-                container: '#kakao-calendar-button',
-                objectType: 'calendar',
-                idType: 'event',
-                id: 'wedding-20251122',
-                content: {
-                    title: '김병찬♥조유림 결혼식',
-                    description: '김병찬♥조유림의 결혼식에 초대합니다.',
-                    imageUrl: 'https://madebyjin.cloud/images/thumbnail.png',
-                    link: {
-                        webUrl: window.location.href,
-                        mobileWebUrl: window.location.href,
-                    },
-                },
-                buttons: [
-                    {
-                        title: '청첩장 보기',
-                        link: {
-                            webUrl: window.location.href,
-                            mobileWebUrl: window.location.href,
-                        },
-                    },
-                ],
-            });
+            // 카카오톡 캘린더 공유하기 (일정 생성 후 공유)
+            createCalendarEvent();
         }
 
         // 페이지 로드 시 초기화
