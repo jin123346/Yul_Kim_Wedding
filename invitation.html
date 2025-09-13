@@ -57,8 +57,7 @@
     }
     </script>
     <!-- 카카오 SDK -->
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" integrity="sha384-6MFdIr0zOira1DhwGGYZxzdEhXwKHJ3K1pTDQ/VVp8p7ZFc6o/SkwNR1drNyBzFa" crossorigin="anonymous"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js" integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm" crossorigin="anonymous"></script>
     <!-- 카카오맵 API -->
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
@@ -2791,24 +2790,22 @@
             });
 
             // 카카오톡 공유하기
-            Kakao.Share.createDefaultButton({
+            Kakao.Share.createCustomButton({
                 container: '#kakao-share-button',
-                objectType: 'feed',
-                content: {
-                    title: '김병찬♥조유림 결혼식합니다.',
-                    description: '11월 22일 오후 4시',
-                    imageUrl: 'https://madebyjin.cloud/images/thumbnail.png',
-                    link: {
-                        mobileWebUrl: window.location.href,
-                        webUrl: window.location.href
-                    }
+                templateId: 124302,
+                templateArgs: {
+                    title: '김병찬♥조유림 결혼식',
+                    description: '2025년 11월 22일 토요일 오후 4시\n센텀 그랜드블랑 7층 퀸덤홀',
+                    image: 'https://madebyjin.cloud/images/thumbnail.png',
+                    link: window.location.href,
+                    btntext: '일정 등록하기'
                 },
                 buttons: [
                     {
-                        title: '청첩장 보기',
+                        title: '일정 등록하기',
                         link: {
-                            mobileWebUrl: window.location.href,
-                            webUrl: window.location.href
+                            mobileWebUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=김병찬♥조유림+결혼식&details=김병찬♥조유림의+결혼식에+초대합니다.%0A장소:+센텀+그랜드블랑+7층+퀸덤홀%0A주소:+부산광역시+해운대구+센텀중앙로+79&location=센텀+그랜드블랑&dates=20251122T070000Z/20251122T090000Z',
+                            webUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=김병찬♥조유림+결혼식&details=김병찬♥조유림의+결혼식에+초대합니다.%0A장소:+센텀+그랜드블랑+7층+퀸덤홀%0A주소:+부산광역시+해운대구+센텀중앙로+79&location=센텀+그랜드블랑&dates=20251122T070000Z/20251122T090000Z'
                         }
                     }
                 ]
