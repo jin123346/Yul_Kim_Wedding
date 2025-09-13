@@ -57,6 +57,7 @@
     }
     </script>
     <!-- 카카오 SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js" integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm" crossorigin="anonymous"></script>
     <!-- 카카오맵 API -->
     <script type="text/javascript"
@@ -2811,10 +2812,27 @@
             }
             isAudioPlaying = !isAudioPlaying;
         }
+        async function ensureLogin() {
+            if (Kakao.Auth.getAccessToken()) return Kakao.Auth.getAccessToken();
+
+            return new Promise((resolve, reject) => {
+                Kakao.Auth.login({
+                scope: 'talk_calendar',            // ← 캘린더 권한 동의
+                success: (auth) => {
+                    Kakao.Auth.setAccessToken(auth.access_token); // SDK에 저장
+                    resolve(auth.access_token);
+                },
+                fail: reject
+                });
+            });
+            }
 
         // 카카오톡 공유 초기화
         function initKakao() {
             Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
+
+            ensureLogin();
+            
 
             // 카카오톡 공유하기
             Kakao.Share.createDefaultButton({
@@ -3015,6 +3033,8 @@
             const ss = pad(d.getUTCSeconds());
             return `${y}${m}${day}T${hh}${mm}${ss}Z`;   // YYYYMMDDTHHMMSSZ
             }
+
+            
 
         // 카카오 캘린더 API로 일정 생성
         async function createKakaoCalendarEvent() {
