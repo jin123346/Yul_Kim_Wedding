@@ -2783,16 +2783,34 @@
             Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
 
             // 카카오톡 공유하기
-            Kakao.Share.createCustomButton({
+            Kakao.Share.createDefaultButton({
                 container: '#kakao-share-button',
-                templateId: 124302,
-                templateArgs: {
+                objectType: 'feed',
+                content: {
                     title: '김병찬♥조유림 결혼식',
                     description: '2025년 11월 22일 토요일 오후 4시\n센텀 그랜드블랑 7층 퀸덤홀',
-                    image: 'https://madebyjin.cloud/images/thumbnail.png',
-                    link: window.location.href,
-                    calendarLink: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=김병찬♥조유림+결혼식&details=김병찬♥조유림의+결혼식에+초대합니다.%0A장소:+센텀+그랜드블랑+7층+퀸덤홀%0A주소:+부산광역시+해운대구+센텀중앙로+79&location=센텀+그랜드블랑&dates=20251122T070000Z/20251122T090000Z'
-                }
+                    imageUrl: 'https://madebyjin.cloud/images/thumbnail.png',
+                    link: {
+                        mobileWebUrl: window.location.href,
+                        webUrl: window.location.href
+                    }
+                },
+                buttons: [
+                    {
+                        title: '청첩장 보기',
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href
+                        }
+                    },
+                    {
+                        title: '일정 등록하기',
+                        link: {
+                            mobileWebUrl: 'https://madebyjin.cloud/calendar.html',
+                            webUrl: 'https://madebyjin.cloud/calendar.html'
+                        }
+                    }
+                ]
             });
         }
 

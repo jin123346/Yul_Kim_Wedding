@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 등록 - 김병찬♥조유림 결혼식</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --primary-hover: #34495e;
+            --primary-light: rgba(44, 62, 80, 0.08);
+            --primary-border: rgba(44, 62, 80, 0.15);
+            --primary-text: #2c3e50;
+            --secondary-text: #5a6c7d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--primary-text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .event-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--primary-light);
+            border-radius: 12px;
+        }
+
+        .event-info p {
+            margin: 10px 0;
+            color: var(--primary-text);
+        }
+
+        .calendar-buttons {
+            display: grid;
+            gap: 15px;
+        }
+
+        .calendar-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-border);
+            background: white;
+            color: var(--primary-text);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .calendar-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .calendar-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .calendar-button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>김병찬♥조유림 결혼식 일정 등록</h1>
+        
+        <div class="event-info">
+            <p><strong>일시:</strong> 2025년 11월 22일 토요일 오후 4시</p>
+            <p><strong>장소:</strong> 센텀 그랜드블랑 7층 퀸덤홀</p>
+            <p><strong>주소:</strong> 부산광역시 해운대구 센텀중앙로 79</p>
+        </div>
+
+        <div class="calendar-buttons">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=김병찬♥조유림+결혼식&details=김병찬♥조유림의+결혼식에+초대합니다.%0A장소:+센텀+그랜드블랑+7층+퀸덤홀%0A주소:+부산광역시+해운대구+센텀중앙로+79&location=센텀+그랜드블랑&dates=20251122T070000Z/20251122T090000Z" 
+               class="calendar-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar">
+                Google Calendar에 추가
+            </a>
+
+            <a href="https://outlook.live.com/calendar/0/action/compose?subject=김병찬♥조유림+결혼식&body=김병찬♥조유림의+결혼식에+초대합니다.%0A장소:+센텀+그랜드블랑+7층+퀸덤홀%0A주소:+부산광역시+해운대구+센텀중앙로+79&location=센텀+그랜드블랑&startdt=2025-11-22T16:00:00&enddt=2025-11-22T18:00:00" 
+               class="calendar-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018–present%29.svg" alt="Outlook">
+                Outlook Calendar에 추가
+            </a>
+
+            <a href="wedding.ics" download="김병찬_조유림_결혼식.ics" 
+               class="calendar-button">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%232c3e50' d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z'/></svg>" alt="Calendar">
+                ICS 파일 다운로드 (기본 캘린더)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // iOS 기기 체크
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        
+        // Android 기기 체크
+        const isAndroid = /Android/.test(navigator.userAgent);
+
+        // 페이지 로드 시 자동으로 적절한 캘린더 앱 선택
+        window.addEventListener('load', function() {
+            const icsButton = document.querySelector('a[download]');
+            
+            if (isIOS) {
+                // iOS의 경우 webcal:// 프로토콜 사용
+                icsButton.href = 'webcal://' + window.location.host + '/wedding.ics';
+                icsButton.removeAttribute('download');
+            } else if (isAndroid) {
+                // Android의 경우 Google Calendar 우선
+                document.querySelector('a[href*="calendar.google.com"]').click();
+            }
+        });
+    </script>
+</body>
+</html>
