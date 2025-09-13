@@ -74,6 +74,38 @@
     </audio>
 
     <style>
+        /* 확대 방지 CSS */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            max-height: 100vh;
+            touch-action: pan-x pan-y;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* 확대 방지를 위한 추가 설정 */
+        @media screen and (max-width: 768px) {
+            html {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+        }
+        
         /* 오디오 컨트롤러 스타일 */
         .audio-controller {
             position: fixed;
@@ -3241,6 +3273,64 @@
                 countdownText.textContent = '일 지났습니다';
             }
         }
+
+        // 확대 방지 JavaScript
+        (function() {
+            let lastTouchEnd = 0;
+            let startScale = 1;
+            let currentScale = 1;
+            
+            // 더블탭 확대 방지
+            document.addEventListener('touchend', function (event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // 핀치 투 줌 방지
+            document.addEventListener('touchstart', function (event) {
+                if (event.touches.length > 1) {
+                    event.preventDefault();
+                }
+            }, { passive: false });
+            
+            document.addEventListener('touchmove', function (event) {
+                if (event.touches.length > 1) {
+                    event.preventDefault();
+                }
+            }, { passive: false });
+            
+            // 마우스 휠 확대 방지
+            document.addEventListener('wheel', function (event) {
+                if (event.ctrlKey) {
+                    event.preventDefault();
+                }
+            }, { passive: false });
+            
+            // 키보드 확대 방지 (Ctrl + +, Ctrl + -)
+            document.addEventListener('keydown', function (event) {
+                if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
+                    event.preventDefault();
+                }
+            });
+            
+            // 컨텍스트 메뉴 비활성화 (우클릭 메뉴)
+            document.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+            });
+            
+            // 드래그 방지
+            document.addEventListener('dragstart', function (event) {
+                event.preventDefault();
+            });
+            
+            // 선택 방지
+            document.addEventListener('selectstart', function (event) {
+                event.preventDefault();
+            });
+        })();
     </script>
 </body>
 
