@@ -1,0 +1,78 @@
+/* 글씨체 변수 시스템 - 상단에서 쉽게 변경 가능 */
+
+/* 기본 글씨체 조합 3가지 */
+:root {
+    /* 조합 1: 클래식한 웨딩 스타일 */
+    --font-primary: 'Playfair Display', serif;           /* 메인 제목용 - 우아한 세리프 */
+    --font-secondary: 'Inter', sans-serif;               /* 본문용 - 모던 산세리프 */
+    --font-accent: 'Crimson Text', serif;                /* 강조용 - 세리프 */
+    
+    /* 색상 변수 - invitation.html과 동일하게 통일 */
+    --color-primary: #2c3e50;                            /* 메인 색상 */
+    --color-primary-hover: #34495e;                      /* 호버 색상 */
+    --color-primary-light: rgba(44, 62, 80, 0.08);      /* 연한 메인 색상 */
+    --color-primary-lighter: rgba(44, 62, 80, 0.05);    /* 더 연한 메인 색상 */
+    --color-primary-bg: rgba(44, 62, 80, 0.02);         /* 메인 배경 색상 */
+    --color-primary-border: rgba(44, 62, 80, 0.15);     /* 메인 테두리 색상 */
+    --color-secondary: #2c3e50;                          /* 메인 텍스트 색상 */
+    --color-muted: #5a6c7d;                              /* 보조 텍스트 색상 */
+    --color-accent: #8b9dc3;                             /* 강조 색상 */
+    --color-red: #e74c3c;                                /* 빨간색 */
+    --color-background: #ffffff;                         /* 배경 색상 */
+    --color-card-bg: #f8f9fa;                            /* 카드 배경 색상 */
+    --color-shadow: rgba(0,0,0,0.1);                     /* 그림자 색상 */
+    --color-gradient-start: #f5f7fa;                     /* 그라데이션 시작 */
+    --color-gradient-end: #c3cfe2;                       /* 그라데이션 끝 */
+    
+    /* 조합 2: 모던 미니멀 스타일 */
+    --font-primary-modern: 'Montserrat', sans-serif;     /* 메인 제목용 - 모던 산세리프 */
+    --font-secondary-modern: 'Source Sans Pro', sans-serif; /* 본문용 - 깔끔한 산세리프 */
+    --font-accent-modern: 'Lato', sans-serif;            /* 강조용 - 둥근 산세리프 */
+    
+    /* 조합 3: 로맨틱 스타일 */
+    --font-primary-romantic: 'Dancing Script', cursive;  /* 메인 제목용 - 손글씨체 */
+    --font-secondary-romantic: 'Lora', serif;            /* 본문용 - 세리프 */
+    --font-accent-romantic: 'Great Vibes', cursive;      /* 강조용 - 우아한 손글씨체 */
+    
+    /* 현재 활성화된 글씨체 (기본값: 조합 1) */
+    --current-primary: var(--font-primary);
+    --current-secondary: var(--font-secondary);
+    --current-accent: var(--font-accent);
+}
+
+/* 글씨체 조합 1: 클래식한 웨딩 스타일 */
+.font-theme-classic {
+    --current-primary: var(--font-primary);
+    --current-secondary: var(--font-secondary);
+    --current-accent: var(--font-accent);
+}
+
+/* 글씨체 조합 2: 모던 미니멀 스타일 */
+.font-theme-modern {
+    --current-primary: var(--font-primary-modern);
+    --current-secondary: var(--font-secondary-modern);
+    --current-accent: var(--font-accent-modern);
+}
+
+/* 글씨체 조합 3: 로맨틱 스타일 */
+.font-theme-romantic {
+    --current-primary: var(--font-primary-romantic);
+    --current-secondary: var(--font-secondary-romantic);
+    --current-accent: var(--font-accent-romantic);
+}
+
+/* 글씨체 적용 클래스들 */
+.font-primary {
+    font-family: var(--current-primary);
+}
+
+.font-secondary {
+    font-family: var(--current-secondary);
+}
+
+.font-accent {
+    font-family: var(--current-accent);
+}
+
+/* 구글 폰트 import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap');

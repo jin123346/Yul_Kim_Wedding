@@ -31,6 +31,9 @@
     <meta name="apple-mobile-web-app-title" content="김병찬♥조유림 결혼식">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
+    <!-- 글씨체 변수 시스템 -->
+    <link rel="stylesheet" href="css/font-variables.css">
+    
     <!-- Schema.org 이벤트 마크업 -->
     <script type="application/ld+json">
     {
@@ -166,7 +169,7 @@
         }
 
         body {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             line-height: 1.6;
             color: var(--primary-text);
             background-color: var(--primary-bg);
@@ -199,7 +202,7 @@
         }
 
         .couple-intro h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 50px;
@@ -221,7 +224,7 @@
         }
 
         .person h3 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 24px;
             color: var(--primary-text);
             /* margin-bottom: 15px; */
@@ -254,7 +257,7 @@
         }
 
         .contact-section h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 30px;
@@ -278,7 +281,7 @@
         }
 
         .contact-card h3 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-text);
             margin-bottom: 15px;
@@ -360,7 +363,7 @@
         }
 
         .modal-title {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-text);
             font-weight: bold;
@@ -635,7 +638,7 @@
         }
 
         .calendar-section h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             /* margin-bottom: 10px; */
@@ -699,7 +702,7 @@
         }
 
         .calendar-month {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 24px;
             color: var(--primary-text);
             font-weight: 500;
@@ -903,7 +906,7 @@
         }
 
         .location-section h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 30px;
@@ -919,7 +922,7 @@
         }
 
         .venue-name {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 24px;
             color: var(--primary-text);
             margin-bottom: 10px;
@@ -1091,7 +1094,7 @@
         }
 
         .gallery-section h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 30px;
@@ -1398,7 +1401,7 @@
         }
 
         .gift-section h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 30px;
@@ -1502,7 +1505,7 @@
         /* Area1 텍스트 요소들 반응형 수정 */
         #item_4 .text,
         #item_5 .text {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: var(--current-secondary);
             font-size: min(3.5vw, 38px);
             /* 최대 크기 제한 */
             color: #fff;
@@ -1524,7 +1527,7 @@
 
         #item_6 .text,
         #item_7 .text {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: var(--current-secondary);
             font-size: min(2vw, 24px);
             color: #fff;
             text-align: center;
@@ -1562,7 +1565,7 @@
         }
 
         #area2 #item_8 h2 {
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: var(--current-secondary);
             font-size: 28px;
             color: var(--primary-color);
             margin-bottom: 30px;
@@ -1579,7 +1582,7 @@
         }
 
         #area2 #item_9 .text {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: var(--current-secondary);
             font-size: min(4vw, 18px);
             color: var(--primary-text);
             text-align: center;
@@ -3402,6 +3405,7 @@
             });
         })();
     </script>
+
 </body>
 
 </html>
