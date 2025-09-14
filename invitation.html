@@ -69,7 +69,7 @@
         </button>
     </div>
 
-    <audio id="bgMusic" loop preload="metadata" controls="false">
+    <audio id="bgMusic" loop preload="metadata">
         <source src="music/background_music.mp3" type="audio/mpeg">
     </audio>
 
@@ -82,6 +82,7 @@
             touch-action: pan-x pan-y;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
             -khtml-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -160,6 +161,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
         }
 
         body {
@@ -300,6 +303,8 @@
             cursor: pointer;
             transition: all 0.2s ease;
             width: 100%;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
         }
 
         .contact-button:hover {
@@ -488,6 +493,7 @@
 
         .account-info-display .account-number {
             max-height: 30px;
+            font-size: 14px;
             /* font-family: 'Courier New', monospace;
             font-size: 16px;
             color: var(--primary-text); */
@@ -2894,45 +2900,25 @@
             }
         }
 
-        // 배경음악 제어 (카카오톡 최적화)
+        // 배경음악 제어
         let isAudioPlaying = false;
-        let isAudioLoaded = false;
         const bgMusic = document.getElementById('bgMusic');
         const audioToggle = document.getElementById('audioToggle');
 
-        // 음악 로딩 상태 표시
-        function showLoadingState() {
-            if (audioToggle) {
-                audioToggle.innerHTML = '<span class="audio-icon">⏳</span>';
-                audioToggle.disabled = true;
-            }
-        }
-
-        function showReadyState() {
-            if (audioToggle) {
-                audioToggle.innerHTML = '<span class="audio-icon">🎵</span>';
-                audioToggle.disabled = false;
-            }
-        }
-
         function toggleAudio() {
-            if (!bgMusic || !isAudioLoaded) return;
+            if (!bgMusic) return;
 
             if (isAudioPlaying) {
                 bgMusic.pause();
                 audioToggle.classList.add('muted');
+                audioToggle.innerHTML = '<span class="audio-icon">🔇</span>';
             } else {
-                // 카카오톡에서 더 안전한 재생 방식
-                const playPromise = bgMusic.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        audioToggle.classList.remove('muted');
-                    }).catch(error => {
-                        console.log('재생 실패:', error);
-                        // 사용자에게 수동 재생 안내
-                        alert('음악을 재생하려면 화면을 터치해주세요.');
-                    });
-                }
+                bgMusic.play().then(() => {
+                    audioToggle.classList.remove('muted');
+                    audioToggle.innerHTML = '<span class="audio-icon">🎵</span>';
+                }).catch(error => {
+                    console.log('재생 실패:', error);
+                });
             }
             isAudioPlaying = !isAudioPlaying;
         }
@@ -3018,28 +3004,10 @@
             initScrollAnimations();
             initKakao();
             
-            // 배경음악 초기화 (카카오톡 최적화)
+            // 배경음악 초기화
             if (bgMusic) {
-                showLoadingState(); // 로딩 상태 표시
-                
-                // 음악 로딩 이벤트 리스너
-                bgMusic.addEventListener('canplaythrough', () => {
-                    isAudioLoaded = true;
-                    showReadyState();
-                    console.log('음악 로딩 완료');
-                });
-
-                bgMusic.addEventListener('error', (e) => {
-                    console.log('음악 로딩 실패:', e);
-                    showReadyState(); // 실패해도 버튼은 활성화
-                });
-
-                // 카카오톡에서 더 안전한 설정
-                bgMusic.volume = 0.3; // 볼륨을 낮춰서 부드럽게
+                bgMusic.volume = 0.2; // 볼륨 설정 (더 작게)
                 bgMusic.preload = 'metadata'; // 메타데이터만 미리 로드
-                
-                // 자동 재생은 사용자 상호작용 후에만 시도
-                console.log('음악 로딩 중...');
             }
             
             // URL에 code 파라미터가 있으면 카카오 로그인 콜백 처리
