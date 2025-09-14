@@ -69,8 +69,8 @@
         </button>
     </div>
 
-    <audio id="bgMusic" loop>
-        <source src="music/background_music.mp3" type="audio/mp3">
+    <audio id="bgMusic" loop preload="metadata" controls="false">
+        <source src="music/background_music.mp3" type="audio/mpeg">
     </audio>
 
     <style>
@@ -1120,8 +1120,9 @@
 
         .gallery-container {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.2s ease-out;
             position: relative;
+            will-change: transform;
         }
 
         .gallery-item {
@@ -1144,6 +1145,16 @@
             max-height: 100%;
             /* object-fit: contain; */
             /* border-radius: 8px; */
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item img[data-src] {
+            opacity: 0.3;
+            background: #f0f0f0;
+        }
+        
+        .gallery-item img[src] {
+            opacity: 1;
         }
 
 
@@ -2231,64 +2242,79 @@
                     <button class="gallery-nav next" onclick="nextSlide()">›</button>
                     <div class="gallery-container" id="galleryContainer">
                         <div class="gallery-item" onclick="openGallery(1)">
-                            <img src="images/yul_image_1.jpg" alt="사진 1">
+                            <img src="images/yul_image_1.jpg" alt="사진 1" loading="eager">
                         </div>
                         <div class="gallery-item" onclick="openGallery(2)">
-                            <img src="images/yul_image_2.jpg" alt="사진 2">
+                            <img data-src="images/yul_image_2.jpg" alt="사진 2" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(3)">
-                            <img src="images/yul_image_3.jpg" alt="사진 3">
+                            <img data-src="images/yul_image_3.jpg" alt="사진 3" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(4)">
-                            <img src="images/yul_image_4.jpg" alt="사진 4">
+                            <img data-src="images/yul_image_4.jpg" alt="사진 4" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(5)">
-                            <img src="images/yul_image_5.jpg" alt="사진 5">
+                            <img data-src="images/yul_image_5.jpg" alt="사진 5" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(6)">
-                            <img src="images/yul_image_6.jpg" alt="사진 6">
+                            <img data-src="images/yul_image_6.jpg" alt="사진 6" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(7)">
-                            <img src="images/yul_image_7.jpg" alt="사진 7">
+                            <img data-src="images/yul_image_7.jpg" alt="사진 7" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(8)">
-                            <img src="images/yul_image_8.jpg" alt="사진 8">
+                            <img data-src="images/yul_image_8.jpg" alt="사진 8" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(9)">
-                            <img src="images/yul_image_9.jpg" alt="사진 9">
+                            <img data-src="images/yul_image_9.jpg" alt="사진 9" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(10)">
-                            <img src="images/yul_image_10.jpg" alt="사진 10">
+                            <img data-src="images/yul_image_10.jpg" alt="사진 10" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(11)">
-                            <img src="images/yul_image_11.jpg" alt="사진 11">
+                            <img data-src="images/yul_image_11.jpg" alt="사진 11" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(12)">
-                            <img src="images/yul_image_12.jpg" alt="사진 12">
+                            <img data-src="images/yul_image_12.jpg" alt="사진 12" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(13)">
-                            <img src="images/yul_image_13.jpg" alt="사진 13">
+                            <img data-src="images/yul_image_13.jpg" alt="사진 13" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(14)">
-                            <img src="images/yul_image_14.jpg" alt="사진 14">
+                            <img data-src="images/yul_image_14.jpg" alt="사진 14" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(15)">
-                            <img src="images/yul_image_15.jpg" alt="사진 15">
+                            <img data-src="images/yul_image_15.jpg" alt="사진 15" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(16)">
-                            <img src="images/yul_image_16.jpg" alt="사진 16">
+                            <img data-src="images/yul_image_16.jpg" alt="사진 16" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(17)">
-                            <img src="images/yul_image_17.jpg" alt="사진 17">
+                            <img data-src="images/yul_image_17.jpg" alt="사진 17" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(18)">
-                            <img src="images/yul_image_18.jpg" alt="사진 18">
+                            <img data-src="images/yul_image_18.jpg" alt="사진 18" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(19)">
-                            <img src="images/yul_image_19.jpg" alt="사진 19">
+                            <img data-src="images/yul_image_19.jpg" alt="사진 19" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openGallery(20)">
-                            <img src="images/yul_image_20.jpg" alt="사진 20">
+                            <img data-src="images/yul_image_20.jpg" alt="사진 20" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(21)">
+                            <img data-src="images/yul_image_21.jpg" alt="사진 21" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(22)">
+                            <img data-src="images/yul_image_22.jpg" alt="사진 22" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(23)">
+                            <img data-src="images/yul_image_23.jpg" alt="사진 23" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(24)">
+                            <img data-src="images/yul_image_24.jpg" alt="사진 24" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openGallery(25)">
+                            <img data-src="images/yul_image_25.jpg" alt="사진 25" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -2321,20 +2347,20 @@
                             <div class="account-holder">김병찬</div>
 
                             <div class="account-info-display">
-                                <div class="account-bank">국민은행</div>
-                                <div class="account-number">123-456-789012</div>
+                                <div class="account-bank">IBK기업은행</div>
+                                <div class="account-number">01032664580</div>
                             </div>
-                            <button class="account-copy-btn" onclick="copyAccountNumber('123-456-789012', '국민은행')">
+                            <button class="account-copy-btn" onclick="copyAccountNumber('01032664580', 'IBK기업은행')">
                                 복사
                             </button>
                         </div>
                         <div class="account-item">
-                            <div class="account-holder">김병찬</div>
+                            <div class="account-holder">백은숙</div>
                             <div class="account-info-display">
-                                <div class="account-bank">국민은행</div>
-                                <div class="account-number">123-456-789012</div>
+                                <div class="account-bank">농협은행</div>
+                                <div class="account-number">115712047167 </div>
                             </div>
-                            <button class="account-copy-btn" onclick="copyAccountNumber('123-456-789012', '국민은행')">
+                            <button class="account-copy-btn" onclick="copyAccountNumber('115712047167 ', '국민은행')">
                                 복사
                             </button>
                         </div>
@@ -2355,10 +2381,10 @@
                             <div class="account-holder">조유림</div>
 
                             <div class="account-info-display">
-                                <div class="account-bank">우리은행</div>
-                                <div class="account-number">456-789-123456</div>
+                                <div class="account-bank">카카오뱅크</div>
+                                <div class="account-number">3333-27-0108465</div>
                             </div>
-                            <button class="account-copy-btn" onclick="copyAccountNumber('456-789-123456', '우리은행')">
+                            <button class="account-copy-btn" onclick="copyAccountNumber('3333270108465', '카카오뱅크')">
                                 복사
                             </button>
                         </div>
@@ -2367,10 +2393,10 @@
                             <div class="account-holder">박현자</div>
 
                             <div class="account-info-display">
-                                <div class="account-bank">우리은행</div>
-                                <div class="account-number">456-789-123456</div>
+                                <div class="account-bank">부산은행</div>
+                                <div class="account-number">076-12-029015-1</div>
                             </div>
-                            <button class="account-copy-btn" onclick="copyAccountNumber('456-789-123456', '우리은행')">
+                            <button class="account-copy-btn" onclick="copyAccountNumber('076120290151', '부산은행행')">
                                 복사
                             </button>
                         </div>
@@ -2437,15 +2463,15 @@
             groom: {
                 title: '신랑 연락처',
                 contacts: [
-                    { role: '신랑', name: '김병찬', phone: '010-1234-5678' },
-                    { role: '아버지', name: '김○○', phone: '010-1111-2222' },
-                    { role: '어머니', name: '박○○', phone: '010-3333-4444' }
+                    { role: '신랑', name: '김병찬', phone: '010-3266-4580' },
+                    { role: '아버지', name: '김종수', phone: '010-9540-3007' },
+                    { role: '어머니', name: '백은숙', phone: '010-4565-3007' }
                 ]
             },
             bride: {
                 title: '신부 연락처',
                 contacts: [
-                    { role: '신부', name: '조유림', phone: '010-8765-4321' },
+                    { role: '신부', name: '조유림', phone: '010-4448-3966' },
                     { role: '어머니', name: '박현자자', phone: '010-3323-3966' }
                 ]
             }
@@ -2538,10 +2564,11 @@
 
         // 갤러리 슬라이더 변수
         let currentSlide = 0;
-        const totalSlides = 20;
+        const totalSlides = 25;
 
         // 갤러리 슬라이더 초기화
         function initGallerySlider() {
+            initGalleryElements(); // DOM 요소 미리 캐싱
             createDots();
             updateSlider();
             initLazyLoading();
@@ -2580,9 +2607,13 @@
             });
         }
 
-        // 도트 생성
+        // 도트 생성 (캐싱된 요소 사용)
         function createDots() {
-            const dotsContainer = document.getElementById('galleryDots');
+            if (!galleryElements) {
+                initGalleryElements();
+            }
+
+            const { dotsContainer } = galleryElements;
             dotsContainer.innerHTML = '';
 
             for (let i = 0; i < totalSlides; i++) {
@@ -2592,14 +2623,18 @@
                 dot.onclick = () => goToSlide(i);
                 dotsContainer.appendChild(dot);
             }
+            
+            // 도트 요소들 다시 캐싱
+            galleryElements.dots = document.querySelectorAll('.gallery-dot');
         }
 
-        // 슬라이더 업데이트
+        // 슬라이더 업데이트 (캐싱된 요소 사용)
         function updateSlider() {
-            const container = document.getElementById('galleryContainer');
-            const dots = document.querySelectorAll('.gallery-dot');
-            const prevBtn = document.querySelector('.gallery-nav.prev');
-            const nextBtn = document.querySelector('.gallery-nav.next');
+            if (!galleryElements) {
+                initGalleryElements();
+            }
+
+            const { container, dots, prevBtn, nextBtn } = galleryElements;
 
             container.style.transform = `translateX(-${currentSlide * 100}%)`;
 
@@ -2614,11 +2649,30 @@
             }
         }
 
+        // 이미지 프리로딩 (성능 최적화)
+        function preloadAdjacentImages() {
+            const nextIndex = (currentSlide + 1) % totalSlides;
+            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            
+            // 다음 이미지 프리로드
+            if (nextIndex < totalSlides) {
+                const nextImg = new Image();
+                nextImg.src = `images/yul_image_${nextIndex + 1}.jpg`;
+            }
+            
+            // 이전 이미지 프리로드
+            if (prevIndex >= 0) {
+                const prevImg = new Image();
+                prevImg.src = `images/yul_image_${prevIndex + 1}.jpg`;
+            }
+        }
+
         // 다음 슬라이드
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
                 currentSlide++;
                 updateSlider();
+                preloadAdjacentImages(); // 인접 이미지 프리로드
             }
         }
 
@@ -2627,6 +2681,7 @@
             if (currentSlide > 0) {
                 currentSlide--;
                 updateSlider();
+                preloadAdjacentImages(); // 인접 이미지 프리로드
             }
         }
 
@@ -2634,11 +2689,25 @@
         function goToSlide(slideIndex) {
             currentSlide = slideIndex;
             updateSlider();
+            preloadAdjacentImages(); // 인접 이미지 프리로드
         }
 
         // 갤러리 관련 변수
         let currentGalleryImage = 0;
-        const totalGalleryImages = 20;
+        const totalGalleryImages = 25;
+        
+        // DOM 요소 캐싱 (성능 최적화)
+        let galleryElements = null;
+        
+        function initGalleryElements() {
+            galleryElements = {
+                container: document.getElementById('galleryContainer'),
+                dots: document.querySelectorAll('.gallery-dot'),
+                prevBtn: document.querySelector('.gallery-nav.prev'),
+                nextBtn: document.querySelector('.gallery-nav.next'),
+                dotsContainer: document.getElementById('galleryDots')
+            };
+        }
 
         // 갤러리 열기 함수
         function openGallery(photoNumber) {
@@ -2825,22 +2894,45 @@
             }
         }
 
-        // 배경음악 제어
+        // 배경음악 제어 (카카오톡 최적화)
         let isAudioPlaying = false;
+        let isAudioLoaded = false;
         const bgMusic = document.getElementById('bgMusic');
         const audioToggle = document.getElementById('audioToggle');
 
+        // 음악 로딩 상태 표시
+        function showLoadingState() {
+            if (audioToggle) {
+                audioToggle.innerHTML = '<span class="audio-icon">⏳</span>';
+                audioToggle.disabled = true;
+            }
+        }
+
+        function showReadyState() {
+            if (audioToggle) {
+                audioToggle.innerHTML = '<span class="audio-icon">🎵</span>';
+                audioToggle.disabled = false;
+            }
+        }
+
         function toggleAudio() {
-            if (!bgMusic) return;
+            if (!bgMusic || !isAudioLoaded) return;
 
             if (isAudioPlaying) {
                 bgMusic.pause();
                 audioToggle.classList.add('muted');
             } else {
-                bgMusic.play().catch(error => {
-                    console.log('자동 재생이 차단되었습니다:', error);
-                });
-                audioToggle.classList.remove('muted');
+                // 카카오톡에서 더 안전한 재생 방식
+                const playPromise = bgMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        audioToggle.classList.remove('muted');
+                    }).catch(error => {
+                        console.log('재생 실패:', error);
+                        // 사용자에게 수동 재생 안내
+                        alert('음악을 재생하려면 화면을 터치해주세요.');
+                    });
+                }
             }
             isAudioPlaying = !isAudioPlaying;
         }
@@ -2926,18 +3018,28 @@
             initScrollAnimations();
             initKakao();
             
-            // 배경음악 초기화
+            // 배경음악 초기화 (카카오톡 최적화)
             if (bgMusic) {
-                bgMusic.volume = 0.5; // 볼륨 설정
-                // 자동 재생 시도
-                bgMusic.play().then(() => {
-                    audioToggle.classList.remove('muted');
-                    isAudioPlaying = true;
-                }).catch(error => {
-                    console.log('자동 재생이 차단되었습니다:', error);
-                    audioToggle.classList.add('muted');
-                    isAudioPlaying = false;
+                showLoadingState(); // 로딩 상태 표시
+                
+                // 음악 로딩 이벤트 리스너
+                bgMusic.addEventListener('canplaythrough', () => {
+                    isAudioLoaded = true;
+                    showReadyState();
+                    console.log('음악 로딩 완료');
                 });
+
+                bgMusic.addEventListener('error', (e) => {
+                    console.log('음악 로딩 실패:', e);
+                    showReadyState(); // 실패해도 버튼은 활성화
+                });
+
+                // 카카오톡에서 더 안전한 설정
+                bgMusic.volume = 0.3; // 볼륨을 낮춰서 부드럽게
+                bgMusic.preload = 'metadata'; // 메타데이터만 미리 로드
+                
+                // 자동 재생은 사용자 상호작용 후에만 시도
+                console.log('음악 로딩 중...');
             }
             
             // URL에 code 파라미터가 있으면 카카오 로그인 콜백 처리
