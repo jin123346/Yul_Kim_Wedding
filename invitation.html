@@ -29,7 +29,7 @@
     <!-- 애플 캘린더 메타 태그 -->
     <link rel="apple-touch-icon" href="images/thumbnail.png?v=2">
     <meta name="apple-mobile-web-app-title" content="김병찬♥조유림 결혼식">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- 글씨체 변수 시스템 -->
     <link rel="stylesheet" href="css/font-variables.css">
@@ -60,11 +60,9 @@
     }
     </script>
     <!-- 카카오 SDK -->
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js" integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm" crossorigin="anonymous"></script>
-    <!-- 카카오맵 API -->
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
+    <!-- 구글 맵 API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjC49GENw6YNu7l0RtAwPYLda97fhjqL0&loading=async&callback=initMap"></script>
     <!-- 배경음악 컨트롤러 -->
    
 
@@ -2139,8 +2137,8 @@
                             <span>네이버 지도</span>
                         </button>
                         <button class="map-app-btn" onclick="openKakaoMap()">
-                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="카카오 내비">
-                            <span>카카오 내비</span>
+                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
+                            <span>구글 맵</span>
                         </button>
                         <button class="map-app-btn" onclick="openTmap()">
                             <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
@@ -3130,27 +3128,26 @@
             }
             isAudioPlaying = !isAudioPlaying;
         }
-        async function ensureLogin() {
-            if (Kakao.Auth.getAccessToken()) return Kakao.Auth.getAccessToken();
-
-            return new Promise((resolve, reject) => {
-                Kakao.Auth.login({
-                scope: 'talk_calendar',            // ← 캘린더 권한 동의
-                success: (auth) => {
-                    Kakao.Auth.setAccessToken(auth.access_token); // SDK에 저장
-                    resolve(auth.access_token);
-                },
-                fail: reject
-                });
-            });
-            }
 
         // 카카오톡 공유 초기화
         function initKakao() {
-            Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
+            // 카카오 SDK가 로드되었는지 확인
+            if (typeof Kakao === 'undefined') {
+                console.log('카카오 SDK가 로드되지 않았습니다. 1초 후 다시 시도합니다.');
+                setTimeout(initKakao, 1000);
+                return;
+            }
 
-            ensureLogin();
-            
+            // DOM이 완전히 로드되었는지 확인
+            const shareButton = document.getElementById('kakao-share-button');
+            if (!shareButton) {
+                console.log('카카오 공유 버튼을 찾을 수 없습니다. 1초 후 다시 시도합니다.');
+                setTimeout(initKakao, 1000);
+                return;
+            }
+
+            console.log('카카오 SDK 초기화 시작...');
+            Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
 
             // 카카오톡 공유하기
             Kakao.Share.createDefaultButton({
@@ -3206,7 +3203,7 @@
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function () {
             initCalendar();
-            initMap();
+            // initMap()은 구글 맵 API가 자동으로 호출
             initCountdown();
             initGallerySlider();
             initScrollAnimations();
@@ -3229,45 +3226,143 @@
             }
         });
 
-        // 카카오맵 초기화
+        // 구글 맵 초기화
         function initMap() {
-            // 카카오맵 API가 로드되었는지 확인
-            if (typeof kakao === 'undefined') {
-                console.log('카카오맵 API가 로드되지 않았습니다. API 키를 확인해주세요.');
-                showMapPlaceholder();
+            const container = document.getElementById('map');
+            if (!container) {
+                console.log('지도 컨테이너를 찾을 수 없습니다.');
                 return;
             }
 
+            // 구글 맵 API가 완전히 로드되었는지 확인
+            if (typeof google === 'undefined' || !google.maps || !google.maps.MapTypeId) {
+                console.log('구글 맵 API가 로드되지 않았습니다. 2초 후 다시 시도합니다.');
+                setTimeout(initMap, 2000);
+                return;
+            }
+
+            console.log('구글 맵 API 로드 확인됨, 지도 초기화 시작...');
+
+            try {
+                const options = {
+                    center: { lat: 35.1681, lng: 129.1301 }, // 센텀시티역 근처 좌표
+                    zoom: 16,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    styles: [
+                        {
+                            featureType: 'poi',
+                            elementType: 'labels',
+                            stylers: [{ visibility: 'off' }]
+                        }
+                    ]
+                };
+
+                console.log('지도 옵션 설정 완료, 지도 생성 중...');
+                const map = new google.maps.Map(container, options);
+                console.log('지도 생성 완료');
+
+                // 마커 생성 (새로운 AdvancedMarkerElement 사용)
+                const markerPosition = { lat: 35.166406, lng: 129.132123 };
+                console.log('마커 생성 중...');
+                
+                let marker;
+                
+                // 기존 Marker 사용 (고급 마커는 API 키 설정이 복잡함)
+                marker = new google.maps.Marker({
+                    position: markerPosition,
+                    map: map,
+                    title: '센텀 그랜드 블랑'
+                });
+                console.log('Marker 생성 완료');
+
+                // 인포윈도우 생성
+                const infowindow = new google.maps.InfoWindow({
+                    content: '<div style="padding:10px; text-align:center; font-size:14px; font-weight:bold;">센텀 그랜드 블랑<br>3층</div>'
+                });
+
+                // 마커 클릭 시 인포윈도우 표시
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                });
+
+                // 지도 클릭 시 인포윈도우 닫기
+                map.addListener('click', function () {
+                    infowindow.close();
+                });
+
+                console.log('✅ 구글 맵이 성공적으로 로드되었습니다!');
+            } catch (error) {
+                console.error('❌ 구글 맵 초기화 중 오류 발생:', error);
+                console.log('오류 상세:', error.message);
+                showInteractiveMap();
+            }
+        }
+
+        // 대체 인터랙티브 지도 표시
+        function showInteractiveMap() {
             const container = document.getElementById('map');
-            const options = {
-                center: new kakao.maps.LatLng(35.1681, 129.1301), // 센텀시티역 근처 좌표
-                level: 3
-            };
-
-            const map = new kakao.maps.Map(container, options);
-
-            // 마커 생성
-            const markerPosition = new kakao.maps.LatLng(35.1681, 129.1301);
-            const marker = new kakao.maps.Marker({
-                position: markerPosition
-            });
-
-            marker.setMap(map);
-
-            // 인포윈도우 생성
-            const infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="padding:10px; text-align:center; font-size:14px; font-weight:bold;">센텀 그랜드 블랑<br>3층</div>'
-            });
-
-            // 마커 클릭 시 인포윈도우 표시
-            kakao.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
-
-            // 지도 클릭 시 인포윈도우 닫기
-            kakao.maps.event.addListener(map, 'click', function () {
-                infowindow.close();
-            });
+            container.innerHTML = `
+                <div style="
+                    width: 100%; 
+                    height: 100%; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    display: flex; 
+                    flex-direction: column;
+                    align-items: center; 
+                    justify-content: center;
+                    color: white;
+                    font-size: var(--font-size-button);
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="position: absolute; top: 20px; left: 20px; font-size: 24px;">📍</div>
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">센텀 그랜드 블랑</div>
+                    <div style="font-size: 14px; margin-bottom: 5px;">부산광역시 해운대구 센텀중앙로 79</div>
+                    <div style="font-size: 12px; margin-bottom: 20px; opacity: 0.8;">3층 퀸덤홀</div>
+                    
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button onclick="openNaverMap()" style="
+                            background: rgba(255,255,255,0.2); 
+                            border: 1px solid rgba(255,255,255,0.3); 
+                            color: white; 
+                            padding: 8px 16px; 
+                            border-radius: 20px; 
+                            font-size: 12px;
+                            cursor: pointer;
+                            backdrop-filter: blur(10px);
+                        ">네이버 지도</button>
+                        <button onclick="openKakaoMap()" style="
+                            background: rgba(255,255,255,0.2); 
+                            border: 1px solid rgba(255,255,255,0.3); 
+                            color: white; 
+                            padding: 8px 16px; 
+                            border-radius: 20px; 
+                            font-size: 12px;
+                            cursor: pointer;
+                            backdrop-filter: blur(10px);
+                        ">구글 맵</button>
+                        <button onclick="openTmap()" style="
+                            background: rgba(255,255,255,0.2); 
+                            border: 1px solid rgba(255,255,255,0.3); 
+                            color: white; 
+                            padding: 8px 16px; 
+                            border-radius: 20px; 
+                            font-size: 12px;
+                            cursor: pointer;
+                            backdrop-filter: blur(10px);
+                        ">티맵</button>
+                    </div>
+                    
+                    <div style="
+                        position: absolute; 
+                        bottom: 10px; 
+                        right: 10px; 
+                        font-size: 10px; 
+                        opacity: 0.6;
+                    ">지도를 클릭하여 길찾기</div>
+                </div>
+            `;
         }
 
         // 지도 플레이스홀더 표시 (API 로드 실패 시)
@@ -3290,7 +3385,7 @@
                     <div>센텀 그랜드 블랑</div>
                     <div style="font-size: 14px; margin-top: 5px;">부산광역시 해운대구 센텀중앙로 79</div>
                     <div style="font-size: 12px; margin-top: 10px; color: #999;">
-                        카카오맵 API 키를 설정하면<br>실제 지도가 표시됩니다
+                        구글 맵을 로드하는 중입니다
                     </div>
                 </div>
             `;
@@ -3305,13 +3400,13 @@
             window.open(naverMapUrl, '_blank');
         }
 
-        // 카카오맵으로 길찾기
+        // 구글맵으로 길찾기
         function openKakaoMap() {
             const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
-            const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
+            const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
-            window.open(kakaoMapUrl, '_blank');
+            window.open(googleMapUrl, '_blank');
         }
 
         // 티맵으로 길찾기
