@@ -66,11 +66,7 @@
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&libraries=services"></script>
     <!-- 배경음악 컨트롤러 -->
-    <div id="audioController" class="audio-controller">
-        <button id="audioToggle" class="audio-toggle" onclick="toggleAudio()">
-            <span class="audio-icon">🎵</span>
-        </button>
-    </div>
+   
 
     <audio id="bgMusic" loop preload="metadata">
         <source src="music/background_music.mp3" type="audio/mpeg">
@@ -112,9 +108,9 @@
         
         /* 오디오 컨트롤러 스타일 */
         .audio-controller {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+            position: absolute;
+            top: 10px;
+            right: 5px;
             z-index: 9999;
         }
 
@@ -122,7 +118,7 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.4);
             border: 1px solid var(--primary-border);
             display: flex;
             align-items: center;
@@ -158,6 +154,26 @@
             --secondary-text: #5a6c7d;
             --accent-color: #8b9dc3;
             --primary-red: #e74c3c;
+            
+            /* 폰트 크기 변수 - 430px 가로에 최적화 */
+            --font-size-h1: 22px;           /* 메인 제목 - 더 크고 눈에 띄게 */
+            --font-size-h2: 20px;           /* 섹션 제목 - 적당한 크기 */
+            --font-size-h3: 20px;           /* 부제목 - 읽기 편한 크기 */
+            --font-size-subTitle: 16px;           /* 부제목 - 읽기 편한 크기 */
+            --font-size-body: 15px;         /* 본문 텍스트 - 읽기 편한 크기 */
+            --font-size-small: 13px;        /* 작은 텍스트 - 너무 작지 않게 */
+            --font-size-button: 15px;       /* 버튼 텍스트 - 터치하기 편한 크기 */
+            --font-size-caption: 13px;      /* 캡션 텍스트 */
+            
+            /* 위치별 폰트 크기 */
+            --font-size-hero-title: 18px;   /* 히어로 섹션 제목 */
+            --font-size-hero-subtitle: 14px; /* 히어로 섹션 부제목 */
+            --font-size-card-title: 20px;   /* 카드 제목 */
+            --font-size-card-subtitle: 17px; /* 카드 부제목 */
+            --font-size-calendar-month: 18px; /* 캘린더 월 */
+            --font-size-calendar-day: 15px;  /* 캘린더 날짜 */
+            --font-size-venue-name: 19px;    /* 장소명 */
+            --font-size-venue-info: 15px;    /* 장소 정보 */
         }
 
         * {
@@ -176,7 +192,7 @@
         }
 
         #wrap {
-            max-width: 800px;
+            max-width: 430px;
             margin: 0 auto;
         }
 
@@ -198,12 +214,12 @@
 
         .couple-intro {
             text-align: center;
-            padding: 0 40px;
+            padding: 0 20px;
         }
 
         .couple-intro h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h1);
             color: var(--primary-color);
             margin-bottom: 50px;
             font-weight: 500;
@@ -213,6 +229,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
+            flex-direction: column;
         }
 
         .person {
@@ -220,19 +237,19 @@
             align-items: center;
             justify-content: space-between;
             flex: 1;
-            padding: 0 40px;
+            padding: 0 20px;
         }
 
         .person h3 {
             font-family: var(--current-secondary);
-            font-size: 24px;
+            font-size: var(--font-size-h2);
             color: var(--primary-text);
             /* margin-bottom: 15px; */
             font-weight: 500;
         }
 
         .person .relationship {
-            font-size: 16px;
+            font-size: var(--font-size-subTitle);
             color: var(--secondary-text);
             line-height: 1.5;
         }
@@ -252,28 +269,31 @@
         }
 
         .contact-section {
-            padding: 0 40px;
+            padding: 0 20px;
             text-align: center;
         }
 
         .contact-section h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
             font-weight: 500;
         }
 
         .contact-cards {
-            display: grid;
+            display: flex;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            max-width: 600px;
+            max-width: 430px;
             margin: 0 auto;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         .contact-card {
             background: white;
+            width: 50%;
             border-radius: 16px;
             padding: 30px 20px;
             box-shadow: 0 4px 20px var(--primary-light);
@@ -282,14 +302,14 @@
 
         .contact-card h3 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-card-title);
             color: var(--primary-text);
             margin-bottom: 15px;
             font-weight: bold;
         }
 
         .contact-card .main-name {
-            font-size: 18px;
+            font-size: var(--font-size-card-subtitle);
             color: var(--primary-color);
             font-weight: 500;
             margin-bottom: 20px;
@@ -301,7 +321,7 @@
             border: none;
             padding: 12px 24px;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: var(--font-size-button);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -338,7 +358,7 @@
             background: white;
             border-radius: 20px;
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             padding: 30px 25px;
             animation: modalFadeIn 0.3s ease;
         }
@@ -412,7 +432,7 @@
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 500;
             transition: all 0.2s ease;
             display: flex;
@@ -426,7 +446,7 @@
 
         .toggle-arrow {
             transition: transform 0.3s ease;
-            font-size: 12px;
+            font-size: var(--font-size-small);
         }
 
         .toggle-arrow.rotated {
@@ -465,11 +485,11 @@
             font-weight: 500;
             color: var(--primary-color);
             margin-bottom: 5px;
-            font-size: 16px;
+            font-size: var(--font-size-button);
         }
 
         .account-holder {
-            font-size: 14px;
+            font-size: var(--font-size-body);
             color: var(--secondary-text);
             /* flex: 1; */
             text-align: center;
@@ -491,20 +511,20 @@
         .account-info-display .account-bank {
             font-weight: 500;
             color: var(--primary-color);
-            font-size: 16px;
+            font-size: var(--font-size-button);
         }
 
         .account-info-display .account-number {
             max-height: 30px;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             /* font-family: 'Courier New', monospace;
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--primary-text); */
         }
 
         .account-number-display {
             /* font-family: 'Courier New', monospace; */
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--primary-text);
             /* background: var(--primary-bg); */
             padding: 8px 12px;
@@ -521,7 +541,7 @@
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 500;
             transition: all 0.2s ease;
         }
@@ -551,14 +571,14 @@
         }
 
         .contact-role {
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--primary-text);
             font-weight: 600;
             margin-bottom: 2px;
         }
 
         .contact-phone {
-            font-size: 14px;
+            font-size: var(--font-size-body);
             color: var(--secondary-text);
         }
 
@@ -576,7 +596,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: var(--font-size-button);
             transition: all 0.2s ease;
         }
 
@@ -609,7 +629,7 @@
             border: 1px solid var(--primary-border);
             border-radius: 12px;
             color: var(--secondary-text);
-            font-size: 16px;
+            font-size: var(--font-size-button);
             cursor: pointer;
             margin-top: 15px;
         }
@@ -633,20 +653,20 @@
         }
 
         .calendar-section {
-            padding: 0 40px;
+            padding: 0 20px;
             text-align: center;
         }
 
         .calendar-section h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h2);
             color: var(--primary-color);
             /* margin-bottom: 10px; */
             font-weight: 500;
         }
 
         .calendar-container {
-            max-width: 600px;
+            max-width: 430px;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
@@ -703,7 +723,7 @@
 
         .calendar-month {
             font-family: var(--current-secondary);
-            font-size: 24px;
+            font-size: var(--font-size-calendar-month);
             color: var(--primary-text);
             font-weight: 500;
             margin: 0;
@@ -717,7 +737,7 @@
         }
 
         .calendar-day-header {
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 600;
             color: var(--primary-color);
             padding: 10px 5px;
@@ -729,7 +749,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             cursor: pointer;
             border-radius: 8px;
             transition: all 0.2s ease;
@@ -764,7 +784,7 @@
             position: absolute;
             top: -3px;
             right: -3px;
-            font-size: 12px;
+            font-size: var(--font-size-small);
             background: white;
             border-radius: 50%;
             width: 18px;
@@ -793,7 +813,7 @@
             border: none;
             padding: 12px 20px;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -809,7 +829,7 @@
             border: none;
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: var(--font-size-small);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -833,7 +853,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             color: var(--secondary-text);
         }
 
@@ -867,7 +887,7 @@
 
         .countdown-title {
             /* font-family: "Nanum Myeongjo", serif; */
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--secondary-text);
             font-weight: 500;
 
@@ -881,7 +901,7 @@
         }
 
         .countdown-text {
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--secondary-text);
             font-weight: 500;
         }
@@ -901,13 +921,13 @@
         }
 
         .location-section {
-            padding: 0 40px;
+            padding: 0 20px;
             text-align: center;
         }
 
         .location-section h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
             font-weight: 500;
@@ -923,21 +943,21 @@
 
         .venue-name {
             font-family: var(--current-secondary);
-            font-size: 24px;
+            font-size: var(--font-size-venue-name);
             color: var(--primary-text);
             margin-bottom: 10px;
             font-weight: bold;
         }
 
         .venue-address {
-            font-size: 16px;
+            font-size: var(--font-size-body);
             color: var(--secondary-text);
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
         .venue-tel {
-            font-size: 16px;
+            font-size: var(--font-size-venue-info);
             color: var(--primary-color);
         }
 
@@ -978,7 +998,7 @@
         }
 
         .transport-title {
-            font-size: 16px;
+            font-size: var(--font-size-button);
             font-weight: 600;
             color: var(--primary-text);
             margin-bottom: 6px;
@@ -986,7 +1006,7 @@
         }
 
         .transport-detail {
-            font-size: 14px;
+            font-size: var(--font-size-body);
             color: var(--secondary-text);
             line-height: 1.5;
             text-align: left;
@@ -1046,7 +1066,7 @@
         }
 
         .map-app-btn span {
-            font-size: 12px;
+            font-size: var(--font-size-small);
             color: var(--primary-text);
             font-weight: 500;
         }
@@ -1063,7 +1083,7 @@
             color: white;
             padding: 12px 24px;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -1095,7 +1115,7 @@
 
         .gallery-section h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
             font-weight: 500;
@@ -1136,7 +1156,7 @@
 
         .gallery-item {
             width: 100%;
-            max-height: 1200px;
+            max-height: 800px;
             flex-shrink: 0;
             /* aspect-ratio: 2/3; */
             display: flex;
@@ -1396,20 +1416,20 @@
         }
 
         .gift-section {
-            padding: 0 40px;
+            padding: 0 20px;
             text-align: center;
         }
 
         .gift-section h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
             font-weight: 500;
         }
 
         .gift-message {
-            font-size: 16px;
+            font-size: var(--font-size-button);
             color: var(--secondary-text);
             line-height: 1.8;
             margin-bottom: 40px;
@@ -1427,7 +1447,7 @@
             border: none;
             padding: 15px;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: var(--font-size-button);
             cursor: pointer;
             font-weight: 500;
         }
@@ -1471,7 +1491,7 @@
         #area1 {
             padding: 0 !important;
             height: auto;
-            min-height: 1340px;
+            min-height: 765px;
             /* 고정 높이로 변경 */
             position: relative;
             overflow: hidden;
@@ -1493,7 +1513,7 @@
         #area1 img.img {
             width: 100%;
             height: 100%;
-            /* object-fit: cover; */
+            object-fit: cover;
             display: block;
             position: relative;
         }
@@ -1506,7 +1526,7 @@
         #item_4 .text,
         #item_5 .text {
             font-family: var(--current-secondary);
-            font-size: min(3.5vw, 38px);
+            font-size: min(4.5vw, var(--font-size-hero-title));
             /* 최대 크기 제한 */
             color: #fff;
             /* font-weight: bold; */
@@ -1528,7 +1548,7 @@
         #item_6 .text,
         #item_7 .text {
             font-family: var(--current-secondary);
-            font-size: min(2vw, 24px);
+            font-size: min(3.5vw, var(--font-size-hero-subtitle));
             color: #fff;
             text-align: center;
             letter-spacing: 0em;
@@ -1566,7 +1586,7 @@
 
         #area2 #item_8 h2 {
             font-family: var(--current-secondary);
-            font-size: 28px;
+            font-size: 22px;
             color: var(--primary-color);
             margin-bottom: 30px;
             font-weight: 500;
@@ -1583,7 +1603,7 @@
 
         #area2 #item_9 .text {
             font-family: var(--current-secondary);
-            font-size: min(4vw, 18px);
+            font-size: min(4vw, var(--font-size-hero-title));
             color: var(--primary-text);
             text-align: center;
             letter-spacing: 0em;
@@ -1671,7 +1691,7 @@
             justify-content: center;
             padding: 12px 20px;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: var(--font-size-body);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -1689,29 +1709,27 @@
             text-align: center;
             padding: 20px;
             color: var(--secondary-text);
-            font-size: 14px;
+            font-size: var(--font-size-body);
         }
 
         /* 반응형 디자인 */
-        @media (max-width: 600px) {
+        /* @media (max-width: 430px) {
             #area1 {
                 padding-bottom: 177.875%;
-                min-height: 600px;
-                /* 비율 유지 */
+                min-height: 765px;
             }
 
             #item_4 .text,
             #item_5 .text {
-                font-size: 4vw !important;
+                font-size: 5vw !important;
                 letter-spacing: 0.2em;
             }
 
             #item_6 .text,
             #item_7 .text {
-                font-size: 4.5vw !important;
+                font-size: 5.5vw !important;
             }
 
-            /* Area2 모바일 스타일 */
             #area2 {
                 padding: 30px 0;
                 min-height: 30vh;
@@ -1722,11 +1740,11 @@
             }
 
             #area2 #item_8 h2 {
-                font-size: 28px;
+                font-size: var(--font-size-h1);
             }
 
             #area2 #item_9 .text {
-                font-size: 4vw !important;
+                font-size: 5vw !important;
                 line-height: 1.8em !important;
                 width: 95% !important;
             }
@@ -1751,13 +1769,13 @@
             }
 
             .gallery-item {
-                max-height: 500px;
+                max-height: 400px;
             }
 
             .gallery-nav {
                 width: 35px;
                 height: 35px;
-                font-size: 16px;
+                font-size: var(--font-size-button);
             }
 
             .gallery-nav.prev {
@@ -1777,10 +1795,7 @@
                 padding: 0 20px;
             }
 
-            /* 달력 모바일 스타일 */
             .calendar-container {
-                /* padding: 20px; */
-                /* margin: 0 10px; */
             }
 
             .calendar-header {
@@ -1792,7 +1807,7 @@
             .calendar-nav {
                 width: 35px;
                 height: 35px;
-                font-size: 16px;
+                font-size: var(--font-size-button);
             }
 
             .calendar-month {
@@ -1809,7 +1824,7 @@
             }
 
             .calendar-day-header {
-                font-size: 12px;
+                font-size: var(--font-size-small);
                 padding: 8px 3px;
             }
 
@@ -1821,14 +1836,13 @@
 
             .calendar-legend .share-button {
                 padding: 10px 15px;
-                font-size: 14px;
+                font-size: var(--font-size-body);
             }
 
             .legend-item {
                 font-size: 13px;
             }
 
-            /* 카운트다운 모바일 스타일 */
             .countdown-section {
                 margin-top: 15px;
             }
@@ -1838,7 +1852,7 @@
             }
 
             .countdown-title {
-                font-size: 14px;
+                font-size: var(--font-size-body);
             }
 
             .countdown-number {
@@ -1846,10 +1860,9 @@
             }
 
             .countdown-text {
-                font-size: 14px;
+                font-size: var(--font-size-body);
             }
 
-            /* 지도 모바일 스타일 */
             .map-container {
                 height: 250px;
                 margin: 0 10px 20px 10px;
@@ -1907,7 +1920,6 @@
             }
 
             .share-button {
-                /* width: 100%; */
                 padding: 10px 16px;
                 font-size: 13px;
             }
@@ -1921,7 +1933,6 @@
                 padding: 0 20px;
             }
 
-            /* 모든 h2 태그 크기 조정 */
             .couple-intro h2,
             .contact-section h2,
             .location-section h2,
@@ -1931,7 +1942,6 @@
                 font-size: 20px;
             }
 
-            /* 모든 h3 태그 크기 조정 */
             .person h3,
             .calendar-month,
             .contact-card h3,
@@ -1955,7 +1965,7 @@
             .gallery-modal-close{
                 right: 0px;
             }
-        }
+        } */
     </style>
 </head>
 
@@ -1966,6 +1976,11 @@
             <div id="item_1" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
                 <img class="img" src="images/background.png"
                     style="width:100%; height:auto; display:block; position:relative;">
+            </div>
+            <div id="audioController" class="audio-controller">
+                <button id="audioToggle" class="audio-toggle" onclick="toggleAudio()">
+                    <span class="audio-icon">🎵</span>
+                </button>
             </div>
             <div id="item_2" class="item photo-image"
                 style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
@@ -1989,13 +2004,13 @@
                 </div>
             </div>
             <div id="item_6" class="item"
-                style="top: 88.6%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                style="top: 28%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
                 <div class="text">
                      그랜드블랑 7층 퀸덤홀
                 </div>
             </div>
             <div id="item_7" class="item"
-                style="top: 85.4%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
                 <div class="text">
                     2025.11.22 토요일일 PM 04:00
                 </div>
@@ -3078,7 +3093,7 @@
                     align-items: center; 
                     justify-content: center;
                     color: #666;
-                    font-size: 16px;
+                    font-size: var(--font-size-button);
                     text-align: center;
                 ">
                     <div style="font-size: 24px; margin-bottom: 10px;">🗺️</div>
