@@ -609,6 +609,14 @@
             justify-content: center;
             font-size: var(--font-size-button);
             transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .action-btn svg {
+            width: 30px;
+            height: 30px;
+            display: block;
+            flex-shrink: 0;
         }
 
         .action-btn.call {
@@ -2198,7 +2206,7 @@
                          <div class="transport-content">
                              <div class="transport-title">김해공항</div>
                             <div class="transport-detail">
-                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 백스코하차<br>
+                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 벡스코하차<br>
                             </div>
                         </div>
                     </div>
@@ -2659,7 +2667,7 @@
                     </div>
                     <div class="contact-actions">
                        <button class="action-btn call" onclick="makeCall('${contact.phone}')" title="전화걸기">
-                            <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="20" height="20" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" style="display: block;">
                                 <g>
                                     <path fill="currentColor" d="m54.048 43.653-3.928 6.122a7.725 7.725 0 0 0 .829 9.434l8.566 9.277 9.277 8.566a7.726 7.726 0 0 0 9.434.829l6.638-4.259 16.65 17.219-6.748 8.553a8.839 8.839 0 0 1 -9.277 3.039c-13.659-3.633-25.501-11.763-36.672-23.25-11.487-11.171-19.617-23.013-23.251-36.672a8.84 8.84 0 0 1 3.04-9.276l8.605-6.79z"></path>
                                     <path fill="currentColor" d="m85.054 73.5-1 .641 17.126 17.123.375-.475a5.5 5.5 0 0 0 -.434-7.3l-9.237-9.237a5.493 5.493 0 0 0 -6.83-.752z"></path>
@@ -2668,7 +2676,7 @@
                             </svg>
                         </button>
                         <button class="action-btn sms" onclick="sendSMS('${contact.phone}', '${contact.name}')" title="문자보내기">
-                            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="20" height="20" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="display: block;">
                                 <path fill="currentColor" d="M18 5.5C11.1 5.5 5.5 11.1 5.5 18c0 1.925.45 3.725 1.2125 5.3625L4.25 31.75l8.3875-2.4625C14.275 30.05 16.075 30.5 18 30.5c6.9 0 12.5-5.6 12.5-12.5S24.9 5.5 18 5.5z"/>
                             </svg>
                         </button>
