@@ -1156,7 +1156,7 @@
 
         .gallery-container {
             display: flex;
-            transition: transform 0.2s ease-out;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             will-change: transform;
         }
@@ -2255,6 +2255,80 @@
                     <button class="gallery-nav prev" onclick="prevSlide()">‹</button>
                     <button class="gallery-nav next" onclick="nextSlide()">›</button>
                     <div class="gallery-container" id="galleryContainer">
+                        <!-- 앞쪽 복제된 슬라이드들 (무한 순환용) -->
+                        <div class="gallery-item clone" onclick="openGallery(1)">
+                            <img src="images/yul_image_1.jpg" alt="사진 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(2)">
+                            <img src="images/yul_image_2.jpg" alt="사진 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(3)">
+                            <img src="images/yul_image_3.jpg" alt="사진 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(4)">
+                            <img src="images/yul_image_4.jpg" alt="사진 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(5)">
+                            <img src="images/yul_image_5.jpg" alt="사진 5" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(6)">
+                            <img src="images/yul_image_6.jpg" alt="사진 6" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(7)">
+                            <img src="images/yul_image_7.jpg" alt="사진 7" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(8)">
+                            <img src="images/yul_image_8.jpg" alt="사진 8" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(9)">
+                            <img src="images/yul_image_9.jpg" alt="사진 9" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(10)">
+                            <img src="images/yul_image_10.jpg" alt="사진 10" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(11)">
+                            <img src="images/yul_image_11.jpg" alt="사진 11" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(12)">
+                            <img src="images/yul_image_12.jpg" alt="사진 12" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(13)">
+                            <img src="images/yul_image_13.jpg" alt="사진 13" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(14)">
+                            <img src="images/yul_image_14.jpg" alt="사진 14" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(15)">
+                            <img src="images/yul_image_15.jpg" alt="사진 15" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(16)">
+                            <img src="images/yul_image_16.jpg" alt="사진 16" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(17)">
+                            <img src="images/yul_image_17.jpg" alt="사진 17" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(18)">
+                            <img src="images/yul_image_18.jpg" alt="사진 18" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(19)">
+                            <img src="images/yul_image_19.jpg" alt="사진 19" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(20)">
+                            <img src="images/yul_image_20.jpg" alt="사진 20" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(21)">
+                            <img src="images/yul_image_21.jpg" alt="사진 21" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(22)">
+                            <img src="images/yul_image_22.jpg" alt="사진 22" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(23)">
+                            <img src="images/yul_image_23.jpg" alt="사진 23" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(24)">
+                            <img src="images/yul_image_24.jpg" alt="사진 24" loading="lazy">
+                        </div>
+                        <!-- 원본 슬라이드들 -->
                         <div class="gallery-item" onclick="openGallery(1)">
                             <img src="images/yul_image_1.jpg" alt="사진 1" loading="eager">
                         </div>
@@ -2327,8 +2401,78 @@
                         <div class="gallery-item" onclick="openGallery(24)">
                             <img data-src="images/yul_image_24.jpg" alt="사진 24" loading="lazy">
                         </div>
-                        <div class="gallery-item" onclick="openGallery(25)">
-                            <img data-src="images/yul_image_25.jpg" alt="사진 25" loading="lazy">
+                        <!-- 복제된 슬라이드들 (무한 순환용) -->
+                        <div class="gallery-item clone" onclick="openGallery(1)">
+                            <img src="images/yul_image_1.jpg" alt="사진 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(2)">
+                            <img src="images/yul_image_2.jpg" alt="사진 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(3)">
+                            <img src="images/yul_image_3.jpg" alt="사진 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(4)">
+                            <img src="images/yul_image_4.jpg" alt="사진 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(5)">
+                            <img src="images/yul_image_5.jpg" alt="사진 5" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(6)">
+                            <img src="images/yul_image_6.jpg" alt="사진 6" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(7)">
+                            <img src="images/yul_image_7.jpg" alt="사진 7" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(8)">
+                            <img src="images/yul_image_8.jpg" alt="사진 8" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(9)">
+                            <img src="images/yul_image_9.jpg" alt="사진 9" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(10)">
+                            <img src="images/yul_image_10.jpg" alt="사진 10" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(11)">
+                            <img src="images/yul_image_11.jpg" alt="사진 11" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(12)">
+                            <img src="images/yul_image_12.jpg" alt="사진 12" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(13)">
+                            <img src="images/yul_image_13.jpg" alt="사진 13" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(14)">
+                            <img src="images/yul_image_14.jpg" alt="사진 14" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(15)">
+                            <img src="images/yul_image_15.jpg" alt="사진 15" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(16)">
+                            <img src="images/yul_image_16.jpg" alt="사진 16" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(17)">
+                            <img src="images/yul_image_17.jpg" alt="사진 17" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(18)">
+                            <img src="images/yul_image_18.jpg" alt="사진 18" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(19)">
+                            <img src="images/yul_image_19.jpg" alt="사진 19" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(20)">
+                            <img src="images/yul_image_20.jpg" alt="사진 20" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(21)">
+                            <img src="images/yul_image_21.jpg" alt="사진 21" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(22)">
+                            <img src="images/yul_image_22.jpg" alt="사진 22" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(23)">
+                            <img src="images/yul_image_23.jpg" alt="사진 23" loading="lazy">
+                        </div>
+                        <div class="gallery-item clone" onclick="openGallery(24)">
+                            <img src="images/yul_image_24.jpg" alt="사진 24" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -2577,8 +2721,10 @@
         });
 
         // 갤러리 슬라이더 변수
-        let currentSlide = 0;
-        const totalSlides = 25;
+        let currentSlide = 24; // 앞쪽 복제 슬라이드 24개 + 원본 첫 번째 = 24번 인덱스
+        const totalSlides = 24;
+        let isTransitioning = false;
+        let actualSlide = 0; // 실제 슬라이드 인덱스 (0-23)
 
         // 갤러리 슬라이더 초기화
         function initGallerySlider() {
@@ -2652,58 +2798,104 @@
 
             container.style.transform = `translateX(-${currentSlide * 100}%)`;
 
+            // 실제 슬라이드 인덱스로 도트 업데이트
             dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+                dot.classList.toggle('active', index === actualSlide);
             });
 
-            // 버튼 비활성화 처리
+            // 무한 반복이므로 버튼은 항상 활성화
             if (prevBtn && nextBtn) {
-                prevBtn.classList.toggle('disabled', currentSlide === 0);
-                nextBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
+                prevBtn.classList.remove('disabled');
+                nextBtn.classList.remove('disabled');
             }
         }
 
         // 이미지 프리로딩 (성능 최적화)
         function preloadAdjacentImages() {
-            const nextIndex = (currentSlide + 1) % totalSlides;
-            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            const nextIndex = (actualSlide + 1) % totalSlides;
+            const prevIndex = (actualSlide - 1 + totalSlides) % totalSlides;
             
             // 다음 이미지 프리로드
-            if (nextIndex < totalSlides) {
-                const nextImg = new Image();
-                nextImg.src = `images/yul_image_${nextIndex + 1}.jpg`;
-            }
+            const nextImg = new Image();
+            nextImg.src = `images/yul_image_${nextIndex + 1}.jpg`;
             
             // 이전 이미지 프리로드
-            if (prevIndex >= 0) {
-                const prevImg = new Image();
-                prevImg.src = `images/yul_image_${prevIndex + 1}.jpg`;
-            }
+            const prevImg = new Image();
+            prevImg.src = `images/yul_image_${prevIndex + 1}.jpg`;
         }
 
         // 다음 슬라이드
         function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateSlider();
-                preloadAdjacentImages(); // 인접 이미지 프리로드
+            if (isTransitioning) return;
+            
+            isTransitioning = true;
+            currentSlide++;
+            actualSlide = (actualSlide + 1) % totalSlides;
+            updateSlider();
+            preloadAdjacentImages();
+            
+            // 마지막 원본 슬라이드(47번)에서 뒤쪽 복제된 첫 번째(48번)로 이동한 경우
+            if (currentSlide === 48) {
+                setTimeout(() => {
+                    const container = galleryElements.container;
+                    container.style.transition = 'none';
+                    currentSlide = 24; // 원본 첫 번째 슬라이드로 이동
+                    container.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    setTimeout(() => {
+                        container.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        isTransitioning = false;
+                    }, 50);
+                }, 400);
+            } else {
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 400);
             }
         }
 
         // 이전 슬라이드
         function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlider();
-                preloadAdjacentImages(); // 인접 이미지 프리로드
+            if (isTransitioning) return;
+            
+            isTransitioning = true;
+            currentSlide--;
+            actualSlide = (actualSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+            preloadAdjacentImages();
+            
+            // 첫 번째 원본 슬라이드(24번)에서 앞쪽 복제된 마지막(23번)으로 이동한 경우
+            if (currentSlide === 23) {
+                setTimeout(() => {
+                    const container = galleryElements.container;
+                    container.style.transition = 'none';
+                    currentSlide = 47; // 원본 마지막 슬라이드로 이동
+                    container.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    setTimeout(() => {
+                        container.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        isTransitioning = false;
+                    }, 50);
+                }, 400);
+            } else {
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 400);
             }
         }
 
         // 특정 슬라이드로 이동
         function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
+            if (isTransitioning) return;
+            
+            isTransitioning = true;
+            currentSlide = slideIndex + 24; // 앞쪽 복제 슬라이드 24개 + 원본 인덱스
+            actualSlide = slideIndex;
             updateSlider();
-            preloadAdjacentImages(); // 인접 이미지 프리로드
+            preloadAdjacentImages();
+            
+            // 애니메이션 완료 후 전환 상태 해제
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 400);
         }
 
         // 갤러리 관련 변수
