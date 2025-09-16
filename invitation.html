@@ -2163,147 +2163,6 @@
             </div>
         </div>
 
-        <!-- 오시는 길 -->
-        <div id="area5" idx="5" class="templatearea">
-            <div class="location-section">
-                <h2>오시는 길</h2>
-                <div class="venue-info">
-                    <div class="venue-name">그랜드블랑</div>
-                    <div class="venue-address">
-                        부산광역시 해운대구 센텀중앙로 79<br>
-                        센텀그랜드블랑 7층 퀸덤홀
-                    </div>
-                    <div class="venue-tel">TEL. 051-743-3733</div>
-                </div>
-
-                <!-- 지도 카드 -->
-                <div class="map-card">
-                    <!-- 카카오맵 -->
-                    <div id="map" class="map-container"></div>
-
-                    <!-- 지도 앱 버튼들 -->
-                    <div class="map-apps">
-                        <button class="map-app-btn" onclick="openNaverMap()">
-                            <img class="app-icon" src="images/naver_map_icon.jpg" alt="네이버 지도">
-                            <span>네이버 지도</span>
-                        </button>
-                        <button class="map-app-btn" onclick="openKakaoMap()">
-                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
-                            <span>구글 맵</span>
-                        </button>
-                        <button class="map-app-btn" onclick="openTmap()">
-                            <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
-                            <span>티맵</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 교통 안내 -->
-                <div class="transport-info">
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm8.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM18 11H6V6h12v5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">지하철</div>
-                            <div class="transport-detail">
-                                2호선 센텀시티역 13번 출구 이용
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">버스</div>
-                            <div class="transport-detail">
-                                5-1, 39, 40, 63, 115, 139, 141, 155, 181, 307, 1001, 1002<br>
-                                신세계 센텀시티역 하차/신세계 백화점 맞은편 롯데갤러리움 방향 도보 5분거리
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">자가용</div>
-                            <div class="transport-detail">
-                                <strong>경부고속도로(서울외)</strong><br>
-                                부산톨게이트-도시고속도로-수영강변로/원동IC-센텀시티<br><br>
-                                <strong>남해고속도로(마산창원외)</strong><br>
-                                서부산 톨게이트-동서고가도로-황령산터널-광안대교(해운대방향)-센텀시티<br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">김해공항</div>
-                            <div class="transport-detail">
-                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 벡스코하차<br>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.51 0 4.96.48 5.57 1H6.43c.61-.52 2.06-1 5.57-1zM6 7h5v3H6V7zm12 8.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V12h12v3.5zm0-4.5H13V7h5v4z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">철도</div>
-                            <div class="transport-detail">
-                                부산역: 버스 5-1, 40, 1001 / 신해운대역: 버스 139
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">주차 안내</div>
-                            <div class="transport-detail">
-                                <strong>주차 가능 건물</strong><br>
-                                • 한샘빌딩<br>
-                                • 리더스마크<br><br>
-
-                                <strong>한샘빌딩 주차시 엘리베이터 이용안내<br>(각층 가동/나동으로 운영)</strong><br>
-                                - "나"동 주차시 그랜드블랑(7층) 직통 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;연결되어있습니다.<br>
-                                - "가"동 주차시 "나"동으로 이동 후 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;이용바랍니다.<br><br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-buttons">
-                    <button class="map-btn" onclick="copyAddress()">주소 복사</button>
-                </div>
-            </div>
-        </div>
-
         <!-- 갤러리 -->
         <div id="area6" idx="6" class="templatearea">
             <div class="gallery-section">
@@ -2540,6 +2399,149 @@
                 </div>
             </div>
         </div>
+
+        <!-- 오시는 길 -->
+        <div id="area5" idx="5" class="templatearea">
+            <div class="location-section">
+                <h2>오시는 길</h2>
+                <div class="venue-info">
+                    <div class="venue-name">그랜드블랑</div>
+                    <div class="venue-address">
+                        부산광역시 해운대구 센텀중앙로 79<br>
+                        센텀그랜드블랑 7층 퀸덤홀
+                    </div>
+                    <div class="venue-tel">TEL. 051-743-3733</div>
+                </div>
+
+                <!-- 지도 카드 -->
+                <div class="map-card">
+                    <!-- 카카오맵 -->
+                    <div id="map" class="map-container"></div>
+
+                    <!-- 지도 앱 버튼들 -->
+                    <div class="map-apps">
+                        <button class="map-app-btn" onclick="openNaverMap()">
+                            <img class="app-icon" src="images/naver_map_icon.jpg" alt="네이버 지도">
+                            <span>네이버 지도</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openKakaoMap()">
+                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
+                            <span>구글 맵</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openTmap()">
+                            <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
+                            <span>티맵</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 교통 안내 -->
+                <div class="transport-info">
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm8.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM18 11H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">지하철</div>
+                            <div class="transport-detail">
+                                2호선 센텀시티역 13번 출구 이용
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">버스</div>
+                            <div class="transport-detail">
+                                5-1, 39, 40, 63, 115, 139, 141, 155, 181, 307, 1001, 1002<br>
+                                신세계 센텀시티역 하차/신세계 백화점 맞은편 롯데갤러리움 방향 도보 5분거리
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">자가용</div>
+                            <div class="transport-detail">
+                                <strong>경부고속도로(서울외)</strong><br>
+                                부산톨게이트-도시고속도로-수영강변로/원동IC-센텀시티<br><br>
+                                <strong>남해고속도로(마산창원외)</strong><br>
+                                서부산 톨게이트-동서고가도로-황령산터널-광안대교(해운대방향)-센텀시티<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">김해공항</div>
+                            <div class="transport-detail">
+                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 벡스코하차<br>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.51 0 4.96.48 5.57 1H6.43c.61-.52 2.06-1 5.57-1zM6 7h5v3H6V7zm12 8.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V12h12v3.5zm0-4.5H13V7h5v4z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">철도</div>
+                            <div class="transport-detail">
+                                부산역: 버스 5-1, 40, 1001 / 신해운대역: 버스 139
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">주차 안내</div>
+                            <div class="transport-detail">
+                                <strong>주차 가능 건물</strong><br>
+                                • 한샘빌딩<br>
+                                • 리더스마크<br><br>
+
+                                <strong>한샘빌딩 주차시 엘리베이터 이용안내<br>(각층 가동/나동으로 운영)</strong><br>
+                                - "나"동 주차시 그랜드블랑(7층) 직통 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;연결되어있습니다.<br>
+                                - "가"동 주차시 "나"동으로 이동 후 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;이용바랍니다.<br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-buttons">
+                    <button class="map-btn" onclick="copyAddress()">주소 복사</button>
+                </div>
+            </div>
+        </div>
+
+
 
         <!-- 마음전하기 -->
         <div id="area7" idx="7" class="templatearea">
