@@ -1573,6 +1573,26 @@
             position: relative;
         }
 
+        /* #area1 #item_4 {
+            top: 18.3%;
+            left: 0;
+            position: absolute;
+            width: 44%;
+            height: 5.5%;
+            align-items: center;
+        }
+
+        /* item_5 스타일 */
+        /* #area1 #item_5 {
+            top: 18.1%;
+            left: 58.8%;
+            position: absolute;
+            width: 41.2%;
+            height: 5.6%;
+            align-items: center;
+        } */
+
+
 
         /* Area1 텍스트 요소들 반응형 수정 */
         #item_4 .text,
@@ -2025,7 +2045,7 @@
             }
         }
 
-        @media (max-width: 370px) {
+        @media (max-width: 375px) {
             #item_3 .img {
                 object-fit: cover !important;
                 max-height: 100% !important;
@@ -2034,6 +2054,45 @@
             }
 
 
+        }
+
+        #area1 #item_3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #area1 #item_3 .img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        #item_3>#item_4 {
+            position: absolute;
+            top: 17.6%;
+            right: 53.8%;
+            width: 44%;
+            height: 5.5%;
+            align-items: center;
+        }
+
+        #item_3>#item_5 {
+            position: absolute;
+            top: 17.6%;
+            left: 53.8%;
+            width: 44%;
+            height: 5.5%;
+            align-items: center;
         }
     </style>
 </head>
@@ -2054,34 +2113,31 @@
             <div id="item_2" class="item photo-image"
                 style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
                 <img class="img" src="images/yr_image_2.jpg"
-                    style="width:100%; height:100%; display:block; position:relative; object-fit: cover; clip: rect(0, 100%, 80%, 0);">
-            </div>
-            <div id="item_3" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
-                <img class="img" src="images/love.gif"
                     style="width:100%; height:auto; display:block; position:relative;">
             </div>
-            <div id="item_4" class="item"
-                style="top: 18.3%; left: 0; position: absolute; width: 44%; height: 5.5%; align-items: center;">
-                <div class="text">
-                    김병찬
+            <div id="item_3" class="item">
+                <img class="img" src="images/love.gif" alt="사랑하는 모습">
+                <div id="item_4" class="item">
+                    <div class="text">
+                        김병찬
+                    </div>
                 </div>
-            </div>
-            <div id="item_5" class="item"
-                style="top: 18.1%; left: 58.8%; position: absolute; width: 41.2%; height: 5.6%; align-items: center;">
-                <div class="text">
-                    조유림
+                <div id="item_5" class="item">
+                    <div class="text">
+                        조유림
+                    </div>
                 </div>
-            </div>
-            <div id="item_6" class="item"
-                style="top: 28%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
-                <div class="text">
-                    그랜드블랑 7층 퀸덤홀
+                <div id="item_6" class="item"
+                    style="top: 28%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                    <div class="text">
+                        그랜드블랑 7층 퀸덤홀
+                    </div>
                 </div>
-            </div>
-            <div id="item_7" class="item"
-                style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
-                <div class="text">
-                    2025.11.22 토요일 PM 04:00
+                <div id="item_7" class="item"
+                    style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                    <div class="text">
+                        2025.11.22 토요일 PM 04:00
+                    </div>
                 </div>
             </div>
         </div>
@@ -3595,6 +3651,65 @@
             });
         }
 
+        // item_4, item_5 위치 동적 조정 함수
+        function adjustItemPositions() {
+            const item3 = document.getElementById('item_3');
+            const item4 = document.getElementById('item_4');
+            const item5 = document.getElementById('item_5');
+            const img = item3?.querySelector('.img');
+
+            if (!item3 || !item4 || !item5 || !img) return;
+
+            // 이미지가 로드될 때까지 기다림
+            if (img.complete) {
+                updatePositions();
+            } else {
+                img.addEventListener('load', updatePositions);
+            }
+
+            function updatePositions() {
+                const containerRect = item3.getBoundingClientRect();
+
+                // 이미지의 실제 크기와 컨테이너 크기 비교
+                const imgAspectRatio = img.naturalWidth / img.naturalHeight;
+                const containerAspectRatio = containerRect.width / containerRect.height;
+
+                let imgActualWidth, imgActualHeight;
+
+                if (imgAspectRatio > containerAspectRatio) {
+                    // 이미지가 컨테이너보다 넓음 (width 기준으로 맞춤)
+                    imgActualWidth = containerRect.width;
+                    imgActualHeight = containerRect.width / imgAspectRatio;
+                } else {
+                    // 이미지가 컨테이너보다 높음 (height 기준으로 맞춤)
+                    imgActualHeight = containerRect.height;
+                    imgActualWidth = containerRect.height * imgAspectRatio;
+                }
+
+                // 이미지의 실제 위치 계산
+                const imgLeft = (containerRect.width - imgActualWidth) / 2;
+                const imgTop = (containerRect.height - imgActualHeight) / 2;
+
+                // item_4, item_5의 위치를 이미지에 맞춰 조정
+                const relativeLeft4 = (imgLeft / containerRect.width) * 100;
+                const relativeTop4 = ((imgTop + imgActualHeight * 0.3) / containerRect.height) * 100;
+                const relativeWidth4 = (imgActualWidth * 0.4 / containerRect.width) * 100;
+                const relativeHeight4 = (imgActualHeight * 0.1 / containerRect.height) * 100;
+
+                // item_4 위치 조정 (이미지 왼쪽 절반)
+                item4.style.left = relativeLeft4 + '%';
+                item4.style.top = relativeTop4 + '%';
+                item4.style.width = relativeWidth4 + '%';
+                item4.style.height = relativeHeight4 + '%';
+
+                // item_5 위치 조정 (이미지 오른쪽 절반)
+                item5.style.left = (relativeLeft4 + (imgActualWidth * 0.6 / containerRect.width) * 100) + '%';
+                item5.style.top = relativeTop4 + '%';
+                item5.style.width = relativeWidth4 + '%';
+                item5.style.height = relativeHeight4 + '%';
+            }
+        }
+
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function () {
             initCalendar();
@@ -3603,6 +3718,12 @@
             initGallerySlider();
             initScrollAnimations();
             initKakao();
+
+            // item_4, item_5 위치 조정
+            adjustItemPositions();
+
+            // 윈도우 리사이즈 시 위치 재조정
+            window.addEventListener('resize', adjustItemPositions);
 
             // 배경음악 초기화
             if (bgMusic) {
