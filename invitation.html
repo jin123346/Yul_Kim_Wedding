@@ -973,7 +973,7 @@
             font-family: var(--current-secondary);
             font-size: var(--font-size-h2);
             color: var(--primary-color);
-            
+
             font-weight: 500;
         }
 
@@ -1171,6 +1171,12 @@
             width: 100%;
             margin: 0 auto 30px;
             overflow: hidden;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .gallery-slider:active {
+            cursor: grabbing;
         }
 
         .gallery-click-area {
@@ -1232,7 +1238,7 @@
 
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            /* transform: scale(1.02); */
         }
 
         .gallery-nav {
@@ -1333,6 +1339,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .gallery-modal-content:active {
+            cursor: grabbing;
         }
 
         .gallery-modal-click-area {
@@ -2059,7 +2071,7 @@
             <div id="item_7" class="item"
                 style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
                 <div class="text">
-                    2025.11.22 토요일일 PM 04:00
+                    2025.11.22 토요일 PM 04:00
                 </div>
             </div>
         </div>
@@ -2789,12 +2801,297 @@
         let isTransitioning = false;
         let actualSlide = 0; // 실제 슬라이드 인덱스 (0-23)
 
+
+        // 터치 스와이프 변수
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        let isTouchMoving = false;
+        const minSwipeDistance = 30; // 최소 스와이프 거리 (모바일에서 더 민감하게)
+
+        // 마우스 드래그 변수
+        let mouseStartX = 0;
+        let mouseStartY = 0;
+        let isMouseDragging = false;
+        let isMouseDown = false;
+
+        // 모달 스와이프 변수
+        let modalTouchStartX = 0;
+        let modalTouchStartY = 0;
+        let modalTouchEndX = 0;
+        let modalTouchEndY = 0;
+        let isModalTouchMoving = false;
+        let modalMouseStartX = 0;
+        let modalMouseStartY = 0;
+        let isModalMouseDragging = false;
+        let isModalMouseDown = false;
+
         // 갤러리 슬라이더 초기화
         function initGallerySlider() {
             initGalleryElements(); // DOM 요소 미리 캐싱
             createDots();
             updateSlider();
             initLazyLoading();
+            initTouchEvents(); // 터치 이벤트 초기화
+        }
+
+        // 터치 이벤트 초기화
+        function initTouchEvents() {
+            if (!galleryElements) {
+                initGalleryElements();
+            }
+
+            const container = galleryElements.container;
+            const slider = document.querySelector('.gallery-slider'); // 갤러리 슬라이더 전체
+
+            // 터치 이벤트 (모바일 최적화) - 슬라이더 전체에서 작동
+            slider.addEventListener('touchstart', handleTouchStart, { passive: false, capture: true });
+            slider.addEventListener('touchmove', handleTouchMove, { passive: false, capture: true });
+            slider.addEventListener('touchend', handleTouchEnd, { passive: false, capture: true });
+            slider.addEventListener('touchcancel', handleTouchEnd, { passive: false, capture: true });
+
+            // 마우스 이벤트 (웹 최적화) - 슬라이더 전체에서 작동
+            slider.addEventListener('mousedown', handleMouseDown);
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            slider.addEventListener('mouseleave', handleMouseUp);
+
+            // 드래그 방지 (이미지 선택 방지)
+            container.addEventListener('dragstart', (e) => e.preventDefault());
+        }
+
+        // 터치 시작 핸들러
+        function handleTouchStart(e) {
+            if (isTransitioning) return;
+
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            isTouchMoving = false;
+
+            // 디버깅용 로그 (개발 시에만 사용)
+            console.log('Touch start:', touchStartX, touchStartY);
+        }
+
+        // 터치 이동 핸들러
+        function handleTouchMove(e) {
+            if (isTransitioning) return;
+
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - touchStartX);
+            const deltaY = Math.abs(touch.clientY - touchStartY);
+
+            // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isTouchMoving = true;
+                e.preventDefault(); // 스크롤 방지
+                console.log('Touch move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 터치 끝 핸들러
+        function handleTouchEnd(e) {
+            if (isTransitioning || !isTouchMoving) return;
+
+            const touch = e.changedTouches[0];
+            touchEndX = touch.clientX;
+            touchEndY = touch.clientY;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            console.log('Touch end - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 스와이프 거리가 최소 거리보다 크고, 수직 스와이프보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 스와이프 - 이전 슬라이드
+                    console.log('Swipe right - going to previous slide');
+                    prevSlide();
+                } else {
+                    // 왼쪽으로 스와이프 - 다음 슬라이드
+                    console.log('Swipe left - going to next slide');
+                    nextSlide();
+                }
+            } else {
+                console.log('Swipe not detected - insufficient distance or wrong direction');
+            }
+
+            isTouchMoving = false;
+        }
+
+        // 마우스 다운 핸들러
+        function handleMouseDown(e) {
+            if (isTransitioning) return;
+
+            isMouseDown = true;
+            mouseStartX = e.clientX;
+            mouseStartY = e.clientY;
+            isMouseDragging = false;
+            e.preventDefault();
+
+            console.log('Mouse down:', mouseStartX, mouseStartY);
+        }
+
+        // 마우스 이동 핸들러
+        function handleMouseMove(e) {
+            if (!isMouseDown || isTransitioning) return;
+
+            const deltaX = Math.abs(e.clientX - mouseStartX);
+            const deltaY = Math.abs(e.clientY - mouseStartY);
+
+            // 수평 드래그가 수직 드래그보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isMouseDragging = true;
+                e.preventDefault();
+                console.log('Mouse move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 마우스 업 핸들러
+        function handleMouseUp(e) {
+            if (!isMouseDown || isTransitioning || !isMouseDragging) {
+                isMouseDown = false;
+                isMouseDragging = false;
+                return;
+            }
+
+            const deltaX = e.clientX - mouseStartX;
+            const deltaY = e.clientY - mouseStartY;
+
+            console.log('Mouse up - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 드래그 거리가 최소 거리보다 크고, 수직 드래그보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 드래그 - 이전 슬라이드
+                    console.log('Drag right - going to previous slide');
+                    prevSlide();
+                } else {
+                    // 왼쪽으로 드래그 - 다음 슬라이드
+                    console.log('Drag left - going to next slide');
+                    nextSlide();
+                }
+            } else {
+                console.log('Drag not detected - insufficient distance or wrong direction');
+            }
+
+            isMouseDown = false;
+            isMouseDragging = false;
+        }
+
+        // 모달 터치 시작 핸들러
+        function handleModalTouchStart(e) {
+            const touch = e.touches[0];
+            modalTouchStartX = touch.clientX;
+            modalTouchStartY = touch.clientY;
+            isModalTouchMoving = false;
+
+            console.log('Modal touch start:', modalTouchStartX, modalTouchStartY);
+        }
+
+        // 모달 터치 이동 핸들러
+        function handleModalTouchMove(e) {
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - modalTouchStartX);
+            const deltaY = Math.abs(touch.clientY - modalTouchStartY);
+
+            // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isModalTouchMoving = true;
+                e.preventDefault(); // 스크롤 방지
+                console.log('Modal touch move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 모달 터치 끝 핸들러
+        function handleModalTouchEnd(e) {
+            if (!isModalTouchMoving) return;
+
+            const touch = e.changedTouches[0];
+            modalTouchEndX = touch.clientX;
+            modalTouchEndY = touch.clientY;
+
+            const deltaX = modalTouchEndX - modalTouchStartX;
+            const deltaY = modalTouchEndY - modalTouchStartY;
+
+            console.log('Modal touch end - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 스와이프 거리가 최소 거리보다 크고, 수직 스와이프보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 스와이프 - 이전 이미지
+                    console.log('Modal swipe right - going to previous image');
+                    prevGalleryImage();
+                } else {
+                    // 왼쪽으로 스와이프 - 다음 이미지
+                    console.log('Modal swipe left - going to next image');
+                    nextGalleryImage();
+                }
+            } else {
+                console.log('Modal swipe not detected - insufficient distance or wrong direction');
+            }
+
+            isModalTouchMoving = false;
+        }
+
+        // 모달 마우스 다운 핸들러
+        function handleModalMouseDown(e) {
+            isModalMouseDown = true;
+            modalMouseStartX = e.clientX;
+            modalMouseStartY = e.clientY;
+            isModalMouseDragging = false;
+            e.preventDefault();
+
+            console.log('Modal mouse down:', modalMouseStartX, modalMouseStartY);
+        }
+
+        // 모달 마우스 이동 핸들러
+        function handleModalMouseMove(e) {
+            if (!isModalMouseDown) return;
+
+            const deltaX = Math.abs(e.clientX - modalMouseStartX);
+            const deltaY = Math.abs(e.clientY - modalMouseStartY);
+
+            // 수평 드래그가 수직 드래그보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isModalMouseDragging = true;
+                e.preventDefault();
+                console.log('Modal mouse move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 모달 마우스 업 핸들러
+        function handleModalMouseUp(e) {
+            if (!isModalMouseDown || !isModalMouseDragging) {
+                isModalMouseDown = false;
+                isModalMouseDragging = false;
+                return;
+            }
+
+            const deltaX = e.clientX - modalMouseStartX;
+            const deltaY = e.clientY - modalMouseStartY;
+
+            console.log('Modal mouse up - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 드래그 거리가 최소 거리보다 크고, 수직 드래그보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 드래그 - 이전 이미지
+                    console.log('Modal drag right - going to previous image');
+                    prevGalleryImage();
+                } else {
+                    // 왼쪽으로 드래그 - 다음 이미지
+                    console.log('Modal drag left - going to next image');
+                    nextGalleryImage();
+                }
+            } else {
+                console.log('Modal drag not detected - insufficient distance or wrong direction');
+            }
+
+            isModalMouseDown = false;
+            isModalMouseDragging = false;
         }
 
         // 이미지 지연 로딩 초기화
@@ -2988,7 +3285,38 @@
                 modalImage.src = `images/yul_image_${photoNumber}.jpg`;
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+
+                // 모달 스와이프 이벤트 바인딩
+                initModalSwipeEvents();
             }
+        }
+
+        // 모달 스와이프 이벤트 초기화
+        function initModalSwipeEvents() {
+            const modal = document.getElementById('galleryModal');
+            const modalContent = modal.querySelector('.gallery-modal-content');
+
+            if (!modal || !modalContent) return;
+
+            // 기존 이벤트 제거 (중복 방지)
+            modalContent.removeEventListener('touchstart', handleModalTouchStart);
+            modalContent.removeEventListener('touchmove', handleModalTouchMove);
+            modalContent.removeEventListener('touchend', handleModalTouchEnd);
+            modalContent.removeEventListener('touchcancel', handleModalTouchEnd);
+            modalContent.removeEventListener('mousedown', handleModalMouseDown);
+            document.removeEventListener('mousemove', handleModalMouseMove);
+            document.removeEventListener('mouseup', handleModalMouseUp);
+
+            // 터치 이벤트 (모바일)
+            modalContent.addEventListener('touchstart', handleModalTouchStart, { passive: false, capture: true });
+            modalContent.addEventListener('touchmove', handleModalTouchMove, { passive: false, capture: true });
+            modalContent.addEventListener('touchend', handleModalTouchEnd, { passive: false, capture: true });
+            modalContent.addEventListener('touchcancel', handleModalTouchEnd, { passive: false, capture: true });
+
+            // 마우스 이벤트 (웹)
+            modalContent.addEventListener('mousedown', handleModalMouseDown);
+            document.addEventListener('mousemove', handleModalMouseMove);
+            document.addEventListener('mouseup', handleModalMouseUp);
         }
 
         // 갤러리 모달 닫기
