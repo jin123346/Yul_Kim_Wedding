@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" href="images/thumbnail.png?v=2">
     <meta name="apple-mobile-web-app-title" content="김병찬♥조유림 결혼식">
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <!-- 글씨체 변수 시스템 -->
     <link rel="stylesheet" href="css/font-variables.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -61,12 +61,15 @@
     }
     </script>
     <!-- 카카오 SDK -->
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js" integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm" crossorigin="anonymous"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js"
+        integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm"
+        crossorigin="anonymous"></script>
     <!-- 구글 맵 API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjC49GENw6YNu7l0RtAwPYLda97fhjqL0&loading=async&callback=initMap"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjC49GENw6YNu7l0RtAwPYLda97fhjqL0&loading=async&callback=initMap"></script>
 
     <!-- 배경음악 컨트롤러 -->
-   
+
 
     <audio id="bgMusic" loop preload="metadata">
         <source src="music/background_music.mp3" type="audio/mpeg">
@@ -74,7 +77,8 @@
 
     <style>
         /* 확대 방지 CSS */
-        html, body {
+        html,
+        body {
             overflow-x: hidden;
             max-width: 100vw;
             max-height: 100vh;
@@ -87,7 +91,7 @@
             -ms-user-select: none;
             user-select: none;
         }
-        
+
         * {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -96,7 +100,7 @@
             -ms-user-select: none;
             user-select: none;
         }
-        
+
         /* 확대 방지를 위한 추가 설정 */
         @media screen and (max-width: 768px) {
             html {
@@ -104,8 +108,16 @@
                 -ms-text-size-adjust: 100%;
                 text-size-adjust: 100%;
             }
+
+            /* love.gif 이미지가 잘리지 않도록 조정 */
+            #item_3 .img {
+                object-fit: contain !important;
+                max-height: 100% !important;
+                width: auto !important;
+                height: 100% !important;
+            }
         }
-        
+
         /* 오디오 컨트롤러 스타일 */
         .audio-controller {
             position: absolute;
@@ -154,26 +166,42 @@
             --secondary-text: #5a6c7d;
             --accent-color: #8b9dc3;
             --primary-red: #e74c3c;
-            
+
             /* 폰트 크기 변수 - 430px 가로에 최적화 */
-            --font-size-h1: 22px;           /* 메인 제목 - 더 크고 눈에 띄게 */
-            --font-size-h2: 20px;           /* 섹션 제목 - 적당한 크기 */
-            --font-size-h3: 20px;           /* 부제목 - 읽기 편한 크기 */
-            --font-size-subTitle: 16px;           /* 부제목 - 읽기 편한 크기 */
-            --font-size-body: 15px;         /* 본문 텍스트 - 읽기 편한 크기 */
-            --font-size-small: 13px;        /* 작은 텍스트 - 너무 작지 않게 */
-            --font-size-button: 15px;       /* 버튼 텍스트 - 터치하기 편한 크기 */
-            --font-size-caption: 13px;      /* 캡션 텍스트 */
-            
+            --font-size-h1: 22px;
+            /* 메인 제목 - 더 크고 눈에 띄게 */
+            --font-size-h2: 20px;
+            /* 섹션 제목 - 적당한 크기 */
+            --font-size-h3: 20px;
+            /* 부제목 - 읽기 편한 크기 */
+            --font-size-subTitle: 16px;
+            /* 부제목 - 읽기 편한 크기 */
+            --font-size-body: 15px;
+            /* 본문 텍스트 - 읽기 편한 크기 */
+            --font-size-small: 13px;
+            /* 작은 텍스트 - 너무 작지 않게 */
+            --font-size-button: 15px;
+            /* 버튼 텍스트 - 터치하기 편한 크기 */
+            --font-size-caption: 13px;
+            /* 캡션 텍스트 */
+
             /* 위치별 폰트 크기 */
-            --font-size-hero-title: 18px;   /* 히어로 섹션 제목 */
-            --font-size-hero-subtitle: 14px; /* 히어로 섹션 부제목 */
-            --font-size-card-title: 20px;   /* 카드 제목 */
-            --font-size-card-subtitle: 17px; /* 카드 부제목 */
-            --font-size-calendar-month: 18px; /* 캘린더 월 */
-            --font-size-calendar-day: 15px;  /* 캘린더 날짜 */
-            --font-size-venue-name: 19px;    /* 장소명 */
-            --font-size-venue-info: 15px;    /* 장소 정보 */
+            --font-size-hero-title: 18px;
+            /* 히어로 섹션 제목 */
+            --font-size-hero-subtitle: 14px;
+            /* 히어로 섹션 부제목 */
+            --font-size-card-title: 20px;
+            /* 카드 제목 */
+            --font-size-card-subtitle: 17px;
+            /* 카드 부제목 */
+            --font-size-calendar-month: 18px;
+            /* 캘린더 월 */
+            --font-size-calendar-day: 15px;
+            /* 캘린더 날짜 */
+            --font-size-venue-name: 19px;
+            /* 장소명 */
+            --font-size-venue-info: 15px;
+            /* 장소 정보 */
         }
 
         * {
@@ -194,11 +222,12 @@
         #wrap {
             max-width: 430px;
             margin: 0 auto;
+            background-color: rgba(242, 243, 247, 0.932);
         }
 
         /* 기존 스타일들 */
         #area3 {
-            background-color: #fff;
+            background-color: white;
             padding: 80px 0;
             border-top: 1px solid var(--primary-border);
             border-bottom: 1px solid var(--primary-border);
@@ -222,13 +251,13 @@
             font-size: var(--font-size-h1);
             color: var(--primary-color);
             margin-bottom: 50px;
-            font-weight: 500;
+            font-weight: 550;
         }
 
         .couple-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            /* margin-bottom: 40px; */
             flex-direction: column;
         }
 
@@ -245,7 +274,7 @@
             font-size: var(--font-size-h2);
             color: var(--primary-text);
             /* margin-bottom: 15px; */
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .person .relationship {
@@ -263,6 +292,7 @@
             width: 16px;
             height: 16px;
             flex-shrink: 0;
+            background-color: none;
         }
 
         /* 새로운 연락처 스타일 */
@@ -289,7 +319,7 @@
             font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: 550;
         }
 
         .contact-cards {
@@ -681,7 +711,7 @@
             font-size: var(--font-size-h2);
             color: var(--primary-color);
             /* margin-bottom: 10px; */
-            font-weight: 500;
+            font-weight: 550;
         }
 
         .calendar-container {
@@ -698,15 +728,15 @@
             justify-content: flex-start;
             align-items: center;
             margin-bottom: 30px;
-             /* padding-bottom: 20px; */
+            /* padding-bottom: 20px; */
             border-bottom: 1px solid #f0f0f0;
             flex-direction: column
         }
 
-        .calendar-header .calendar-title{
-                font-size: 16px !important;
-                font-weight:  400;
-            }
+        .calendar-header .calendar-title {
+            font-size: 16px !important;
+            font-weight: 400;
+        }
 
         .calendar-nav {
             /* background: var(--primary-color);
@@ -740,7 +770,7 @@
             font-family: var(--current-secondary);
             font-size: var(--font-size-calendar-month);
             color: var(--primary-text);
-            font-weight: 500;
+            font-weight: 700;
             margin: 0;
         }
 
@@ -811,7 +841,7 @@
 
         .calendar-legend {
             display: flex;
-            justify-content: space-between;           
+            justify-content: space-between;
             align-items: center;
             gap: 20px;
             margin-top: 20px;
@@ -924,7 +954,7 @@
         /* 위치 정보 스타일 */
         #area5 {
             background-color: #fff;
-            padding: 80px 0;
+            padding: 35px 0;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
@@ -944,8 +974,8 @@
             font-family: var(--current-secondary);
             font-size: var(--font-size-h2);
             color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: 500;
+
+            font-weight: 550;
         }
 
         .venue-info {
@@ -953,7 +983,6 @@
             /* border: 1px solid var(--primary-border); */
             padding: 30px;
             border-radius: 10px;
-            margin-bottom: 30px;
         }
 
         .venue-name {
@@ -1112,7 +1141,7 @@
         /* 갤러리 스타일 */
         #area6 {
             background-color: var(--primary-bg);
-            padding: 80px 0;
+            padding: 35px 0;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
@@ -1133,7 +1162,7 @@
             font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: 550;
             padding: 0 20px;
         }
 
@@ -1142,6 +1171,12 @@
             width: 100%;
             margin: 0 auto 30px;
             overflow: hidden;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .gallery-slider:active {
+            cursor: grabbing;
         }
 
         .gallery-click-area {
@@ -1181,7 +1216,7 @@
             transition: transform 0.2s;
             overflow: hidden;
             position: relative;
-            background-color: #f8f9fa;
+            /* background-color: #f8f9fa; */
         }
 
         .gallery-item img {
@@ -1191,19 +1226,19 @@
             /* border-radius: 8px; */
             transition: opacity 0.3s ease;
         }
-        
+
         .gallery-item img[data-src] {
             opacity: 0.3;
             background: #f0f0f0;
         }
-        
+
         .gallery-item img[src] {
             opacity: 1;
         }
 
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            /* transform: scale(1.02); */
         }
 
         .gallery-nav {
@@ -1227,7 +1262,7 @@
 
         .gallery-nav:hover:not(.disabled) {
             background: var(--primary-light);
-            transform: translateY(-50%) scale(1.05);
+            transform: translateY(-50%) scale(1);
         }
 
         .gallery-nav.disabled {
@@ -1286,7 +1321,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            touch-action: none;  /* 모바일에서 확대/축소 방지 */
+            touch-action: none;
+            /* 모바일에서 확대/축소 방지 */
             -ms-touch-action: none;
             user-select: none;
         }
@@ -1303,6 +1339,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .gallery-modal-content:active {
+            cursor: grabbing;
         }
 
         .gallery-modal-click-area {
@@ -1323,22 +1365,31 @@
             right: 0;
         }
 
-    
+
 
         .gallery-modal img {
             max-width: 100%;
             max-height: 100%;
             /* object-fit: contain; */
             /* border-radius: 8px; */
-            -webkit-user-select: none;  /* Safari */
-            -ms-user-select: none;      /* IE 10 and IE 11 */
-            user-select: none;          /* 텍스트 선택 방지 */
-            -webkit-touch-callout: none;/* iOS Safari */
-            pointer-events: none;       /* 더블클릭 방지 */
-            -webkit-user-drag: none;    /* 드래그 방지 */
-            -khtml-user-drag: none;     /* 드래그 방지 */
-            -moz-user-drag: none;       /* 드래그 방지 */
-            -o-user-drag: none;         /* 드래그 방지 */
+            -webkit-user-select: none;
+            /* Safari */
+            -ms-user-select: none;
+            /* IE 10 and IE 11 */
+            user-select: none;
+            /* 텍스트 선택 방지 */
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            pointer-events: none;
+            /* 더블클릭 방지 */
+            -webkit-user-drag: none;
+            /* 드래그 방지 */
+            -khtml-user-drag: none;
+            /* 드래그 방지 */
+            -moz-user-drag: none;
+            /* 드래그 방지 */
+            -o-user-drag: none;
+            /* 드래그 방지 */
         }
 
         .gallery-modal-close {
@@ -1408,8 +1459,7 @@
 
         /* 마음전하기 스타일 */
         #area7 {
-            background-color: #fff;
-            padding: 80px 0;
+            padding: 35px 0 15px 0;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
@@ -1430,7 +1480,7 @@
             font-size: var(--font-size-h2);
             color: var(--primary-color);
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: 550;
         }
 
         .gift-message {
@@ -1470,6 +1520,7 @@
             width: 100%;
             position: relative;
             letter-spacing: 0px;
+            background-color: white;
         }
 
         .item {
@@ -1522,6 +1573,26 @@
             display: block;
             position: relative;
         }
+
+        /* #area1 #item_4 {
+            top: 18.3%;
+            left: 0;
+            position: absolute;
+            width: 44%;
+            height: 5.5%;
+            align-items: center;
+        }
+
+        /* item_5 스타일 */
+        /* #area1 #item_5 {
+            top: 18.1%;
+            left: 58.8%;
+            position: absolute;
+            width: 41.2%;
+            height: 5.6%;
+            align-items: center;
+        } */
+
 
 
         /* Area1 텍스트 요소들 반응형 수정 */
@@ -1591,7 +1662,7 @@
             font-size: 22px;
             color: var(--primary-color);
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: 550;
             text-align: center;
         }
 
@@ -1709,7 +1780,9 @@
 
         .footer-copyright {
             text-align: center;
-            padding: 20px;
+            padding: 10px;
+            background-color: var(--primary-bg);
+            border-top: 1px solid var(--primary-border);
             color: var(--secondary-text);
             font-size: var(--font-size-body);
         }
@@ -1800,7 +1873,7 @@
                 margin-bottom: 20px;
                 padding-bottom: 15px;
             }
-          
+
 
             .calendar-nav {
                 width: 35px;
@@ -1864,6 +1937,14 @@
             .map-container {
                 height: 250px;
                 margin: 0 10px 20px 10px;
+            }
+
+            /* love.gif 이미지가 잘리지 않도록 조정 */
+            #item_3 .img {
+                object-fit: contain !important;
+                max-height: 100% !important;
+                width: auto !important;
+                height: 100% !important;
             }
 
             .transport-section {
@@ -1947,22 +2028,72 @@
                 font-size: 18px;
             }
 
-            .gallery-modal img{
+            .gallery-modal img {
                 max-width: 100%;
                 max-height: 100%;
             }
 
-            .gallery-modal-prev{
+            .gallery-modal-prev {
                 left: 10px;
             }
 
-            .gallery-modal-next{
+            .gallery-modal-next {
                 right: 10px;
             }
 
-            .gallery-modal-close{
+            .gallery-modal-close {
                 right: 0px;
             }
+        }
+
+        @media (max-width: 375px) {
+            #item_3 .img {
+                object-fit: cover !important;
+                max-height: 100% !important;
+                width: auto !important;
+                height: 88% !important;
+            }
+
+
+        }
+
+        #area1 #item_3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #area1 #item_3 .img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        #item_3>#item_4 {
+            position: absolute;
+            top: 18%;
+            right: 53.8%;
+            width: 51%;
+            height: 5.5%;
+            align-items: center;
+        }
+
+        #item_3>#item_5 {
+            position: absolute;
+            top: 18%;
+            left: 53.8%;
+            width: 44%;
+            height: 5.5%;
+            align-items: center;
         }
     </style>
 </head>
@@ -1985,32 +2116,29 @@
                 <img class="img" src="images/yr_image_2.jpg"
                     style="width:100%; height:auto; display:block; position:relative;">
             </div>
-            <div id="item_3" class="item" style="top: 0; left: 0; position: absolute; width: 100%; height: 100%;">
-                <img class="img" src="images/love.gif"
-                    style="width:100%; height:auto; display:block; position:relative;">
-            </div>
-            <div id="item_4" class="item"
-                style="top: 18.3%; left: 0; position: absolute; width: 44%; height: 5.5%; align-items: center;">
-                <div class="text">
-                    김병찬
+            <div id="item_3" class="item">
+                <img class="img" src="images/love.gif" alt="사랑하는 모습">
+                <div id="item_4" class="item">
+                    <div class="text">
+                        김병찬
+                    </div>
                 </div>
-            </div>
-            <div id="item_5" class="item"
-                style="top: 18.1%; left: 58.8%; position: absolute; width: 41.2%; height: 5.6%; align-items: center;">
-                <div class="text">
-                    조유림
+                <div id="item_5" class="item">
+                    <div class="text">
+                        조유림
+                    </div>
                 </div>
-            </div>
-            <div id="item_6" class="item"
-                style="top: 28%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
-                <div class="text">
-                     그랜드블랑 7층 퀸덤홀
+                <div id="item_6" class="item"
+                    style="top: 28%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                    <div class="text">
+                        그랜드블랑 7층 퀸덤홀
+                    </div>
                 </div>
-            </div>
-            <div id="item_7" class="item"
-                style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
-                <div class="text">
-                    2025.11.22 토요일일 PM 04:00
+                <div id="item_7" class="item"
+                    style="top: 32%; left: 0; position: absolute; width: 100%; height: 3.2%; align-items: center;">
+                    <div class="text">
+                        2025.11.22 토요일 PM 04:00
+                    </div>
                 </div>
             </div>
         </div>
@@ -2022,8 +2150,8 @@
             </div>
             <div id="item_9" class="item">
                 <div class="text">
-                    나와 너로 충분했던 우리가, 이제<br>
-                    '우리'라는 이름으로 살아가려 합니다.<br>
+                    나와 너로 충분했던 우리가, <br>이제
+                    '우리'라는 이름으로 <br> 살아가려 합니다.<br>
                     사랑에 그 이름을 새기고,<br>
                     그 이름으로 함께 걸어갈 첫날에<br>
                     당신을 초대합니다.<br>
@@ -2080,7 +2208,7 @@
                     <div class="calendar-header">
                         <h3 class="calendar-month" id="calendarMonth">2025.11</h3>
                         <div class="calendar-title">토요일 오후 04시</div>
-                        
+
                     </div>
                     <div class="calendar-grid" id="calendarGrid">
                         <!-- JavaScript로 동적 생성 -->
@@ -2097,7 +2225,7 @@
                             일정 등록하기
                         </button> -->
                     </div>
-                
+
                 </div>
 
                 <!-- 결혼식 카운트다운 -->
@@ -2110,145 +2238,6 @@
                             <span class="countdown-text">일 남았습니다</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 오시는 길 -->
-        <div id="area5" idx="5" class="templatearea">
-            <div class="location-section">
-                <h2>오시는 길</h2>
-                <div class="venue-info">
-                    <div class="venue-name">그랜드블랑</div>
-                    <div class="venue-address">
-                        부산광역시 해운대구 센텀중앙로 79<br>
-                        센텀그랜드블랑 7층 퀸덤홀
-                    </div>
-                    <div class="venue-tel">TEL. 051-743-3733</div>
-                </div>
-
-                <!-- 지도 카드 -->
-                <div class="map-card">
-                    <!-- 카카오맵 -->
-                    <div id="map" class="map-container"></div>
-
-                    <!-- 지도 앱 버튼들 -->
-                    <div class="map-apps">
-                        <button class="map-app-btn" onclick="openNaverMap()">
-                            <img class="app-icon" src="images/naver_map_icon.jpg" alt="네이버 지도">
-                            <span>네이버 지도</span>
-                        </button>
-                        <button class="map-app-btn" onclick="openKakaoMap()">
-                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
-                            <span>구글 맵</span>
-                        </button>
-                        <button class="map-app-btn" onclick="openTmap()">
-                            <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
-                            <span>티맵</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 교통 안내 -->
-                <div class="transport-info">
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm8.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM18 11H6V6h12v5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">지하철</div>
-                            <div class="transport-detail">
-                                2호선 센텀시티역 13번 출구 이용
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">버스</div>
-                            <div class="transport-detail">
-                                5-1, 39, 40, 63, 115, 139, 141, 155, 181, 307, 1001, 1002<br>
-                                신세계 센텀시티역 하차/신세계 백화점 맞은편 롯데갤러리움 방향 도보 5분거리
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">자가용</div>
-                            <div class="transport-detail">
-                                <strong>경부고속도로(서울외)</strong><br>
-                                부산톨게이트-도시고속도로-수영강변로/원동IC-센텀시티<br><br>
-                                <strong>남해고속도로(마산창원외)</strong><br>
-                                서부산 톨게이트-동서고가도로-황령산터널-광안대교(해운대방향)-센텀시티<br>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="transport-section">
-                         <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                             <path
-                                 d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-                                 fill="currentColor" />
-                         </svg>
-                         <div class="transport-content">
-                             <div class="transport-title">김해공항</div>
-                            <div class="transport-detail">
-                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 벡스코하차<br>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                     <div class="transport-section">
-                         <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                             <path
-                                 d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.51 0 4.96.48 5.57 1H6.43c.61-.52 2.06-1 5.57-1zM6 7h5v3H6V7zm12 8.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V12h12v3.5zm0-4.5H13V7h5v4z"
-                                 fill="currentColor" />
-                         </svg>
-                         <div class="transport-content">
-                             <div class="transport-title">철도</div>
-                            <div class="transport-detail">
-                                부산역: 버스 5-1, 40, 1001 / 신해운대역: 버스 139
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="transport-section">
-                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z" fill="currentColor"/>
-                        </svg>
-                        <div class="transport-content">
-                            <div class="transport-title">주차 안내</div>
-                            <div class="transport-detail">
-                                <strong>주차 가능 건물</strong><br>
-                                • 한샘빌딩<br>
-                                • 리더스마크<br><br>
-                         
-                                <strong>한샘빌딩 주차시 엘리베이터 이용안내<br>(각층 가동/나동으로 운영)</strong><br>
-                                - "나"동 주차시 그랜드블랑(7층) 직통 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;연결되어있습니다.<br>
-                                - "가"동 주차시 "나"동으로 이동 후 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;이용바랍니다.<br><br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-buttons">
-                    <button class="map-btn" onclick="copyAddress()">주소 복사</button>
                 </div>
             </div>
         </div>
@@ -2490,6 +2479,149 @@
             </div>
         </div>
 
+        <!-- 오시는 길 -->
+        <div id="area5" idx="5" class="templatearea">
+            <div class="location-section">
+                <h2>오시는 길</h2>
+                <div class="venue-info">
+                    <div class="venue-name">그랜드블랑</div>
+                    <div class="venue-address">
+                        부산광역시 해운대구 센텀중앙로 79<br>
+                        센텀그랜드블랑 7층 퀸덤홀
+                    </div>
+                    <div class="venue-tel">TEL. 051-743-3733</div>
+                </div>
+
+                <!-- 지도 카드 -->
+                <div class="map-card">
+                    <!-- 카카오맵 -->
+                    <div id="map" class="map-container"></div>
+
+                    <!-- 지도 앱 버튼들 -->
+                    <div class="map-apps">
+                        <button class="map-app-btn" onclick="openNaverMap()">
+                            <img class="app-icon" src="images/naver_map_icon.jpg" alt="네이버 지도">
+                            <span>네이버 지도</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openKakaoMap()">
+                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
+                            <span>카카오 맵</span>
+                        </button>
+                        <button class="map-app-btn" onclick="openTmap()">
+                            <img class="app-icon" src="images/tmap_icon.svg" alt="티맵">
+                            <span>티맵</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 교통 안내 -->
+                <div class="transport-info">
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm8.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM18 11H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">지하철</div>
+                            <div class="transport-detail">
+                                2호선 센텀시티역 13번 출구 이용
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">버스</div>
+                            <div class="transport-detail">
+                                5-1, 39, 40, 63, 115, 139, 141, 155, 181, 307, 1001, 1002<br>
+                                신세계 센텀시티역 하차/신세계 백화점 맞은편 롯데갤러리움 방향 도보 5분거리
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">자가용</div>
+                            <div class="transport-detail">
+                                <strong>경부고속도로(서울외)</strong><br>
+                                부산톨게이트-도시고속도로-수영강변로/원동IC-센텀시티<br><br>
+                                <strong>남해고속도로(마산창원외)</strong><br>
+                                서부산 톨게이트-동서고가도로-황령산터널-광안대교(해운대방향)-센텀시티<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">김해공항</div>
+                            <div class="transport-detail">
+                                해운대 방면 리무진 탑승 후 해운대 센텀호텔 벡스코하차<br>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.51 0 4.96.48 5.57 1H6.43c.61-.52 2.06-1 5.57-1zM6 7h5v3H6V7zm12 8.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V12h12v3.5zm0-4.5H13V7h5v4z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">철도</div>
+                            <div class="transport-detail">
+                                부산역: 버스 5-1, 40, 1001 / 신해운대역: 버스 139
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="transport-section">
+                        <svg class="transport-icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z"
+                                fill="currentColor" />
+                        </svg>
+                        <div class="transport-content">
+                            <div class="transport-title">주차 안내</div>
+                            <div class="transport-detail">
+                                <strong>주차 가능 건물</strong><br>
+                                • 한샘빌딩<br>
+                                • 리더스마크<br><br>
+
+                                <strong>한샘빌딩 주차시 엘리베이터 이용안내<br>(각층 가동/나동으로 운영)</strong><br>
+                                - "나"동 주차시 그랜드블랑(7층) 직통 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;연결되어있습니다.<br>
+                                - "가"동 주차시 "나"동으로 이동 후 엘리베이터<br>&nbsp;&nbsp;&nbsp;&nbsp;이용바랍니다.<br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-buttons">
+                    <button class="map-btn" onclick="copyAddress()">주소 복사</button>
+                </div>
+            </div>
+        </div>
+
+
+
         <!-- 마음전하기 -->
         <div id="area7" idx="7" class="templatearea">
             <div class="gift-section">
@@ -2524,7 +2656,7 @@
                             <div class="account-holder">백은숙</div>
                             <div class="account-info-display">
                                 <div class="account-bank">농협은행</div>
-                                <div class="account-number">115-7120471-67 </div>
+                                <div class="account-number">1157-12-047167 </div>
                             </div>
                             <button class="account-copy-btn" onclick="copyAccountNumber('115712047167', '농협은행')">
                                 복사
@@ -2572,7 +2704,8 @@
             <div class="footer-share">
                 <button id="kakao-share-button" class="share-button">
                     <svg viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
-                        <path fill="currentColor" d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.51 13.51 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.974-.149-.863-.693l.77-3.71a8.005 8.005 0 0 1-4.272-6.554C1.5 6.664 6.201 3 12 3z"/>
+                        <path fill="currentColor"
+                            d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.51 13.51 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.974-.149-.863-.693l.77-3.71a8.005 8.005 0 0 1-4.272-6.554C1.5 6.664 6.201 3 12 3z" />
                     </svg>
                     카카오톡 공유하기
                 </button>
@@ -2584,7 +2717,8 @@
                 </button> -->
                 <button onclick="copyPageUrl()" class="share-button">
                     <svg viewBox="0 0 24 24" width="18" height="18" style="margin-right: 6px;">
-                        <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                        <path fill="currentColor"
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
                     </svg>
                     링크주소 복사하기
                 </button>
@@ -2734,12 +2868,297 @@
         let isTransitioning = false;
         let actualSlide = 0; // 실제 슬라이드 인덱스 (0-23)
 
+
+        // 터치 스와이프 변수
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        let isTouchMoving = false;
+        const minSwipeDistance = 30; // 최소 스와이프 거리 (모바일에서 더 민감하게)
+
+        // 마우스 드래그 변수
+        let mouseStartX = 0;
+        let mouseStartY = 0;
+        let isMouseDragging = false;
+        let isMouseDown = false;
+
+        // 모달 스와이프 변수
+        let modalTouchStartX = 0;
+        let modalTouchStartY = 0;
+        let modalTouchEndX = 0;
+        let modalTouchEndY = 0;
+        let isModalTouchMoving = false;
+        let modalMouseStartX = 0;
+        let modalMouseStartY = 0;
+        let isModalMouseDragging = false;
+        let isModalMouseDown = false;
+
         // 갤러리 슬라이더 초기화
         function initGallerySlider() {
             initGalleryElements(); // DOM 요소 미리 캐싱
             createDots();
             updateSlider();
             initLazyLoading();
+            initTouchEvents(); // 터치 이벤트 초기화
+        }
+
+        // 터치 이벤트 초기화
+        function initTouchEvents() {
+            if (!galleryElements) {
+                initGalleryElements();
+            }
+
+            const container = galleryElements.container;
+            const slider = document.querySelector('.gallery-slider'); // 갤러리 슬라이더 전체
+
+            // 터치 이벤트 (모바일 최적화) - 슬라이더 전체에서 작동
+            slider.addEventListener('touchstart', handleTouchStart, { passive: false, capture: true });
+            slider.addEventListener('touchmove', handleTouchMove, { passive: false, capture: true });
+            slider.addEventListener('touchend', handleTouchEnd, { passive: false, capture: true });
+            slider.addEventListener('touchcancel', handleTouchEnd, { passive: false, capture: true });
+
+            // 마우스 이벤트 (웹 최적화) - 슬라이더 전체에서 작동
+            slider.addEventListener('mousedown', handleMouseDown);
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            slider.addEventListener('mouseleave', handleMouseUp);
+
+            // 드래그 방지 (이미지 선택 방지)
+            container.addEventListener('dragstart', (e) => e.preventDefault());
+        }
+
+        // 터치 시작 핸들러
+        function handleTouchStart(e) {
+            if (isTransitioning) return;
+
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            isTouchMoving = false;
+
+            // 디버깅용 로그 (개발 시에만 사용)
+            console.log('Touch start:', touchStartX, touchStartY);
+        }
+
+        // 터치 이동 핸들러
+        function handleTouchMove(e) {
+            if (isTransitioning) return;
+
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - touchStartX);
+            const deltaY = Math.abs(touch.clientY - touchStartY);
+
+            // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isTouchMoving = true;
+                e.preventDefault(); // 스크롤 방지
+                console.log('Touch move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 터치 끝 핸들러
+        function handleTouchEnd(e) {
+            if (isTransitioning || !isTouchMoving) return;
+
+            const touch = e.changedTouches[0];
+            touchEndX = touch.clientX;
+            touchEndY = touch.clientY;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            console.log('Touch end - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 스와이프 거리가 최소 거리보다 크고, 수직 스와이프보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 스와이프 - 이전 슬라이드
+                    console.log('Swipe right - going to previous slide');
+                    prevSlide();
+                } else {
+                    // 왼쪽으로 스와이프 - 다음 슬라이드
+                    console.log('Swipe left - going to next slide');
+                    nextSlide();
+                }
+            } else {
+                console.log('Swipe not detected - insufficient distance or wrong direction');
+            }
+
+            isTouchMoving = false;
+        }
+
+        // 마우스 다운 핸들러
+        function handleMouseDown(e) {
+            if (isTransitioning) return;
+
+            isMouseDown = true;
+            mouseStartX = e.clientX;
+            mouseStartY = e.clientY;
+            isMouseDragging = false;
+            e.preventDefault();
+
+            console.log('Mouse down:', mouseStartX, mouseStartY);
+        }
+
+        // 마우스 이동 핸들러
+        function handleMouseMove(e) {
+            if (!isMouseDown || isTransitioning) return;
+
+            const deltaX = Math.abs(e.clientX - mouseStartX);
+            const deltaY = Math.abs(e.clientY - mouseStartY);
+
+            // 수평 드래그가 수직 드래그보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isMouseDragging = true;
+                e.preventDefault();
+                console.log('Mouse move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 마우스 업 핸들러
+        function handleMouseUp(e) {
+            if (!isMouseDown || isTransitioning || !isMouseDragging) {
+                isMouseDown = false;
+                isMouseDragging = false;
+                return;
+            }
+
+            const deltaX = e.clientX - mouseStartX;
+            const deltaY = e.clientY - mouseStartY;
+
+            console.log('Mouse up - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 드래그 거리가 최소 거리보다 크고, 수직 드래그보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 드래그 - 이전 슬라이드
+                    console.log('Drag right - going to previous slide');
+                    prevSlide();
+                } else {
+                    // 왼쪽으로 드래그 - 다음 슬라이드
+                    console.log('Drag left - going to next slide');
+                    nextSlide();
+                }
+            } else {
+                console.log('Drag not detected - insufficient distance or wrong direction');
+            }
+
+            isMouseDown = false;
+            isMouseDragging = false;
+        }
+
+        // 모달 터치 시작 핸들러
+        function handleModalTouchStart(e) {
+            const touch = e.touches[0];
+            modalTouchStartX = touch.clientX;
+            modalTouchStartY = touch.clientY;
+            isModalTouchMoving = false;
+
+            console.log('Modal touch start:', modalTouchStartX, modalTouchStartY);
+        }
+
+        // 모달 터치 이동 핸들러
+        function handleModalTouchMove(e) {
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - modalTouchStartX);
+            const deltaY = Math.abs(touch.clientY - modalTouchStartY);
+
+            // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isModalTouchMoving = true;
+                e.preventDefault(); // 스크롤 방지
+                console.log('Modal touch move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 모달 터치 끝 핸들러
+        function handleModalTouchEnd(e) {
+            if (!isModalTouchMoving) return;
+
+            const touch = e.changedTouches[0];
+            modalTouchEndX = touch.clientX;
+            modalTouchEndY = touch.clientY;
+
+            const deltaX = modalTouchEndX - modalTouchStartX;
+            const deltaY = modalTouchEndY - modalTouchStartY;
+
+            console.log('Modal touch end - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 스와이프 거리가 최소 거리보다 크고, 수직 스와이프보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 스와이프 - 이전 이미지
+                    console.log('Modal swipe right - going to previous image');
+                    prevGalleryImage();
+                } else {
+                    // 왼쪽으로 스와이프 - 다음 이미지
+                    console.log('Modal swipe left - going to next image');
+                    nextGalleryImage();
+                }
+            } else {
+                console.log('Modal swipe not detected - insufficient distance or wrong direction');
+            }
+
+            isModalTouchMoving = false;
+        }
+
+        // 모달 마우스 다운 핸들러
+        function handleModalMouseDown(e) {
+            isModalMouseDown = true;
+            modalMouseStartX = e.clientX;
+            modalMouseStartY = e.clientY;
+            isModalMouseDragging = false;
+            e.preventDefault();
+
+            console.log('Modal mouse down:', modalMouseStartX, modalMouseStartY);
+        }
+
+        // 모달 마우스 이동 핸들러
+        function handleModalMouseMove(e) {
+            if (!isModalMouseDown) return;
+
+            const deltaX = Math.abs(e.clientX - modalMouseStartX);
+            const deltaY = Math.abs(e.clientY - modalMouseStartY);
+
+            // 수평 드래그가 수직 드래그보다 클 때만 처리
+            if (deltaX > deltaY && deltaX > 10) {
+                isModalMouseDragging = true;
+                e.preventDefault();
+                console.log('Modal mouse move - deltaX:', deltaX, 'deltaY:', deltaY);
+            }
+        }
+
+        // 모달 마우스 업 핸들러
+        function handleModalMouseUp(e) {
+            if (!isModalMouseDown || !isModalMouseDragging) {
+                isModalMouseDown = false;
+                isModalMouseDragging = false;
+                return;
+            }
+
+            const deltaX = e.clientX - modalMouseStartX;
+            const deltaY = e.clientY - modalMouseStartY;
+
+            console.log('Modal mouse up - deltaX:', deltaX, 'deltaY:', deltaY, 'minDistance:', minSwipeDistance);
+
+            // 수평 드래그 거리가 최소 거리보다 크고, 수직 드래그보다 클 때
+            if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    // 오른쪽으로 드래그 - 이전 이미지
+                    console.log('Modal drag right - going to previous image');
+                    prevGalleryImage();
+                } else {
+                    // 왼쪽으로 드래그 - 다음 이미지
+                    console.log('Modal drag left - going to next image');
+                    nextGalleryImage();
+                }
+            } else {
+                console.log('Modal drag not detected - insufficient distance or wrong direction');
+            }
+
+            isModalMouseDown = false;
+            isModalMouseDragging = false;
         }
 
         // 이미지 지연 로딩 초기화
@@ -2791,7 +3210,7 @@
                 dot.onclick = () => goToSlide(i);
                 dotsContainer.appendChild(dot);
             }
-            
+
             // 도트 요소들 다시 캐싱
             galleryElements.dots = document.querySelectorAll('.gallery-dot');
         }
@@ -2822,11 +3241,11 @@
         function preloadAdjacentImages() {
             const nextIndex = (actualSlide + 1) % totalSlides;
             const prevIndex = (actualSlide - 1 + totalSlides) % totalSlides;
-            
+
             // 다음 이미지 프리로드
             const nextImg = new Image();
             nextImg.src = `images/yul_image_${nextIndex + 1}.jpg`;
-            
+
             // 이전 이미지 프리로드
             const prevImg = new Image();
             prevImg.src = `images/yul_image_${prevIndex + 1}.jpg`;
@@ -2835,13 +3254,13 @@
         // 다음 슬라이드
         function nextSlide() {
             if (isTransitioning) return;
-            
+
             isTransitioning = true;
             currentSlide++;
             actualSlide = (actualSlide + 1) % totalSlides;
             updateSlider();
             preloadAdjacentImages();
-            
+
             // 마지막 원본 슬라이드(47번)에서 뒤쪽 복제된 첫 번째(48번)로 이동한 경우
             if (currentSlide === 48) {
                 setTimeout(() => {
@@ -2864,13 +3283,13 @@
         // 이전 슬라이드
         function prevSlide() {
             if (isTransitioning) return;
-            
+
             isTransitioning = true;
             currentSlide--;
             actualSlide = (actualSlide - 1 + totalSlides) % totalSlides;
             updateSlider();
             preloadAdjacentImages();
-            
+
             // 첫 번째 원본 슬라이드(24번)에서 앞쪽 복제된 마지막(23번)으로 이동한 경우
             if (currentSlide === 23) {
                 setTimeout(() => {
@@ -2893,13 +3312,13 @@
         // 특정 슬라이드로 이동
         function goToSlide(slideIndex) {
             if (isTransitioning) return;
-            
+
             isTransitioning = true;
             currentSlide = slideIndex + 24; // 앞쪽 복제 슬라이드 24개 + 원본 인덱스
             actualSlide = slideIndex;
             updateSlider();
             preloadAdjacentImages();
-            
+
             // 애니메이션 완료 후 전환 상태 해제
             setTimeout(() => {
                 isTransitioning = false;
@@ -2909,10 +3328,10 @@
         // 갤러리 관련 변수
         let currentGalleryImage = 0;
         const totalGalleryImages = 25;
-        
+
         // DOM 요소 캐싱 (성능 최적화)
         let galleryElements = null;
-        
+
         function initGalleryElements() {
             galleryElements = {
                 container: document.getElementById('galleryContainer'),
@@ -2933,7 +3352,38 @@
                 modalImage.src = `images/yul_image_${photoNumber}.jpg`;
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+
+                // 모달 스와이프 이벤트 바인딩
+                initModalSwipeEvents();
             }
+        }
+
+        // 모달 스와이프 이벤트 초기화
+        function initModalSwipeEvents() {
+            const modal = document.getElementById('galleryModal');
+            const modalContent = modal.querySelector('.gallery-modal-content');
+
+            if (!modal || !modalContent) return;
+
+            // 기존 이벤트 제거 (중복 방지)
+            modalContent.removeEventListener('touchstart', handleModalTouchStart);
+            modalContent.removeEventListener('touchmove', handleModalTouchMove);
+            modalContent.removeEventListener('touchend', handleModalTouchEnd);
+            modalContent.removeEventListener('touchcancel', handleModalTouchEnd);
+            modalContent.removeEventListener('mousedown', handleModalMouseDown);
+            document.removeEventListener('mousemove', handleModalMouseMove);
+            document.removeEventListener('mouseup', handleModalMouseUp);
+
+            // 터치 이벤트 (모바일)
+            modalContent.addEventListener('touchstart', handleModalTouchStart, { passive: false, capture: true });
+            modalContent.addEventListener('touchmove', handleModalTouchMove, { passive: false, capture: true });
+            modalContent.addEventListener('touchend', handleModalTouchEnd, { passive: false, capture: true });
+            modalContent.addEventListener('touchcancel', handleModalTouchEnd, { passive: false, capture: true });
+
+            // 마우스 이벤트 (웹)
+            modalContent.addEventListener('mousedown', handleModalMouseDown);
+            document.addEventListener('mousemove', handleModalMouseMove);
+            document.addEventListener('mouseup', handleModalMouseUp);
         }
 
         // 갤러리 모달 닫기
@@ -3202,6 +3652,65 @@
             });
         }
 
+        // item_4, item_5 위치 동적 조정 함수
+        function adjustItemPositions() {
+            const item3 = document.getElementById('item_3');
+            const item4 = document.getElementById('item_4');
+            const item5 = document.getElementById('item_5');
+            const img = item3?.querySelector('.img');
+
+            if (!item3 || !item4 || !item5 || !img) return;
+
+            // 이미지가 로드될 때까지 기다림
+            if (img.complete) {
+                updatePositions();
+            } else {
+                img.addEventListener('load', updatePositions);
+            }
+
+            function updatePositions() {
+                const containerRect = item3.getBoundingClientRect();
+
+                // 이미지의 실제 크기와 컨테이너 크기 비교
+                const imgAspectRatio = img.naturalWidth / img.naturalHeight;
+                const containerAspectRatio = containerRect.width / containerRect.height;
+
+                let imgActualWidth, imgActualHeight;
+
+                if (imgAspectRatio > containerAspectRatio) {
+                    // 이미지가 컨테이너보다 넓음 (width 기준으로 맞춤)
+                    imgActualWidth = containerRect.width;
+                    imgActualHeight = containerRect.width / imgAspectRatio;
+                } else {
+                    // 이미지가 컨테이너보다 높음 (height 기준으로 맞춤)
+                    imgActualHeight = containerRect.height;
+                    imgActualWidth = containerRect.height * imgAspectRatio;
+                }
+
+                // 이미지의 실제 위치 계산
+                const imgLeft = (containerRect.width - imgActualWidth) / 2;
+                const imgTop = (containerRect.height - imgActualHeight) / 2;
+
+                // item_4, item_5의 위치를 이미지에 맞춰 조정
+                const relativeLeft4 = (imgLeft / containerRect.width) * 100;
+                const relativeTop4 = ((imgTop + imgActualHeight * 0.3) / containerRect.height) * 100;
+                const relativeWidth4 = (imgActualWidth * 0.4 / containerRect.width) * 100;
+                const relativeHeight4 = (imgActualHeight * 0.1 / containerRect.height) * 100;
+
+                // item_4 위치 조정 (이미지 왼쪽 절반)
+                item4.style.left = relativeLeft4 + '%';
+                item4.style.top = relativeTop4 + '%';
+                item4.style.width = relativeWidth4 + '%';
+                item4.style.height = relativeHeight4 + '%';
+
+                // item_5 위치 조정 (이미지 오른쪽 절반)
+                item5.style.left = (relativeLeft4 + (imgActualWidth * 0.6 / containerRect.width) * 100) + '%';
+                item5.style.top = relativeTop4 + '%';
+                item5.style.width = relativeWidth4 + '%';
+                item5.style.height = relativeHeight4 + '%';
+            }
+        }
+
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function () {
             initCalendar();
@@ -3210,13 +3719,19 @@
             initGallerySlider();
             initScrollAnimations();
             initKakao();
-            
+
+            // item_4, item_5 위치 조정
+            adjustItemPositions();
+
+            // 윈도우 리사이즈 시 위치 재조정
+            window.addEventListener('resize', adjustItemPositions);
+
             // 배경음악 초기화
             if (bgMusic) {
                 bgMusic.volume = 0.2; // 볼륨 설정 (더 작게)
                 bgMusic.preload = 'metadata'; // 메타데이터만 미리 로드
             }
-            
+
             // URL에 code 파라미터가 있으면 카카오 로그인 콜백 처리
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('code');
@@ -3266,9 +3781,9 @@
                 // 마커 생성 (새로운 AdvancedMarkerElement 사용)
                 const markerPosition = { lat: 35.166406, lng: 129.132123 };
                 console.log('마커 생성 중...');
-                
+
                 let marker;
-                
+
                 // 기존 Marker 사용 (고급 마커는 API 키 설정이 복잡함)
                 marker = new google.maps.Marker({
                     position: markerPosition,
@@ -3422,7 +3937,7 @@
 
         // 주소 복사
         function copyAddress() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 센텀그랜드블랑 7층 퀸덤홀';
+            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑 7층 퀸덤홀';
             navigator.clipboard.writeText(address).then(() => {
                 alert('주소가 복사되었습니다!\n' + address);
             }).catch(() => {
@@ -3433,15 +3948,15 @@
         function toGCalDate(d) {
             const pad = n => String(n).padStart(2, '0');
             const y = d.getUTCFullYear();
-            const m = pad(d.getUTCMonth()+1);
+            const m = pad(d.getUTCMonth() + 1);
             const day = pad(d.getUTCDate());
             const hh = pad(d.getUTCHours());
             const mm = pad(d.getUTCMinutes());
             const ss = pad(d.getUTCSeconds());
             return `${y}${m}${day}T${hh}${mm}${ss}Z`;   // YYYYMMDDTHHMMSSZ
-            }
+        }
 
-            
+
 
         // 카카오 캘린더 API로 일정 생성
         async function createKakaoCalendarEvent() {
@@ -3449,7 +3964,7 @@
                 // 액세스 토큰 확인
                 const accessToken = Kakao.Auth.getAccessToken();
                 console.log('Access Token:', accessToken);
-                
+
                 if (!accessToken) {
                     console.log('액세스 토큰이 없습니다. 기존 방식으로 폴백합니다.');
                     addToCalendarFallback();
@@ -3479,29 +3994,29 @@
                 };
 
                 const res = await fetch('https://kapi.kakao.com/v2/api/calendar/create/event', {
-                                method: 'POST',
-                                headers: {
-                                    'Authorization': `Bearer ${Kakao.Auth.getAccessToken()}`,
-                                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-                                },
-                                body: new URLSearchParams({
-                                    // calendar_id: 'primary', // 생략 가능(기본 캘린더)
-                                    event: JSON.stringify({
-                                    title: "김병찬♥조유림 결혼식",
-                                    time: {
-                                        start_at: "2025-11-22T07:00:00Z", // KST 16:00
-                                        end_at:   "2025-11-22T09:00:00Z", // KST 18:00
-                                        time_zone: "Asia/Seoul",
-                                        all_day: false,
-                                        lunar: false
-                                    },
-                                    description: "센텀 그랜드블랑 7층 퀸덤홀",
-                                    location: { name: "센텀 그랜드블랑 7층 퀸덤홀" },
-                                    reminders: [15, 30],
-                                    // rrule: "FREQ=DAILY;UNTIL=20251130T000000Z" // 반복 필요 시만
-                                    })
-                                })
-                                });
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${Kakao.Auth.getAccessToken()}`,
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+                    },
+                    body: new URLSearchParams({
+                        // calendar_id: 'primary', // 생략 가능(기본 캘린더)
+                        event: JSON.stringify({
+                            title: "김병찬♥조유림 결혼식",
+                            time: {
+                                start_at: "2025-11-22T07:00:00Z", // KST 16:00
+                                end_at: "2025-11-22T09:00:00Z", // KST 18:00
+                                time_zone: "Asia/Seoul",
+                                all_day: false,
+                                lunar: false
+                            },
+                            description: "센텀 그랜드블랑 7층 퀸덤홀",
+                            location: { name: "센텀 그랜드블랑 7층 퀸덤홀" },
+                            reminders: [15, 30],
+                            // rrule: "FREQ=DAILY;UNTIL=20251130T000000Z" // 반복 필요 시만
+                        })
+                    })
+                });
 
                 if (res.ok) {
                     const result = await res.json();
@@ -3531,7 +4046,7 @@
             const isAndroid = /Android/.test(navigator.userAgent);
 
             const startZ = toGCalDate(new Date('2025-11-22T16:00:00+09:00')); // 20251122T070000Z
-            const endZ   = toGCalDate(new Date('2025-11-22T18:00:00+09:00')); // 20251122T090000Z
+            const endZ = toGCalDate(new Date('2025-11-22T18:00:00+09:00')); // 20251122T090000Z
 
             const gcalApp = `comgooglecalendar://?action=create&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startZ}/${endZ}`;
             const gcalWeb = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startZ}/${endZ}`;
@@ -3541,10 +4056,10 @@
                 setTimeout(() => {
                     window.open(gcalWeb, '_blank', 'noopener');
                 }, 500);
-            } else if (isAndroid) { 
+            } else if (isAndroid) {
                 const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
                 const intentUrl = `intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}#Intent;scheme=https;package=com.google.android.calendar;S.browser_fallback_url=${encodeURIComponent(googleCalendarUrl)};end`;
-                
+
                 window.location.href = intentUrl;
             } else {
                 const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}`;
@@ -3650,11 +4165,11 @@
         }
 
         // 확대 방지 JavaScript
-        (function() {
+        (function () {
             let lastTouchEnd = 0;
             let startScale = 1;
             let currentScale = 1;
-            
+
             // 더블탭 확대 방지
             document.addEventListener('touchend', function (event) {
                 const now = (new Date()).getTime();
@@ -3663,44 +4178,44 @@
                 }
                 lastTouchEnd = now;
             }, false);
-            
+
             // 핀치 투 줌 방지
             document.addEventListener('touchstart', function (event) {
                 if (event.touches.length > 1) {
                     event.preventDefault();
                 }
             }, { passive: false });
-            
+
             document.addEventListener('touchmove', function (event) {
                 if (event.touches.length > 1) {
                     event.preventDefault();
                 }
             }, { passive: false });
-            
+
             // 마우스 휠 확대 방지
             document.addEventListener('wheel', function (event) {
                 if (event.ctrlKey) {
                     event.preventDefault();
                 }
             }, { passive: false });
-            
+
             // 키보드 확대 방지 (Ctrl + +, Ctrl + -)
             document.addEventListener('keydown', function (event) {
                 if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
                     event.preventDefault();
                 }
             });
-            
+
             // 컨텍스트 메뉴 비활성화 (우클릭 메뉴)
             document.addEventListener('contextmenu', function (event) {
                 event.preventDefault();
             });
-            
+
             // 드래그 방지
             document.addEventListener('dragstart', function (event) {
                 event.preventDefault();
             });
-            
+
             // 선택 방지
             document.addEventListener('selectstart', function (event) {
                 event.preventDefault();
