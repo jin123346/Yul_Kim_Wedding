@@ -36,7 +36,7 @@
     <link rel="icon" href="images/favicon.png" type="image/png">
     <!-- <link rel="shortcut icon" href="images/favicon.icon" type="image/x-icon"> -->
     <link rel="apple-touch-icon" href="images/favicon.png">
-    
+
     <!-- Schema.org 이벤트 마크업 -->
     <script type="application/ld+json">
     {
@@ -2874,7 +2874,7 @@
         });
 
         // 갤러리 슬라이더 변수
-        let currentSlide = 25; // 앞쪽 복제 슬라이드 24개 + 원본 첫 번째 = 24번 인덱스
+        let currentSlide = 25; // 앞쪽 복제 슬라이드 25개 + 원본 첫 번째 = 25번 인덱스
         const totalSlides = 25;
         let isTransitioning = false;
         let actualSlide = 0; // 실제 슬라이드 인덱스 (0-24)
@@ -3272,12 +3272,12 @@
             updateSlider();
             preloadAdjacentImages();
 
-            // 마지막 원본 슬라이드(47번)에서 뒤쪽 복제된 첫 번째(48번)로 이동한 경우
-            if (currentSlide === 48) {
+            // 마지막 원본 슬라이드(49번)에서 뒤쪽 복제된 첫 번째(50번)로 이동한 경우
+            if (currentSlide === 50) {
                 setTimeout(() => {
                     const container = galleryElements.container;
                     container.style.transition = 'none';
-                    currentSlide = 24; // 원본 첫 번째 슬라이드로 이동
+                    currentSlide = 25; // 원본 첫 번째 슬라이드로 이동
                     container.style.transform = `translateX(-${currentSlide * 100}%)`;
                     setTimeout(() => {
                         container.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
@@ -3301,12 +3301,12 @@
             updateSlider();
             preloadAdjacentImages();
 
-            // 첫 번째 원본 슬라이드(24번)에서 앞쪽 복제된 마지막(23번)으로 이동한 경우
-            if (currentSlide === 23) {
+            // 첫 번째 원본 슬라이드(25번)에서 앞쪽 복제된 마지막(24번)으로 이동한 경우
+            if (currentSlide === 24) {
                 setTimeout(() => {
                     const container = galleryElements.container;
                     container.style.transition = 'none';
-                    currentSlide = 47; // 원본 마지막 슬라이드로 이동
+                    currentSlide = 49; // 원본 마지막 슬라이드로 이동
                     container.style.transform = `translateX(-${currentSlide * 100}%)`;
                     setTimeout(() => {
                         container.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
@@ -3325,7 +3325,7 @@
             if (isTransitioning) return;
 
             isTransitioning = true;
-            currentSlide = slideIndex + 24; // 앞쪽 복제 슬라이드 24개 + 원본 인덱스
+            currentSlide = slideIndex + 25; // 앞쪽 복제 슬라이드 25개 + 원본 인덱스
             actualSlide = slideIndex;
             updateSlider();
             preloadAdjacentImages();
