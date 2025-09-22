@@ -3,9 +3,9 @@
 /* 기본 글씨체 조합 3가지 */
 :root {
     /* 조합 1: 클래식한 웨딩 스타일 */
-    --font-primary: 'Gowun Batang', serif;               /* 메인 제목용 - 고운바탕 */
-    --font-secondary: 'Gowun Batang', serif;             /* 본문용 - 고운바탕 */
-    --font-accent: 'Gowun Batang', serif;                /* 강조용 - 고운바탕 */
+    --font-primary: 'Gowun Batang', 'Times New Roman', serif;               /* 메인 제목용 - 고운바탕 */
+    --font-secondary: 'Gowun Batang', 'Times New Roman', serif;             /* 본문용 - 고운바탕 */
+    --font-accent: 'Gowun Batang', 'Times New Roman', serif;                /* 강조용 - 고운바탕 */
     
     /* 색상 변수 - invitation.html과 동일하게 통일 */
     --color-primary: #2c3e50;                            /* 메인 색상 */
@@ -25,14 +25,14 @@
     --color-gradient-end: #c3cfe2;                       /* 그라데이션 끝 */
     
     /* 조합 2: 모던 미니멀 스타일 */
-    --font-primary-modern: 'Gowun Batang', serif;        /* 메인 제목용 - 고운바탕 */
-    --font-secondary-modern: 'Gowun Batang', serif;      /* 본문용 - 고운바탕 */
-    --font-accent-modern: 'Gowun Batang', serif;         /* 강조용 - 고운바탕 */
+    --font-primary-modern: 'Gowun Batang', 'Times New Roman', serif;        /* 메인 제목용 - 고운바탕 */
+    --font-secondary-modern: 'Gowun Batang', 'Times New Roman', serif;      /* 본문용 - 고운바탕 */
+    --font-accent-modern: 'Gowun Batang', 'Times New Roman', serif;         /* 강조용 - 고운바탕 */
     
     /* 조합 3: 로맨틱 스타일 */
-    --font-primary-romantic: 'Gowun Batang', serif;      /* 메인 제목용 - 고운바탕 */
-    --font-secondary-romantic: 'Gowun Batang', serif;    /* 본문용 - 고운바탕 */
-    --font-accent-romantic: 'Gowun Batang', serif;       /* 강조용 - 고운바탕 */
+    --font-primary-romantic: 'Gowun Batang', 'Times New Roman', serif;      /* 메인 제목용 - 고운바탕 */
+    --font-secondary-romantic: 'Gowun Batang', 'Times New Roman', serif;    /* 본문용 - 고운바탕 */
+    --font-accent-romantic: 'Gowun Batang', 'Times New Roman', serif;       /* 강조용 - 고운바탕 */
     
     /* 현재 활성화된 글씨체 (기본값: 조합 1) */
     --current-primary: var(--font-primary);
@@ -76,3 +76,9 @@
 
 /* 구글 폰트 import */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap');
+
+/* 폰트 로딩 최적화 */
+@font-face {
+    font-family: 'Gowun Batang';
+    font-display: block;
+}
