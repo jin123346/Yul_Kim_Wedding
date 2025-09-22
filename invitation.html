@@ -2518,7 +2518,7 @@
                             <span>네이버 지도</span>
                         </button>
                         <button class="map-app-btn" onclick="openKakaoMap()">
-                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="구글 맵">
+                            <img class="app-icon" src="images/kakao_navi_icon.png" alt="카카오 맵">
                             <span>카카오 맵</span>
                         </button>
                         <button class="map-app-btn" onclick="openTmap()">
@@ -3879,7 +3879,7 @@
                             font-size: 12px;
                             cursor: pointer;
                             backdrop-filter: blur(10px);
-                        ">구글 맵</button>
+                        ">카카오 맵</button>
                         <button onclick="openTmap()" style="
                             background: rgba(255,255,255,0.2); 
                             border: 1px solid rgba(255,255,255,0.3); 
@@ -3931,20 +3931,20 @@
 
         // 네이버맵으로 길찾기
         function openNaverMap() {
-            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
+            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const naverMapUrl = `https://map.naver.com/v5/search/${encodedAddress}`;
 
             window.open(naverMapUrl, '_blank');
         }
 
-        // 구글맵으로 길찾기
+        // 카카오맵으로 길찾기
         function openKakaoMap() {
-            const address = '부산광역시 해운대구 센텀1로 25 그랜드블랑';
+            const address = '그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
-            const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+            const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
 
-            window.open(googleMapUrl, '_blank');
+            window.open(kakaoMapUrl, '_blank');
         }
 
         // 티맵으로 길찾기
