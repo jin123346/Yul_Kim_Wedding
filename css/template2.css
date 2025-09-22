@@ -10,7 +10,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Gowun Batang', serif;
             background: #fafafa;
             color: #2d2d2d;
             line-height: 1.6;
@@ -80,7 +80,7 @@
 
         /* 날짜 표시 */
         .date-display {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Gowun Batang', serif;
             font-size: 56px;
             font-weight: 300;
             color: #1a1a1a;
@@ -211,7 +211,7 @@
 
         /* 신랑신부 이름 */
         .couple-names {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Gowun Batang', serif;
             font-size: 32px;
             font-weight: 400;
             color: #1a1a1a;
@@ -243,7 +243,7 @@
 
         .gallery-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Gowun Batang', serif;
             font-size: 24px;
             color: #1a1a1a;
             margin-bottom: 40px;
@@ -444,7 +444,7 @@
         }
 
         .info-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Gowun Batang', serif;
             font-size: 24px;
             color: #1a1a1a;
             margin-bottom: 40px;
