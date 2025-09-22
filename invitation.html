@@ -55,7 +55,7 @@
         "name": "센텀 그랜드블랑 7층 퀸덤홀",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "센텀중앙로 79",
+          "streetAddress": "센텀 1로 25",
           "addressLocality": "해운대구",
           "addressRegion": "부산광역시",
           "addressCountry": "KR"
@@ -2501,8 +2501,8 @@
                 <div class="venue-info">
                     <div class="venue-name">그랜드블랑</div>
                     <div class="venue-address">
-                        부산광역시 해운대구 센텀중앙로 79<br>
-                        센텀그랜드블랑 7층 퀸덤홀
+                        부산광역시 해운대구 센텀 1로 25 센텀한샘빌딩<br>
+                        그랜드블랑 7층 퀸덤홀
                     </div>
                     <div class="venue-tel">TEL. 051-743-3733</div>
                 </div>
@@ -3853,7 +3853,7 @@
                 ">
                     <div style="position: absolute; top: 20px; left: 20px; font-size: 24px;">📍</div>
                     <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">센텀 그랜드 블랑</div>
-                    <div style="font-size: 14px; margin-bottom: 5px;">부산광역시 해운대구 센텀중앙로 79</div>
+                    <div style="font-size: 14px; margin-bottom: 5px;">부산광역시 해운대구 센텀 1로 25</div>
                     <div style="font-size: 12px; margin-bottom: 20px; opacity: 0.8;">3층 퀸덤홀</div>
                     
                     <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -3918,7 +3918,7 @@
                 ">
                     <div style="font-size: 24px; margin-bottom: 10px;">🗺️</div>
                     <div>센텀 그랜드 블랑</div>
-                    <div style="font-size: 14px; margin-top: 5px;">부산광역시 해운대구 센텀중앙로 79</div>
+                    <div style="font-size: 14px; margin-top: 5px;">부산광역시 해운대구 센텀 1로 25</div>
                     <div style="font-size: 12px; margin-top: 10px; color: #999;">
                         구글 맵을 로드하는 중입니다
                     </div>
@@ -3928,7 +3928,7 @@
 
         // 네이버맵으로 길찾기
         function openNaverMap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
+            const address = '그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const naverMapUrl = `https://map.naver.com/v5/search/${encodedAddress}`;
 
@@ -3937,7 +3937,7 @@
 
         // 카카오맵으로 길찾기
         function openKakaoMap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
+            const address = '그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
 
@@ -3954,7 +3954,7 @@
 
         // 주소 복사
         function copyAddress() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑 7층 퀸덤홀';
+            const address = '부산광역시 해운대구 센텀 1로 25 그랜드블랑 7층 퀸덤홀';
             navigator.clipboard.writeText(address).then(() => {
                 alert('주소가 복사되었습니다!\n' + address);
             }).catch(() => {
@@ -3998,10 +3998,10 @@
                             all_day: false,
                             lunar: false
                         },
-                        description: "김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79",
+                        description: "김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀 1로 25",
                         location: {
                             name: "센텀 그랜드블랑 7층 퀸덤홀",
-                            address: "부산광역시 해운대구 센텀중앙로 79",
+                            address: "부산광역시 해운대구 센텀 1로 25",
                             latitude: 35.1706,
                             longitude: 129.1356
                         },
@@ -4052,7 +4052,7 @@
         // 기존 방식으로 폴백
         function addToCalendarFallback() {
             const title = '김병찬♥조유림 결혼식';
-            const description = '김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀중앙로 79';
+            const description = '김병찬♥조유림의 결혼식에 초대합니다.\n장소: 센텀 그랜드블랑 7층 퀸덤홀\n주소: 부산광역시 해운대구 센텀 1로 25';
             const location = '센텀 그랜드블랑 7층 퀸덤홀';
             const startDate = '20251122T160000';
             const endDate = '20251122T180000';
