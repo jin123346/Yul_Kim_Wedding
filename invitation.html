@@ -3937,7 +3937,7 @@
 
         // 카카오맵으로 길찾기
         function openKakaoMap() {
-            const address = '그랜드블랑';
+            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
             const encodedAddress = encodeURIComponent(address);
             const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
 
@@ -3946,9 +3946,8 @@
 
         // 티맵으로 길찾기
         function openTmap() {
-            const address = '부산광역시 해운대구 센텀중앙로 79 그랜드블랑';
-            const encodedAddress = encodeURIComponent(address);
-            const tmapUrl = `https://tmapapi.sktelecom.com/main/mobile/web/search/search.html?searchKeyword=${encodedAddress}`;
+            // 센텀 그랜드블랑 정확한 POI 링크
+            const tmapUrl = 'https://poi.tmobiweb.com/app/share/position?contents=cGtleT02ODIwOTYyMDAmcG9pSWQ9NjgyMDk2MiZuYXZTZXE9MCZ0eXBlPTImcG9pTmFtZT0lRUElQjclQjglRUIlOUUlOUMlRUIlOTMlOUMlRUIlQjglOTQlRUIlOUUlOTEmY2VudGVyWD00NjQ4ODMzJmNlbnRlclk9MTI2NTg4MCZ0aW1lPTIwMjUlRUIlODUlODQrMDklRUMlOUIlOTQrMjIlRUMlOUQlQkMrMDclM0EzNCZ0ZWw9MDUxLTc0My0zNzMzJmFkZHI9JUVCJUI2JTgwJUVDJTgyJUIwKyVFRCU5NSVCNCVFQyU5QSVCNCVFQiU4QyU4MCVFQSVCNSVBQyslRUMlODQlQkMlRUQlODUlODAxJUVCJUExJTlDKzI1&tailParam=%7B%22reqType%22%3A%221100%22%2C%22reqMode%22%3A%221100%22%2C%22extra%22%3A%22112%22%7D';
 
             window.open(tmapUrl, '_blank');
         }
