@@ -69,9 +69,21 @@
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js"
         integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm"
         crossorigin="anonymous"></script>
-    <!-- 구글 맵 API -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjC49GENw6YNu7l0RtAwPYLda97fhjqL0&loading=async&callback=initMap"></script>
+    <!-- 카카오맵 API -->
+    <!-- 실제 사용을 위해서는 카카오 개발자 콘솔에서 발급받은 JavaScript 키로 교체하세요 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c2433e123db69e4d4fd7ec6920b50938&autoload=false"></script>
+    
+    <!-- API 키 테스트 -->
+    <script>
+        window.addEventListener('load', function() {
+            console.log('=== 페이지 로드 완료 ===');
+            console.log('kakao 객체:', typeof kakao);
+            if (typeof kakao !== 'undefined') {
+                console.log('kakao.maps:', typeof kakao.maps);
+                console.log('kakao.maps.load:', typeof kakao.maps?.load);
+            }
+        });
+    </script>
 
     <!-- 배경음악 컨트롤러 -->
 
@@ -3622,8 +3634,9 @@
             console.log('카카오 SDK 초기화 시작...');
             Kakao.init('c2433e123db69e4d4fd7ec6920b50938'); // 사용하는 앱의 JavaScript 키
 
-            // 카카오톡 공유하기
-            Kakao.Share.createDefaultButton({
+            // 카카오톡 공유하기 (안전한 초기화)
+            try {
+                Kakao.Share.createDefaultButton({
                 container: '#kakao-share-button',
                 objectType: 'feed',
                 content: {
@@ -3644,33 +3657,37 @@
                         }
                     }
                 ]
-            });
+                });
+                console.log('✅ 카카오톡 공유 버튼이 성공적으로 초기화되었습니다!');
+            } catch (error) {
+                console.error('❌ 카카오톡 공유 버튼 초기화 중 오류 발생:', error);
+            }
 
-            // 카카오톡 캘린더 공유하기
-            Kakao.Share.createDefaultButton({
-                container: '#kakao-calendar-button',
-                objectType: 'calendar',
-                idType: 'event',
-                id: '1298276',
-                content: {
-                    title: '김병찬♥조유림 결혼식',
-                    description: '김병찬♥조유림의 결혼식에 초대합니다.',
-                    imageUrl: 'https://madebyjin.cloud/images/thumbnail.png?v=2',
-                    link: {
-                        webUrl: window.location.href,
-                        mobileWebUrl: window.location.href,
-                    },
-                },
-                buttons: [
-                    {
-                        title: '모바일 청첩장',
-                        link: {
-                            webUrl: window.location.href,
-                            mobileWebUrl: window.location.href,
-                        },
-                    },
-                ],
-            });
+            // 카카오톡 캘린더 공유하기 (현재 비활성화됨 - 버튼이 주석 처리되어 있음)
+            // Kakao.Share.createDefaultButton({
+            //     container: '#kakao-calendar-button',
+            //     objectType: 'calendar',
+            //     idType: 'event',
+            //     id: '1298276',
+            //     content: {
+            //         title: '김병찬♥조유림 결혼식',
+            //         description: '김병찬♥조유림의 결혼식에 초대합니다.',
+            //         imageUrl: 'https://madebyjin.cloud/images/thumbnail.png?v=2',
+            //         link: {
+            //             webUrl: window.location.href,
+            //             mobileWebUrl: window.location.href,
+            //         },
+            //     },
+            //     buttons: [
+            //         {
+            //             title: '모바일 청첩장',
+            //             link: {
+            //                 webUrl: window.location.href,
+            //                 mobileWebUrl: window.location.href,
+            //             },
+            //         },
+            //     ],
+            // });
         }
 
         // item_4, item_5 위치 동적 조정 함수
@@ -3735,7 +3752,7 @@
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function () {
             initCalendar();
-            // initMap()은 구글 맵 API가 자동으로 호출
+            initMap()
             initCountdown();
             initGallerySlider();
             initScrollAnimations();
@@ -3764,76 +3781,88 @@
             }
         });
 
-        // 구글 맵 초기화
+        // 카카오맵 초기화
         function initMap() {
+            console.log('=== initMap 함수 시작 ===');
             const container = document.getElementById('map');
             if (!container) {
-                console.log('지도 컨테이너를 찾을 수 없습니다.');
+                console.log('❌ 지도 컨테이너를 찾을 수 없습니다.');
                 return;
             }
+            console.log('✅ 지도 컨테이너 찾음:', container);
 
-            // 구글 맵 API가 완전히 로드되었는지 확인
-            if (typeof google === 'undefined' || !google.maps || !google.maps.MapTypeId) {
-                console.log('구글 맵 API가 로드되지 않았습니다. 2초 후 다시 시도합니다.');
+            // 전역 kakao 객체 확인
+            console.log('kakao 객체 확인:', typeof kakao);
+            console.log('kakao.maps 확인:', typeof kakao?.maps);
+            console.log('kakao.maps.load 확인:', typeof kakao?.maps?.load);
+
+            // 카카오맵 API가 완전히 로드되었는지 확인
+            if (typeof kakao === 'undefined' || !kakao.maps) {
+                console.log('❌ 카카오맵 API가 로드되지 않았습니다. 2초 후 다시 시도합니다.');
                 setTimeout(initMap, 2000);
                 return;
             }
 
-            console.log('구글 맵 API 로드 확인됨, 지도 초기화 시작...');
-
-            try {
-                const options = {
-                    center: { lat: 35.1681, lng: 129.1301 }, // 센텀시티역 근처 좌표
-                    zoom: 16,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    styles: [
-                        {
-                            featureType: 'poi',
-                            elementType: 'labels',
-                            stylers: [{ visibility: 'off' }]
-                        }
-                    ]
-                };
-
-                console.log('지도 옵션 설정 완료, 지도 생성 중...');
-                const map = new google.maps.Map(container, options);
-                console.log('지도 생성 완료');
-
-                // 마커 생성 (새로운 AdvancedMarkerElement 사용)
-                const markerPosition = { lat: 35.166406, lng: 129.132123 };
-                console.log('마커 생성 중...');
-
-                let marker;
-
-                // 기존 Marker 사용 (고급 마커는 API 키 설정이 복잡함)
-                marker = new google.maps.Marker({
-                    position: markerPosition,
-                    map: map,
-                    title: '센텀 그랜드 블랑'
-                });
-                console.log('Marker 생성 완료');
-
-                // 인포윈도우 생성
-                const infowindow = new google.maps.InfoWindow({
-                    content: '<div style="padding:10px; text-align:center; font-size:14px; font-weight:bold;">센텀 그랜드 블랑<br>3층</div>'
-                });
-
-                // 마커 클릭 시 인포윈도우 표시
-                marker.addListener('click', function () {
-                    infowindow.open(map, marker);
-                });
-
-                // 지도 클릭 시 인포윈도우 닫기
-                map.addListener('click', function () {
-                    infowindow.close();
-                });
-
-                console.log('✅ 구글 맵이 성공적으로 로드되었습니다!');
-            } catch (error) {
-                console.error('❌ 구글 맵 초기화 중 오류 발생:', error);
-                console.log('오류 상세:', error.message);
-                showInteractiveMap();
+            // 카카오맵 로드 시도 횟수 제한 (5회)
+            if (!window.kakaoMapRetryCount) {
+                window.kakaoMapRetryCount = 0;
             }
+            window.kakaoMapRetryCount++;
+
+            if (window.kakaoMapRetryCount > 5) {
+                console.log('❌ 카카오맵 API 로드 실패. 대체 지도로 전환합니다.');
+                showInteractiveMap();
+                return;
+            }
+
+            console.log('✅ 카카오맵 API 로드 확인됨, 지도 초기화 시작...');
+
+            // 카카오맵 API 로드
+            console.log('kakao.maps.load() 호출 중...');
+            kakao.maps.load(() => {
+                console.log('=== kakao.maps.load() 콜백 실행됨 ===');
+                try {
+                    const options = {
+                        center: new kakao.maps.LatLng(35.166406, 129.132123), // 센텀 그랜드블랑 좌표
+                        level: 3
+                    };
+
+                    console.log('지도 옵션 설정 완료, 지도 생성 중...');
+                    const map = new kakao.maps.Map(container, options);
+                    console.log('지도 생성 완료');
+
+                    // 마커 생성
+                    const markerPosition = new kakao.maps.LatLng(35.166406, 129.132123);
+                    console.log('마커 생성 중...');
+
+                    const marker = new kakao.maps.Marker({
+                        position: markerPosition,
+                        map: map
+                    });
+                    console.log('마커 생성 완료');
+
+                    // 인포윈도우 생성
+                    const infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="padding:10px; text-align:center; font-size:14px; font-weight:bold;">센텀 그랜드블랑<br>7층 퀸덤홀</div>'
+                    });
+
+                    // 마커 클릭 이벤트
+                    kakao.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, marker);
+                    });
+
+                    // 지도 클릭 시 인포윈도우 닫기
+                    kakao.maps.event.addListener(map, 'click', function() {
+                        infowindow.close();
+                    });
+
+                    console.log('✅ 카카오맵이 성공적으로 로드되었습니다!');
+                } catch (error) {
+                    console.error('❌ 카카오맵 초기화 중 오류 발생:', error);
+                    console.log('오류 상세:', error.message);
+                    showInteractiveMap();
+                }
+            });
         }
 
         // 대체 인터랙티브 지도 표시
